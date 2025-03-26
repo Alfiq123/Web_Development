@@ -12,3 +12,17 @@ p {
 }
 
 /* Whatever */
+
+.inner-box {
+  background-color: red;
+}
+
+.white-text {
+  color: white;
+}
+
+#outer-box {
+  background-color: purple;
+}
+
+/* Don't change the existing CSS. */
