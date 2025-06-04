@@ -1,28 +1,28 @@
 /* Don't change the existing CSS. */
 
 .box {
-  background-color: blue;
-  padding: 10px;
+    background-color: blue;
+    padding: 10px;
 }
 
 p {
-  color: yellow;
-  margin: 0;
-  padding: 0;
+    color: yellow;
+    margin: 0;
+    padding: 0;
 }
 
 /* Whatever */
 
 .inner-box {
-  background-color: red;
+    background-color: red;
 }
 
 .white-text {
-  color: white;
+    color: white;
 }
 
 #outer-box {
-  background-color: purple;
+    background-color: purple;
 }
 
 /* Don't change the existing CSS. */
