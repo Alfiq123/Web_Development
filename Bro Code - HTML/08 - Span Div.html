@@ -1,23 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Span and Div</title>
-  </head>
-  <body>
+</head>
+<body>
     <!-- GROUP TOGETHER HTML -->
     <!-- <span> inline container to group elements for styling purposes -->
     <!-- <div> block container to group elements for styling purposes -->
 
-    <h1><span style="background-color: tomato; color: black;">This is a Span title</span></h1>
-    <h1><div style="background-color: cyan; color: black;">This is a Div title</div></h1>
+    <h1>
+        <span style="background-color: tomato; color: black;">
+            This is a Span title
+        </span>
+    </h1>
 
-    <p><span style="background-color: tomato;">This is a Span sentence.</span></p>
-    <p><div style="background-color: cyan;">This is a Div sentence.</div></p>
+    <!-- Div inside heading -->
+    <!-- <h1> -->
+    <!--     <div style="background-color: cyan; color: black;"> -->
+    <!--         This is a Div title -->
+    <!--     </div> -->
+    <!-- </h1> -->
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span style="background-color: tomato;">Corporis fugiat, itaque totam ut ea autem officia minus iure inventore repudiandae quisquam.</span> Itaque, quaerat voluptatem sit numquam ducimus voluptatum consequuntur atque.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <div style="background-color: cyan;">Corporis fugiat, itaque totam ut ea autem officia minus iure inventore repudiandae quisquam.</div> Itaque, quaerat voluptatem sit numquam ducimus voluptatum consequuntur atque.</p>
+    <div style="background-color: cyan; color: black;">
+        <h1>
+            This is a Div title (New)
+        </h1>
+    </div>
 
-  </body>
+    <!-- Span inside paragraph -->
+    <p>
+        <span style="background-color: tomato;">
+            This is a Span sentence.
+        </span>
+    </p>
+
+    <!-- Div inside paragraph -->
+    <!-- <p> -->
+    <!--     <div style="background-color: cyan;"> -->
+    <!--         This is a Div sentence. -->
+    <!--     </div> -->
+    <!-- </p> -->
+
+    <div style="background-color: cyan;">
+        <p>
+            This is a Div sentence (New).
+        </p>
+    </div>
+
+    <!-- Span inside paragraph -->
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <span style="background-color: tomato;">
+            Corporis fugiat, itaque totam ut ea autem officia minus iure inventore repudiandae quisquam.
+        </span>
+        Itaque, quaerat voluptatem sit numquam ducimus voluptatum consequuntur atque.
+    </p>
+
+    <!-- Div inside paragraph -->
+    <!-- <p> -->
+    <!--     Lorem ipsum dolor sit amet consectetur adipisicing elit. -->
+    <!--     <div style="background-color: cyan;"> -->
+    <!--         Corporis fugiat, itaque totam ut ea autem officia minus iure inventore repudiandae quisquam. -->
+    <!--     </div> -->
+    <!--     Itaque, quaerat voluptatem sit numquam ducimus voluptatum consequuntur atque. -->
+    <!-- </p> -->
+
+    <div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <span style="background-color: cyan;">
+                Corporis fugiat, itaque totam ut ea autem officia minus iure inventore repudiandae quisquam.
+            </span>
+            Itaque, quaerat voluptatem sit numquam ducimus voluptatum consequuntur atque.
+        </p>
+    </div>
+</body>
 </html>

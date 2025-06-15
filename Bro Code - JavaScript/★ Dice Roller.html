@@ -3,8 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #centerDiv {
+            text-align: center;
+        }
+
+        #button {
+            width: 100px;
+            height: 30px;
+            border-width: 1px;
+            border-radius: 5px;
+            background-color: DimGrey;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.5s ease;
+        }
+        #button:hover {
+            background-color: LightGrey;
+            width: 120px;
+            height: 35px;
+            font-size: 1.25em;
+        }
+
+        .userInput {
+            width: 100px;
+            height: 25px;
+            border-width: 1px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="centerDiv">
+        <h1>Random Number</h1>
+        <label>
+            <input id="userMin" class="userInput" placeholder="Min number">
+            <input id="userMax" class="userInput" placeholder="Max number">
+        </label>
+        <button id="button" onclick="roll_func()">Result</button><br><br>
+        <label id="output">Output</label>
+    </div>
+    <script>
+        function roll_func(){
+            let userMin = Number(document.getElementById("userMin").value);
+            let userMax = Number(document.getElementById("userMax").value);
+            let result = Math.floor(Math.random() * (userMax - userMin + 1)) + userMin;
+            document.getElementById("output").textContent = `Result: ${result}`;
+        }
+    </script>
 </body>
 </html>

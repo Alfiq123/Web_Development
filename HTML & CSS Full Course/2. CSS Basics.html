@@ -3,8 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        body {
+            font-family: Arial sans-serif;
+        }
+
+        .join-button, .subscribe-button {
+            font-size: 14px;
+            border-radius: 2px;
+            cursor: pointer;
+            line-height: normal;
+            margin-right: 12px;
+        }
+
+        .join-button {
+            background-color: white;
+            color: rgb(6, 95, 212);
+            border: 1px solid rgb(6, 95, 212);
+            padding: 9px 15px;
+            cursor: pointer;
+            transition: background-color 0.15s,
+            color 0.15s;
+        }
+
+        .join-button:hover {
+            background-color: rgb(6, 95, 212);
+            color: white;
+        }
+
+        .join-button:active {
+            opacity: 0.7;
+        }
+
+        .subscribe-button {
+            background-color: rgb(204, 0, 0);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            transition: opacity 0.15s;
+        }
+
+        .subscribe-button:hover {
+            opacity: 0.7;
+        }
+
+        .subscribe-button:active {
+            opacity: 0.4;
+            transition: none;
+        }
+
+        .tweet-button {
+            font-size: 15px;
+            background-color: rgb(29, 155, 240);
+            color: white;
+            padding: 7px 16px;
+            border: none;
+            font-weight: bold;
+            border-radius: 50px;
+            line-height: 22px;
+            cursor: pointer;
+            transition: box-shadow 0.15s;
+        }
+
+        .tweet-button:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0 , 0.2);
+        }
+
+        .tweet-button:active {
+            opacity: 0.7;
+        }
+
+        .my_sub_button {
+            background-color: chocolate;
+            font-size: 16px;
+            color: white;
+            border: None;
+            height: 64px;
+            width: 128px;
+            border-radius: 5px;
+            cursor: grab;
+            margin-right: 10px;
+        }
+        .my_sub_button:hover {
+            background-color: firebrick;
+        }
+
+        .my_join_button {
+
+            background-color: white;
+
+            border-color: #6487ff;
+            border-style: solid;
+            border-width: 1px;
+
+            font-size: 16px;
+            color: #6487ff;
+            width: 128px;
+            height: 64px;
+            cursor: grab;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .my_join_button:hover {
+            background-color: #307749;
+            color: white;
+        }
+
+        .my_tweet_button {
+            background-color: #369ee7;
+            color: #d8ebf9;
+            border-style: solid;
+            border-width: 0;
+            width: 128px;
+            height: 64px;
+            cursor: grab;
+            font-size: 16px;
+            border-radius: 50px;
+        }
+        .my_tweet_button:hover {
+            background-color: #953737;
+        }
+    </style>
+
 </head>
 <body>
+    <button class='subscribe-button'>
+        SUBSCRIBE
+    </button>
+    <button class='join-button'>
+        JOIN
+    </button>
+    <button class='tweet-button'>
+        Tweet
+    </button>
+
+    <br><br>
+
+    <button class="my_sub_button">
+        Hello There
+    </button>
+
+    <button class="my_join_button">
+        Join Us
+    </button>
+
+    <button class="my_tweet_button">
+        Tweet or X
+    </button>
 
 </body>
 </html>

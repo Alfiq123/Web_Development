@@ -3,8 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            font-family: Verdana, serif;
+            text-align: center;
+        }
+
+        #button {
+            font-size: 3em;
+            padding: 5px 25px;
+            text-align: center;
+            border-width: 1px;
+            border-radius: 5px;
+        }
+
+        #label {
+            font-size: 3em;
+        }
+
+    </style>
 </head>
 <body>
+    <div><button id="button">Rolling</button></div>
+    <div><label id="label"></label></div>
 
+    <script>
+        // Generate 0 to 1 (with decimal)
+        // let random_number = Math.random();
+
+        // Generate number from 0 to 5 (with decimal)
+        // let random_number = Math.random() * 6;
+
+        // Generate number from 0 to 5
+        // let random_number = Math.floor(Math.random() * 6);
+
+        // Generate number from 1 to 6
+        // let random_number = Math.floor(Math.random() * 6) + 1;
+
+        // Generate Random Integer in a Range
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Example:
+        console.log(getRandomInt(1, 6)); // like rolling a dice 🎲 (1–6)
+        console.log(getRandomInt(50, 100)); // Between 50 and 100
+
+        const myBtn = document.getElementById("button");
+        const myLbl = document.getElementById("label");
+        const min = 1;
+        const max = 6;
+        let randomNumber;
+
+        myBtn.onclick = function() {
+            randomNumber = Math.floor(Math.random() * max) + min;
+            myLbl.textContent = randomNumber;
+        }
+
+    </script>
 </body>
 </html>
