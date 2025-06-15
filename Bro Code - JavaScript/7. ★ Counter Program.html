@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Counter Program</title>
+
+        <!-- CSS -->
+        <style>
+            #counter {
+                display: block;
+                text-align: center;
+                font-size: 10em;
+                font-family: Helvetica sans-serif;
+            }
+
+            #container {
+                text-align: center;
+            }
+
+            .buttons {
+                padding: 10px 20px;
+                font-size: 1.5em;
+                color: White;
+                background-color: Chocolate;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.25s;
+            }
+
+            .buttons:hover {
+                background-color: DarkGrey;
+            }
+        </style>
+
+    </head>
+    <body>
+        <label id="counter">0</label>
+        <div id="container">
+            <button id="btn_decrease" class="buttons">Decrease</button>
+            <button id="btn_reset" class="buttons">Reset</button>
+            <button id="btn_increase" class="buttons">Increase</button>
+        </div>
+
+        <!-- JavaScript -->
+        <script>
+            // Assigns a new variable for the button
+            const btn_decrease = document.getElementById("btn_decrease");
+            const btn_reset = document.getElementById("btn_reset");
+            const btn_increase = document.getElementById("btn_increase");
+            const counter = document.getElementById("counter");
+
+            // Variable to store the counter
+            let count = 0;
+
+            // Increasing the number
+            btn_increase.onclick = function (){
+                count++;
+                counter.textContent = String(count)
+            };
+
+            // Decreasing the number
+            btn_decrease.onclick = function (){
+                count--;
+                counter.textContent = String(count)
+            };
+
+            // Reset the number
+            btn_reset.onclick = function (){
+                count = 0;
+                counter.textContent = String(count)
+            };
+        </script>
+
+    </body>
+</html>
