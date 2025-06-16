@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Color Boc</title>
+    <style>
+        #content {text-align: center;}
+        #result {text-align: center; padding: 100px; margin: 10px; border-radius: 10px; border-color: black;}
+
+        #redBtn {background-color: red;}
+        #greenBtn {background-color: green;}
+        #blueBtn {background-color: blue;}
+
+        #cyanBtn {background-color: cyan;}
+        #magentaBtn {background-color: magenta;}
+        #yellowBtn {background-color: yellow;}
+        #keyBtn {background-color: black;}
+
+        .buttons {width: 25px;height: 25px;}
+    </style>
 </head>
 <body>
+    <div id="content">
+        <h1>Color Box</h1>
+        <button class="buttons" id="redBtn"     onclick="colorChooser('red')"></button>
+        <button class="buttons" id="greenBtn"   onclick="colorChooser('green')"></button>
+        <button class="buttons" id="blueBtn"    onclick="colorChooser('blue')"></button>
 
+        <button class="buttons" id="cyanBtn"    onclick="colorChooser('cyan')"></button>
+        <button class="buttons" id="magentaBtn" onclick="colorChooser('magenta')"></button>
+        <button class="buttons" id="yellowBtn"  onclick="colorChooser('yellow')"></button>
+        <button class="buttons" id="keyBtn"     onclick="colorChooser('black')"></button>
+    </div>
+    <div id="result"></div>
+    <script>
+        function colorChooser(color){
+            if (color) document.getElementById("result").style.backgroundColor = color;
+        }
+    </script>
 </body>
 </html>

@@ -9,43 +9,46 @@
     <!-- <form action="index.php" method="post" enctype="multipart/form-data"> -->
     <form>
         <!-- Username -->
-        <label for="username">Username:</label>
-        <input
+        <label for="username">Username:
+            <input
                 type="text"
                 id="username"
                 placeholder="Enter Name..."
                 minlength="6"
                 maxlength="12"
-        />
+            />
+        </label>
 
         <br />
 
         <!-- Password -->
-        <label for="password">Password:</label>
-        <input
+        <label for="password">Password:
+            <input
                 type="password"
                 id="password"
                 placeholder="Enter Password..."
                 minlength="6"
                 maxlength="12"
-        />
+            />
+        </label>
 
         <br />
 
         <!-- Email -->
-        <label for="email">Email:</label>
-        <input
+        <label for="email">Email:
+            <input
                 type="email"
                 id="email"
                 placeholder="Enter Email..."
                 pattern=".+@example\.com"
-        />
+            />
+        </label>
 
         <br />
 
         <!-- Phone Number -->
-        <label>Phone Number:</label>
-        <label>
+        <!-- <label>Phone Number:</label> -->
+        <label>Phone Number:
             <input
                 type="tel"
                 placeholder="Enter Number..."
@@ -56,54 +59,64 @@
         <br />
 
         <!-- Birthdate -->
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" />
+        <label for="birthdate">Birthdate:
+            <input type="date" id="birthdate" />
+        </label>
 
         <br />
 
         <!-- Quantity -->
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" min="0" max="100" value="1" />
+        <label for="quantity">Quantity:
+            <input type="number" id="quantity" min="0" max="100" value="1" />
+        </label>
 
         <br />
 
         <!-- Radio Button -->
-        <label>Title:</label>
-
-        <label for="mr">Mr.</label>
-        <input type="radio" id="mr" value="Mr." name="title" />
-        <label for="ms">Ms.</label>
-        <input type="radio" id="ms" value="Ms." name="title" />
-        <label for="phd">PhD.</label>
-        <input type="radio" id="phd" value="PhD." name="title" />
+        <label>Title:
+            <label for="mr">Mr.
+                <input type="radio" id="mr" value="Mr." name="title" />
+            </label>
+            <label for="ms">Ms.
+                <input type="radio" id="ms" value="Ms." name="title" />
+            </label>
+            <label for="phd">PhD.
+                <input type="radio" id="phd" value="PhD." name="title" />
+            </label>
+        </label>
 
         <br />
 
         <!-- Dropdown -->
-        <label for="pay">Payments:</label>
-        <select id="pay">
-            <option value="visa">Visa</option>
-            <option value="mastercard">MasterCard</option>
-            <option value="gift_card">GiftCard</option>
-        </select>
+        <label for="pay">Payments:
+            <select id="pay">
+                <option value="visa">Visa</option>
+                <option value="mastercard">MasterCard</option>
+                <option value="gift_card">GiftCard</option>
+            </select>
+        </label>
 
         <br />
 
         <!-- Checkbox -->
-        <label for="subscribe">Subscribe:</label>
-        <input type="checkbox" id="subscribe" />
+        <label for="subscribe">Subscribe:
+            <input type="checkbox" id="subscribe" />
+        </label>
 
-        <label for="comment">Comment:</label>
-        <textarea name="comment" id="comment"></textarea>
+        <label for="comment">Comment:
+            <textarea name="comment" id="comment"></textarea>
+        </label>
 
         <br />
 
         <!-- File -->
-        <label for="file">File:</label>
-        <input type="file" name="file" id="file" accept="image/png, image/jpeg" />
+        <label for="file">File:
+            <input type="file" name="file" id="file" accept="image/png, image/jpeg" />
+        </label>
+
+        <br />
 
         <!-- Button -->
-        <br />
         <input type="reset" />
         <input type="submit" />
     </form>
