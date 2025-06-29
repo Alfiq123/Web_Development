@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta charset="UTF-8">
+<title>CSS Selector</title>
+
+    <style>
+        p {
+            color: blue;
+        }
+
+        .intro {
+            font-style: italic;
+        }
+
+        #main-box {
+            border: 10px black;
+        }
+
+        h1, span {
+            color: red;
+        }
+
+        #main-box span {
+            font-weight: bold;
+        }
+
+        #main-box > a {
+            text-transform: uppercase;
+        }
+
+        .favorite {
+            background-color: yellow;
+        }
+
+        li:not(.favorite) {
+            text-decoration: underline;
+        }
+
+    </style>
+
 </head>
 <body>
-
+<h1>Welcome!</h1>
+<p class="intro">This is a simple paragraph.</p>
+<p>This is another paragraph.</p>
+<div id="main-box">
+    <span>Inside the box</span>
+    <a href="#">Click me</a>
+</div>
+<ul>
+    <li>Apple</li>
+    <li>Banana</li>
+    <li class="favorite">Cherry</li>
+</ul>
 </body>
 </html>
