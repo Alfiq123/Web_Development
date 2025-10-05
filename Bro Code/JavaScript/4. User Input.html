@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Input</title>
+
+    <!--  CSS  -->
+    <style>
+
+    </style>
+    <!--  CSS  -->
+
+</head>
+<body>
+    <h1 id="head">Welcome</h1>
+
+    <label for="myText">Username: </label>
+    <input id="myText">
+    <button id="mySubmit">Submit</button>
+
+    <!-- JS -->
+    <script>
+        // How to accept user input?
+
+        // 1. Window Prompt
+        // 2. HTML Textbox
+
+        let username;
+        // username = window.prompt("Enter your username");
+
+        document.getElementById("mySubmit").onclick = function() {
+            username = document.getElementById("myText").value;
+            document.getElementById("head").textContent = `Welcome ${username}!`;
+        }
+
+        // document.write(username);  // NUKING the entire page
+        // document.body.innerHTML = username;  // Recommended, but must be specific
+
+    </script>
+    <!-- JS -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Constrains</title>
+    </head>
+    <body>
+        <h1 id="head">The Circle</h1>
+        <label>Radius: <input type="text" id="input"></label>
+        <button onclick="result()">Submit</button>
+        <p id="end"></p>
+
+        <script>
+            // Const (Constant) = A variable that cannot be changed
+
+            const PI = 3.141592653589793;
+            let radius;
+            let circumference;
+
+            // Ask user input and covert it to integer.
+            // radius = Number(window.prompt("Enter the Radius of a circle"))
+            // circumference = 2 * PI * radius
+
+            // The Result:
+            // alert(`The circumference of a circle is: ${circumference}`)
+            // document.getElementById("submit").onclick = function (){
+            //     radius = Number(document.getElementById("text").value);
+            //     circumference = 2 * PI * radius
+            // }
+
+            function result() {
+                radius = Number(document.getElementById("input").value);
+                circumference = 2 * PI * radius
+                document.getElementById("end").textContent = circumference + "cm"
+            }
+        </script>
+    </body>
+</html>

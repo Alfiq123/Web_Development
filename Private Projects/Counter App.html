@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter App</title>
+    <style>
+        #content {text-align: center;}
+        #output {font-size: 2rem;}
+
+        .buttons {
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            border-width: 0;
+            background-color: #55a258;
+            transition: background-color, 300ms;
+        }
+        .buttons:hover {
+            background-color: rgba(85,162,88,0.51);
+            scale: 1.125;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Counter App</h1>
+        <label id="output"></label><br><br>
+        <button class="buttons" onclick="buttonFunc('increase')">+</button>
+        <button class="buttons" onclick="buttonFunc('decrease')">-</button>
+        <button class="buttons" onclick="buttonFunc('reset')">🗘</button>
+    </div>
+    <script>
+        let output = 0;
+
+        function buttonFunc(action){
+            if (action === "increase") output++;
+            else if (action === "decrease") output--;
+            else if (action === "reset") output = 0;
+
+            document.getElementById("output").textContent = `${output}`;
+        }
+    </script>
+</body>
+</html>
