@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form PZN</title>
+</head>
+<body>
+    <form name="PZN_FORM_REG" action="form-submit.html" method="post">
+
+        <div>
+            <!-- Tulisan -->
+            <label for="nama">Nama</label> <br>
+            <input type="text" name="nama" id="nama" placeholder="Nama">
+
+            <br><br>
+
+            <!-- Email -->
+            <label for="email">Email</label> <br>
+            <input type="email" name="email" id="email" placeholder="Email">
+
+            <br><br>
+
+            <!-- Nomor Telepon -->
+            <label for="telepon">Telepon</label> <br>
+            <input type="tel" name="telepon" id="telepon" placeholder="Telepon" pattern="(62)[0-9]{5,20}">
+
+            <br><br>
+
+            <!-- Number -->
+            <label for="nomor">Nomor</label> <br>
+            <input type="number" name="nomor" id="nomor" placeholder="Nomor">
+
+            <br><br>
+
+            <!-- Password -->
+            <label for="password">Password</label> <br>
+            <input type="password" name="password" id="password" placeholder="Password">
+
+            <br><br>
+
+            <!-- Tombol -->
+            <label for="tombol">Tombol</label> <br>
+            <input type="button" name="tombol" id="tombol" onclick="alert('Hello World!');">
+
+            <br><br>
+
+            <!-- Checkbox -->
+            <input type="checkbox" name="hobi" id="mainGame" value="Main_Game">
+            <label for="mainGame">Main Game</label>
+
+            <br>
+
+            <input type="checkbox" name="hobi" id="bacaBuku" value="Baca_Buku">
+            <label for="bacaBuku">Baca Buku</label>
+
+            <br>
+
+            <input type="checkbox" name="hobi" id="koding" value="Koding">
+            <label for="koding">Koding</label>
+
+            <br>
+
+            <input type="checkbox" name="hobi" id="tidur" value="Tidur">
+            <label for="tidur">TIdur</label>
+
+            <br>
+
+            <input type="checkbox" name="hobi" id="memasak" value="Memasak">
+            <label for="memasak">Memasak</label>
+
+            <br><br>
+
+            <!-- Radio Button -->
+            <input type="radio" name="snack" id="coklat">
+            <label for="coklat">Coklat</label>
+
+            <br>
+
+            <input type="radio" name="snack" id="susu">
+            <label for="susu">Susu Kotak</label>
+
+            <br>
+            
+            <input type="radio" name="snack" id="teh">
+            <label for="teh">Teh Kotak</label>
+
+            <br>
+            
+            <input type="radio" name="snack" id="chips">
+            <label for="chips">Chiki</label>
+
+            <br>
+            
+            <input type="radio" name="snack" id="roti">
+            <label for="roti">Roti</label>
+
+            <br><br>
+
+            <!-- Warna -->
+            <label for="warna">Warna</label> <br>
+            <input type="color" name="warna" id="warna">
+
+            <br><br>
+
+            <!-- Tanggal -->
+            <label for="tanggal">Tanggal</label> <br>
+            <input type="date" name="tanggal" id="tanggal">
+
+            <br><br>
+
+            <!-- Tanggal & Waktu -->
+            <label for="dateTime">Tanggal dan Waktu</label> <br>
+            <input type="datetime-local" name="dateTime" id="dateTime">
+
+            <br><br>
+
+            <!-- Bulan -->
+            <label for="bulan">Bulan</label> <br>
+            <input type="month" name="bulan" id="bulan">
+
+            <br><br>
+
+            <!-- Waktu -->
+            <label for="waktu">Waktu</label> <br>
+            <input type="time" name="waktu" id="waktu">
+
+            <br><br>
+
+            <!-- Minggu -->
+            <label for="minggu">Minggu</label> <br>
+            <input type="week" name="minggu" id="minggu">
+
+            <!-- Tersembunyi -->
+            <input type="hidden" name="hidden" id="hidden" value="Tersembunyi">
+
+            <br><br>
+
+            <!-- Input Image -->
+            <label for="image">Input Gambar</label> <br>
+            <input type="image" src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-red-glossy-button-png-image_4182376.jpg" width="50px" disabled>
+
+            <br><br>
+            
+            <!-- Range -->
+            <label for="range">Range</label> <br>
+            <input type="range" name="range" id="range" step="10" value="0">
+
+            <br><br>
+
+            <!-- URL -->
+            <label for="url">URL</label> <br>
+            <input type="url" name="url" id="url" placeholder="Insert URL">
+
+            <br><br>
+
+            <!-- Text Area -->
+            <label for="textarea">Text Area</label> <br>
+            <textarea name="textarea" id="textarea" placeholder="Enter Something..."></textarea>
+
+            <br><br>
+
+            <!-- Tombol -->
+            <label for="tombol">Tombol</label> <br>
+            <button disabled><img src="https://png.pngtree.com/png-clipart/20190905/original/pngtree-blue-round-creative-button-png-image_4508245.jpg" width="50px"></button>
+
+            <br><br>
+
+            <!-- Select Tag -->
+            <label for="select">Select Tag</label> <br>
+            <select name="pekerjaan" id="pekerjaan">
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="fullstack" selected>FullStack</option>
+            </select>
+
+            <br><br>
+
+            <!-- Option Group-->
+            <label for="hobi">Hobi</label> <br>
+            <select name="hobi" id="hobi">
+                <optgroup label="Coding">
+                    <option value="cpp">C++</option>
+                    <option value="cs">C#</option>
+                    <option value="java">Java</option>
+                    <option value="py">Python</option>
+                    <option value="rb">Ruby</option>
+                </optgroup>
+                <optgroup label="Gaming">
+                    <option value="mc">Minecraft</option>
+                    <option value="lol">League of Legend</option>
+                    <option value="tloz">The Legend of Zelda</option>
+                    <option value="ra2">Red Alert 2</option>
+                    <option value="gta5">GTA V</option>
+                </optgroup>
+                <optgroup label="Sport">
+                    <option value="sepakBola">Sepak Bola</option>
+                    <option value="buluTangkis">Bulu Tangkis</option>
+                    <option value="lari">Lari Marathon</option>
+                    <option value="jogging">Jogging</option>
+                    <option value="voli">Voli</option>
+                </optgroup>
+            </select>
+
+            <br><br>
+
+            <!-- Data List-->
+            <label for="bahasaProgram">Bahasa Pemrograman</label> <br>
+            <input type="text" name="bahasaProgram" id="bahasaProgram" list="programming">
+
+            <datalist id="programming">
+                <option value="C"></option>
+                <option value="C++"></option>
+                <option value="C#"></option>
+                <option value="Java"></option>
+                <option value="JavaScript"></option>
+                <option value="Python"></option>
+                <option value="Rust"></option>
+            </datalist>
+
+            <br><br>
+
+            <!-- Field Set Tag-->
+            <fieldset>
+                <legend>Identitas</legend>
+
+                <label for="nama">Nama</label> <br>
+                <input type="text" name="nama" id="nama">
+
+                <br><br>
+
+                <label for="email">Email</label> <br>
+                <input type="email" name="email" id="email">
+
+                <br><br>
+
+                <label for="telepon">Telepon</label> <br>
+                <input type="tel" name="telepon" id="telepon">
+            </fieldset>
+            <fieldset>
+                <legend>Alamat</legend>
+
+                <label for="jalan">Jalan</label> <br>
+                <input type="text" name="jalan" id="jalan">
+
+                <br><br>
+
+                <label for="kota">Kota</label> <br>
+                <input type="text" name="kota" id="kota">
+
+                <br><br>
+
+                <label for="provinsi">Provinsi</label> <br>
+                <input type="text" name="provinsi" id="provinsi">
+            </fieldset>
+
+        </div>
+
+        <br><br>
+
+        <button type="submit" disabled>Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+</body>
+</html>

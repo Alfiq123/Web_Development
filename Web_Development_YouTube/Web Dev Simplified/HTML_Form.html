@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="results.html" method="get" enctype="multipart/form-data">
+        <!-- Text -->
+        <div>
+            <label for="name">Name</label>
+            <!-- <input type="text" name="Name" id="name" value="User"> -->
+            <input type="text" name="name" id="name" placeholder="Username" required>
+        </div>
+
+        <!-- Password -->
+        <div>
+            <label>Password</label>
+            <input type="password" name="Password" required>
+        </div>
+
+        <!-- E-mail -->
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <!-- Number -->
+        <div>
+            <label for="age">Age</label>
+            <!-- <input type="number" name="age" id="age" min="1" max="100" step="5" required> -->
+            <input type="number" name="age" id="age" min="1" max="100">
+        </div>
+
+        <!-- Date -->
+        <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" min="2020-10-10">
+        </div>
+
+        <!-- Check Button -->
+        <div>
+            Favorite Foods
+            <div>
+                <label for="banana">Banana</label>
+                <input type="checkbox" name="banana" id="banana">
+            </div>
+            <div>
+                <label for="orange">Orange</label>
+                <input type="checkbox" name="orange" id="orange">
+            </div>
+            <div>
+                <label for="apple">Apple</label>
+                <input type="checkbox" name="apple" id="apple">
+            </div>
+        </div>
+
+        <!-- Radio Button -->
+        <div>
+            Gender
+            <div>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="Male">
+            </div>
+            <div>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="Female">
+            </div>
+        </div>
+
+        <!-- Select -->
+        <div>
+            <label for="eyeColor">Eye Color</label>
+            <!-- <select name="eyeColor" id="eyeColor" multiple> -->
+            <select name="eyeColor" id="eyeColor">
+                <option value="Green">Green</option>
+                <option label="Red" value="Red">Green</option>
+            </select>
+        </div>
+
+        <!-- Text Area -->
+        <div>
+            <label for="bio">Bio</label>
+            <textarea name="bio" id="bio"></textarea>
+        </div>
+
+        <!-- Hidden -->
+        <input type="hidden" name="hidden" value="Hi">
+
+        <!-- File -->
+        <div>
+            <label for="file">File</label>
+            <input type="file" name="file" id="file">
+        </div>
+
+        <!-- Phone -->
+        <div>
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone">
+        </div>
+
+        <!-- URL -->
+        <div>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url">
+        </div>
+
+        <!-- Color -->
+        <div>
+            <label for="color">Color</label>
+            <input type="color" name="color" id="color">
+        </div>
+
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
