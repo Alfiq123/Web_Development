@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        /* Mobile-first: Stack top-to-bottom */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+        }
+
+        /* Wide screen: Align left-to-right */
+        @media (min-width: 600px) {
+            .form-group {
+                flex-direction: row;
+                align-items: center; /* Vertically centers label with input */
+            }
+
+            .form-group label {
+                width: 150px;       /* Fixed width for alignment */
+                margin-bottom: 0;   /* Remove mobile margin */
+                margin-right: 10px; /* Space between label and input */
+            }
+
+            .form-group input {
+                flex: 1;            /* Input takes up remaining space */
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name">
+    </div>
+
+</body>
+</html>
