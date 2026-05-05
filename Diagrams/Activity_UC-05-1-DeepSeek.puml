@@ -1,0 +1,64 @@
+@startuml UC-05 DeepSeek V4
+!theme plain
+
+|Admin|
+|Sistem|
+
+start
+|Admin|
+:Admin: Buka menu Kelola Pesanan;
+|Sistem|
+:Sistem: Memeriksa pesanan dengan status "Menunggu Konfirmasi";
+if (Ada pesanan?) then (tidak)
+    |Sistem|
+    :Sistem: Menampilkan "Belum ada pesanan masuk saat ini.";
+    stop
+else (ya)
+    |Sistem|
+    :Sistem: Menampilkan daftar pesanan masuk;
+    |Admin|
+    :Admin: Memilih salah satu pesanan dan tekan "Lihat Detail";
+    |Sistem|
+    :Sistem: Menampilkan detail lengkap pesanan;
+    repeat
+        |Admin|
+        :Admin: Memilih aksi (Konfirmasi / Tolak);
+        if (Aksi = Konfirmasi?) then (ya)
+            |Sistem|
+            :Sistem: Memverifikasi stok barang;
+            if (Stok mencukupi?) then (ya)
+                |Sistem|
+                :Sistem: Memperbarui status pesanan menjadi "Dikonfirmasi"\ndan mengurangi stok secara otomatis;
+                :Sistem: Menampilkan "Pesanan berhasil dikonfirmasi";
+                break
+            else (tidak)
+                |Sistem|
+                :Sistem: Menampilkan peringatan "Stok barang tidak mencukupi,\npesanan tidak dapat dikonfirmasi.";
+                :Sistem: Menampilkan kembali detail pesanan tanpa mengubah status;
+            endif
+        else (Tolak)
+            |Sistem|
+            :Sistem: Menampilkan dialog konfirmasi\n"Apakah Anda yakin ingin menolak pesanan ini?";
+            |Admin|
+            :Admin: Menekan "Ya" dan mengisi alasan penolakan;
+            |Sistem|
+            :Sistem: Memperbarui status pesanan menjadi "Ditolak"\ndan menyimpan alasan penolakan;
+            :Sistem: Menampilkan "Pesanan telah ditolak";
+            break
+        endif
+    repeat while (Belum ada keputusan final)
+        |Sistem|
+        :Sistem: Memperbarui daftar pesanan;
+        |Admin|
+        :Admin: Melihat daftar pesanan, mempertimbangkan menandai selesai;
+        if (Admin ingin menandai pesanan "Dikonfirmasi" selesai?) then (ya)
+            |Admin|
+            :Admin: Memilih pesanan berstatus "Dikonfirmasi" lalu menekan "Selesai";
+            |Sistem|
+            :Sistem: Memperbarui status menjadi "Selesai"\ndan mencatat transaksi ke laporan penjualan;
+            :Sistem: Menampilkan "Pesanan telah ditandai selesai.";
+        else (tidak)
+        endif
+        stop
+
+@enduml

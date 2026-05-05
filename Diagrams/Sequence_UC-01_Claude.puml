@@ -1,0 +1,49 @@
+@startuml UC-01 Sequence Claude
+!theme plain
+title Sequence Diagram - Login Admin
+
+actor Admin
+participant "Halaman Login" as UI
+participant "Sistem" as Sys
+database "Database" as DB
+
+Admin -> UI: Buka halaman login
+activate UI
+UI --> Admin: Tampilkan form login\n(username & password)
+
+Admin -> UI: Masukkan username & password,\ntekan tombol Login
+
+alt Kolom kosong
+    UI --> Admin: Tampilkan peringatan\n"Username dan password\ntidak boleh kosong"
+    UI --> Admin: Tampilkan kembali form login
+
+else Kolom terisi
+    UI -> Sys: Kirim data username & password
+    activate Sys
+    Sys -> DB: Validasi username & password\nke tabel admin
+    activate DB
+
+    alt Username atau password salah
+        DB --> Sys: Data tidak cocok
+        Sys --> UI: Kembalikan pesan error
+        UI --> Admin: Tampilkan pesan\n"Username atau password salah"
+
+        Admin -> UI: Masukkan ulang username &\npassword yang benar, tekan Login
+        UI -> Sys: Kirim ulang data login
+        Sys -> DB: Validasi ulang username & password
+
+        DB --> Sys: Data valid
+        Sys --> UI: Login berhasil
+        UI --> Admin: Arahkan ke halaman dashboard
+
+    else Username & password benar
+        DB --> Sys: Data valid
+        deactivate DB
+        Sys --> UI: Login berhasil
+        deactivate Sys
+        UI --> Admin: Arahkan ke halaman dashboard
+        deactivate UI
+    end
+end
+
+@enduml

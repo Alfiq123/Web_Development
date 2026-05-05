@@ -421,3 +421,56 @@ console.log(personB.getFullName());
 console.log(personB.getBirthYear());
 */
 
+
+// === DOM === //
+/*
+// Single Element
+document.getElementById("scriptForm");
+document.getElementsByClassName("form-label");
+
+console.log(document.getElementById("scriptForm"));
+
+const form = document.getElementById("scriptForm");
+console.log(form);
+
+console.log(document.getElementById("scriptForm"));
+console.log(document.getElementsByClassName("form-label"));
+console.log(document.getElementsByTagName("div"));
+
+// Multi Element
+console.log(document.querySelector("#scriptForm"));
+console.log(document.querySelectorAll(".form-label"));
+
+// Looping
+const items = document.querySelectorAll("div")
+
+items.forEach((items) => console.log(items));
+*/
+
+
+// === Manipulating DOM === //
+/*
+// const ui = document.querySelector("select");
+
+// ui.children[1].innerText = "Brad";
+// ui.firstElementChild.textContent = "Hello";
+// ui.lastElementChild.remove();
+// ui.lastElementChild.innerHTML = "<h1>Hello World!</h1>";
+// ui.remove();
+
+// const button = document.querySelector(".btn")
+
+// button.style.background = "red";
+// button.addEventListener("click", (e) => {
+    // e.preventDefault();
+
+    // console.log(e);
+    // console.log(e.target);
+    // console.log(e.target.className);
+
+    // document.querySelector("#scriptForm").style.background = "rgb(0, 125, 255)";
+    // document.querySelector("body").classList.add("btn-primary");
+    // document.querySelector("select").lastElementChild.innerHTML = "<h1>Get Out!</h1>";
+// })
+*/
+

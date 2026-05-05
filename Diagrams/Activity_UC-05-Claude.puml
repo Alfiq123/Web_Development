@@ -1,0 +1,81 @@
+@startuml UC 05 Claude Sonnet 4.6
+!theme plain
+!pragma useVerticalIf on
+
+<Style>
+swimlane {
+    BackgroundColor: #000000;
+    FontColor: White;
+}
+</style>
+
+title Activity Diagram - Konfirmasi Pesanan
+
+|Admin|
+|Sistem|
+
+start
+
+|Admin|
+:Buka menu Konfirmasi Pesanan;
+
+|Sistem|
+if (Ada pesanan\n"Menunggu Konfirmasi"?) then (Ya)
+:Tampilkan daftar pesanan masuk\n(nama, barang, jumlah, total harga);
+
+|Admin|
+:Pilih pesanan dan tekan\ntombol Lihat Detail;
+
+|Sistem|
+:Tampilkan detail lengkap pesanan\n(pelanggan, barang, jumlah, alamat);
+
+|Admin|
+if (Keputusan Admin?) then (Konfirmasi)
+    :Tekan tombol Konfirmasi Pesanan;
+
+    |Sistem|
+    :Verifikasi ketersediaan stok\ndi database;
+
+    if (Stok mencukupi?) then (Ya)
+        :Perbarui status pesanan\nmenjadi "Dikonfirmasi";
+        :Kurangi jumlah stok\nsecara otomatis;
+        :Tampilkan pesan\n"Pesanan berhasil dikonfirmasi";
+        :Perbarui daftar pesanan;
+
+        |Admin|
+        :Pilih pesanan berstatus\n"Dikonfirmasi";
+        :Tekan tombol Selesai;
+
+        |Sistem|
+        :Perbarui status pesanan\nmenjadi "Selesai";
+        :Catat transaksi ke\nlaporan penjualan;
+        :Tampilkan pesan\n"Pesanan telah ditandai selesai";
+
+    else (Tidak)
+        :Tampilkan peringatan\n"Stok tidak mencukupi,\npesanan tidak dapat dikonfirmasi";
+        :Tampilkan kembali detail pesanan\ntanpa mengubah status;
+    endif
+
+else (Tolak)
+    :Tekan tombol Tolak Pesanan;
+
+    |Sistem|
+    :Tampilkan dialog konfirmasi\n"Yakin ingin menolak pesanan ini?";
+
+    |Admin|
+    :Tekan tombol Ya dan isi\nalasan penolakan;
+
+    |Sistem|
+    :Perbarui status pesanan\nmenjadi "Ditolak";
+    :Simpan alasan penolakan;
+    :Tampilkan pesan\n"Pesanan telah ditolak";
+    :Perbarui daftar pesanan;
+endif
+
+else (Tidak)
+|Sistem|
+:Tampilkan pesan\n"Belum ada pesanan masuk saat ini";
+endif
+
+stop
+@enduml

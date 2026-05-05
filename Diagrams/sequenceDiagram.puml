@@ -1,0 +1,38 @@
+@startuml
+actor Admin
+participant "UI Form Stok" as UI
+participant "StokController" as Controller
+database Database
+
+Admin -> UI : Buka menu Kelola Stok
+UI -> Controller : getDaftarStok()
+Controller -> Database : SELECT * FROM barang
+Database --> Controller : dataBarang
+Controller --> UI : daftarBarang
+UI --> Admin : Tampilkan daftar stok
+
+Admin -> UI : Pilih barang & klik Tambah Stok
+UI -> Controller : formTambahStok(id)
+Controller --> UI : form
+UI --> Admin : Tampilkan form jumlah & keterangan
+
+Admin -> UI : Masukkan jumlah & klik Simpan
+UI -> Controller : simpanStok(id, jumlah, ket)
+
+alt jumlah > 0
+    Controller -> Database : UPDATE barang SET stok = stok + n
+    Database --> Controller : success
+    Controller -> Database : INSERT INTO riwayat_stok (...)
+    Database --> Controller : success
+    Controller --> UI : sukses, dataBarangBaru
+    UI --> Admin : Tampilkan "Stok berhasil diperbarui"
+
+    opt stokBaru < batasMin
+        Controller --> UI : warning "Stok barang X hampir habis"
+        UI --> Admin : Tampilkan notifikasi
+    end
+else jumlah <= 0
+    Controller --> UI : error "Jumlah stok harus lebih dari 0"
+    UI --> Admin : Tampilkan peringatan
+end
+@enduml

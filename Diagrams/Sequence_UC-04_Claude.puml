@@ -1,0 +1,100 @@
+@startuml
+!theme plain
+
+title Sequence Diagram - Kelola Data Barang
+
+actor Admin
+participant "Halaman Data Barang" as UI
+participant "Sistem" as Sys
+database "Database" as DB
+
+== Buka Menu Data Barang ==
+
+Admin -> UI: Buka menu Data Barang
+activate UI
+UI -> DB: Ambil daftar seluruh barang
+activate DB
+DB --> UI: Kembalikan data barang
+deactivate DB
+UI --> Admin: Tampilkan daftar seluruh barang
+deactivate UI
+
+== Tambah Data Barang ==
+
+Admin -> UI: Tekan tombol Tambah Barang
+activate UI
+UI --> Admin: Tampilkan form isian\n(nama, kategori, harga, stok awal, foto)
+
+Admin -> UI: Isi data barang,\ntekan tombol Simpan
+
+alt Form tidak lengkap
+    UI --> Admin: Tampilkan peringatan\n"Harap lengkapi semua data\nyang wajib diisi"
+    UI --> Admin: Tandai kolom kosong\ndengan warna merah
+
+else Form lengkap
+    UI -> Sys: Kirim data barang baru
+    activate Sys
+    Sys -> DB: Simpan data barang ke database
+    activate DB
+    DB --> Sys: Data berhasil disimpan
+    deactivate DB
+    Sys --> UI: Konfirmasi penyimpanan
+    deactivate Sys
+    UI --> Admin: Tampilkan pesan\n"Data barang berhasil ditambahkan"
+    UI --> Admin: Perbarui daftar barang
+    deactivate UI
+end
+
+== Ubah Data Barang ==
+
+Admin -> UI: Pilih barang, tekan tombol Edit
+activate UI
+UI -> DB: Ambil data barang yang dipilih
+activate DB
+DB --> UI: Kembalikan data barang
+deactivate DB
+UI --> Admin: Tampilkan form terisi\ndengan data barang yang dipilih
+
+Admin -> UI: Ubah data yang diperlukan,\ntekan tombol Simpan
+
+alt Form tidak lengkap
+    UI --> Admin: Tampilkan peringatan\n"Harap lengkapi semua data\nyang wajib diisi"
+    UI --> Admin: Tandai kolom kosong\ndengan warna merah
+
+else Form lengkap
+    UI -> Sys: Kirim data barang yang diubah
+    activate Sys
+    Sys -> DB: Perbarui data barang di database
+    activate DB
+    DB --> Sys: Data berhasil diperbarui
+    deactivate DB
+    Sys --> UI: Konfirmasi pembaruan
+    deactivate Sys
+    UI --> Admin: Tampilkan pesan\n"Data barang berhasil diperbarui"
+    deactivate UI
+end
+
+== Hapus Data Barang ==
+
+Admin -> UI: Pilih barang, tekan tombol Hapus
+activate UI
+UI --> Admin: Tampilkan dialog konfirmasi\n"Yakin ingin menghapus barang ini?"
+
+alt Admin menekan Tidak
+    UI --> Admin: Tutup dialog, kembali\nke daftar barang tanpa perubahan
+
+else Admin menekan Ya
+    UI -> Sys: Kirim permintaan hapus barang
+    activate Sys
+    Sys -> DB: Hapus data barang dari database
+    activate DB
+    DB --> Sys: Data berhasil dihapus
+    deactivate DB
+    Sys --> UI: Konfirmasi penghapusan
+    deactivate Sys
+    UI --> Admin: Tampilkan pesan\n"Data barang berhasil dihapus"
+    UI --> Admin: Perbarui daftar barang
+    deactivate UI
+end
+
+@enduml

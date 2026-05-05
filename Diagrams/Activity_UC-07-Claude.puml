@@ -1,0 +1,30 @@
+@startuml UC 07 Claude Sonnet 4.6
+!theme plain
+
+title Activity Diagram - Logout
+
+start
+
+if (Pemicu logout?) then (Admin menekan\ntombol Logout)
+    :Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin keluar?";
+
+    if (Keputusan Admin?) then (Ya)
+        :Akhiri sesi login admin;
+        :Hapus data sesi dari server;
+        :Arahkan ke halaman login;
+
+    else (Tidak)
+        :Tutup dialog konfirmasi;
+        :Admin tetap di halaman dashboard;
+    endif
+
+else (Sesi timeout\notomatis)
+    :Sistem mendeteksi tidak ada\naktivitas dalam jangka waktu tertentu;
+    :Akhiri sesi login admin secara otomatis;
+    :Tampilkan pesan "Sesi Anda telah berakhir,\nsilakan login kembali";
+    :Arahkan ke halaman login;
+endif
+
+stop
+
+@enduml

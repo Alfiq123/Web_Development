@@ -1,0 +1,52 @@
+@startuml UC-05 ChatGPT 5.3
+!theme plain
+!pragma useVerticalIf on
+
+start
+
+:Admin membuka menu Kelola Pesanan;
+
+if (Ada pesanan?) then (Ya)
+    :Sistem menampilkan daftar pesanan\n"Menunggu Konfirmasi";
+
+    :Admin memilih pesanan;
+    :Admin klik "Lihat Detail";
+    :Sistem menampilkan detail pesanan;
+
+    if (Aksi admin?) then (Konfirmasi)
+        :Sistem cek stok barang;
+
+        if (Stok cukup?) then (Ya)
+            :Sistem update status = Dikonfirmasi;
+            :Sistem kurangi stok;
+            :Tampilkan pesan berhasil;
+
+            if (Pesanan diselesaikan?) then (Ya)
+                :Admin klik "Selesai";
+                :Sistem update status = Selesai;
+                :Sistem catat ke  laporan penjualan;
+                :Tampilkan pesan selesai;
+            else (Tidak)
+            endif
+
+        else (Tidak)
+            :Tampilkan pesan stok tidak cukup;
+            :Kembali ke detail pesanan;
+        endif
+
+    else (Tolak)
+        :Admin klik "Tolak Pesanan";
+        :Sistem tampilkan dialog konfirmasi;
+        :Admin isi alasan & klik Ya;
+        :Sistem update status = Ditolak;
+        :Simpan alasan penolakan;
+        :Tampilkan pesan ditolak;
+    endif
+
+else (Tidak)
+    :Tampilkan pesan:\n"Belum ada pesanan masuk";
+endif
+
+stop
+
+@enduml

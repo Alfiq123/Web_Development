@@ -1,0 +1,55 @@
+@startuml
+!theme plain
+!pragma useVerticalIf on
+
+start
+:Admin buka menu Kelola Pesanan;
+:Sistem memeriksa pesanan dengan\nstatus "Menunggu Konfirmasi";
+
+if (Ada pesanan?) then (tidak)
+    :Sistem menampilkan:\n"Belum ada pesanan masuk saat ini.";
+    stop
+
+else (ya)
+    :Sistem menampilkan daftar pesanan masuk\n(nama pelanggan, barang, jumlah, total);
+    :Admin memilih salah satu pesanan dan tekan "Lihat Detail";
+    :Sistem menampilkan detail lengkap pesanan\n(data pelanggan, barang, jumlah, alamat);
+    repeat
+        :Admin memilih aksi (Konfirmasi / Tolak);
+
+        if (Aksi?) then (Konfirmasi)
+            :Sistem memverifikasi ketersediaan stok barang;
+
+            if (Stok mencukupi?) then (ya)
+                :Sistem memperbarui status menjadi "Dikonfirmasi"\ndan mengurangi stok secara otomatis;
+                :Sistem menampilkan "Pesanan berhasil dikonfirmasi";
+                break
+            
+            else (tidak)
+                :Sistem menampilkan peringatan "Stok barang tidak mencukupi,\npesanan tidak dapat dikonfirmasi.";
+                :Sistem kembali menampilkan detail pesanan tanpa mengubah status;
+            endif
+
+        else (Tolak)
+            :Sistem menampilkan dialog konfirmasi\n"Apakah Anda yakin ingin menolak pesanan ini?";
+            :Admin menekan "Ya" dan mengisi alasan penolakan;
+            :Sistem memperbarui status menjadi "Ditolak"\ndan menyimpan alasan penolakan;
+            :Sistem menampilkan "Pesanan telah ditolak";
+            break
+        endif
+    repeat while (true)
+    :Sistem memperbarui daftar pesanan;
+    :Admin mempertimbangkan untuk menandai pesanan selesai;
+
+    if (Admin ingin menandai pesanan "Dikonfirmasi" selesai?) then (ya)
+        :Admin memilih pesanan berstatus "Dikonfirmasi" dan tekan "Selesai";
+        :Sistem memperbarui status menjadi "Selesai"\ndan mencatat transaksi ke laporan penjualan;
+        :Sistem menampilkan "Pesanan telah ditandai selesai.";
+    else (tidak)
+
+    endif
+    stop
+    
+endif
+
+@enduml

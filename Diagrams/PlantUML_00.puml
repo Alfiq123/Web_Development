@@ -1,0 +1,67 @@
+@startuml 00
+!theme plain
+skinparam style strictuml
+title Sequence Diagram – Kelola Stok Barang
+
+actor Admin
+participant "Sistem" as S
+database "Database" as DB
+
+== Skenario Normal – Lihat Daftar & Notifikasi Stok Minimum ==
+Admin -> S: Memilih menu "Kelola Stok"
+activate S
+S -> DB: Ambil daftar barang dan stok terkini
+activate DB
+DB --> S: Data barang (nama, stok)
+deactivate DB
+
+S -> S: Periksa stok terhadap batas minimum
+alt stok di bawah minimum
+    S -> Admin: Notifikasi: "Stok [barang] hampir habis,\nsegera lakukan pengisian."
+end
+S --> Admin: Menampilkan daftar barang beserta jumlah stok
+deactivate S
+
+== Alternatif Aksi Admin dari Daftar Barang ==
+Admin -> S: Memilih salah satu barang
+activate S
+
+alt Admin menekan "Tambah Stok"
+    == Skenario Normal – Tambah Stok ==
+    S --> Admin: Menampilkan form jumlah stok dan keterangan
+    deactivate S
+
+    Admin -> S: Memasukkan jumlah & keterangan, menekan "Simpan"
+    activate S
+
+    alt jumlah <= 0 atau kosong
+        == Skenario Alternatif – Jumlah tidak valid ==
+        S --> Admin: Peringatan "Jumlah stok harus lebih dari 0."
+        S --> Admin: Kembali menampilkan form isian untuk diperbaiki
+        note right of Admin: Admin dapat memperbaiki input\ndan menekan Simpan ulang
+        deactivate S
+    else jumlah > 0
+        S -> DB: Update stok barang (+jumlah) dan simpan riwayat (masuk)
+        activate DB
+        DB --> S: Berhasil
+        deactivate DB
+        S --> Admin: "Stok barang berhasil diperbarui"\n(memperbarui tampilan daftar stok)
+        deactivate S
+    end
+
+else Admin menekan "Riwayat Stok"
+    == Skenario Normal – Lihat Riwayat Perubahan Stok ==
+    S -> DB: Ambil riwayat perubahan stok barang terpilih
+    activate DB
+    DB --> S: Data riwayat (tanggal, jumlah masuk/keluar, keterangan)
+    deactivate DB
+    S --> Admin: Menampilkan riwayat stok barang
+    deactivate S
+
+    Admin -> S: Menutup halaman riwayat
+    activate S
+    S --> Admin: Kembali menampilkan daftar stok barang
+    deactivate S
+end
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+
+|Admin|
+start
+:Pilih menu "Kelola Stok" di dashboard;
+
+|Sistem|
+:Menampilkan daftar barang beserta jumlah stok saat ini;
+if (Ada barang dengan stok di bawah\nbatas minimum?) then (ya)
+    :Tampilkan notifikasi peringatan:\n"Stok barang [nama] hampir habis,\nsegera lakukan pengisian.";
+else (tidak)
+endif
+
+|Admin|
+:Pilih barang tertentu dari daftar;
+if (Aksi yang dipilih?) then (Tambah Stok)
+    :Klik tombol "Tambah Stok";
+    |Sistem|
+    :Menampilkan form isian jumlah\npenambahan stok beserta keterangan;
+    repeat
+        |Admin|
+        :Masukkan jumlah stok\nlalu klik tombol "Simpan";
+        |Sistem|
+        :Validasi jumlah stok;
+    repeat while (Jumlah <= 0?) is (ya)
+    :Tampilkan pesan peringatan:\n"Jumlah stok harus lebih dari 0.";
+    -> (tidak)
+    :Menambahkan jumlah stok pada\ndata barang yang dipilih di database;
+    :Menampilkan pesan:\n"Stok barang berhasil diperbarui";
+    :Memperbarui tampilan daftar stok;
+    stop
+else (Riwayat Stok)
+    :Klik tombol "Riwayat Stok";
+    |Sistem|
+    :Menampilkan riwayat perubahan stok\n(tanggal, jumlah masuk/keluar, keterangan);
+    |Admin|
+    :Melihat riwayat;
+    :Menutup halaman riwayat;
+    |Sistem|
+    :Kembali menampilkan daftar stok barang;
+    stop
+endif
+@enduml

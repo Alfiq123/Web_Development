@@ -1,0 +1,38 @@
+@startuml UC-08 Sequence Claude
+!theme plain
+
+start
+
+:Action_01;
+:Action_02;
+
+while (Action_03)
+    :Action_03;
+    :Action_04;
+endwhile
+
+:Action_05;
+:Action_06;
+
+
+while (Action_07)
+    if (???) then (Tidak)
+        :Action_071;
+        :Action_072;
+    else (Ya)
+    endif
+endwhile
+
+while (data available?) is (yes)
+    :Step 1;
+    if (Need to go back to top?) then (yes)
+        ' No actions here; flow goes to endif -> endwhile -> top
+    else (no)
+        :Step 2;
+        :Step 3;
+    endif
+endwhile (no)
+
+stop
+
+@enduml

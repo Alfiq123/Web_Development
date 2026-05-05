@@ -1,0 +1,47 @@
+@startuml UC 06 Claude Sonnet 4.6
+!theme plain
+!pragma useVerticalIf on
+
+title Activity Diagram - Laporan Transaksi
+
+start
+
+:Buka menu Laporan Transaksi;
+
+if (Ada transaksi\nberstatus "Selesai"?) then (Ya)
+    :Tampilkan seluruh riwayat transaksi\n(tanggal, pelanggan, barang, jumlah, total harga);
+
+    if (Admin ingin\nfilter periode?) then (Ya)
+        :Pilih rentang tanggal (dari - sampai)\nlalu tekan tombol Tampilkan;
+        :Cari dan saring data transaksi\nsesuai periode dari database;
+
+        if (Ada transaksi\npada periode tersebut?) then (Ya)
+            :Tampilkan hasil laporan transaksi\nbeserta total pendapatan keseluruhan;
+        else (Tidak)
+            :Tampilkan pesan\n"Tidak ada transaksi\npada periode yang dipilih";
+            stop
+        endif
+
+    else (Tidak)
+    endif
+
+if (Admin ingin\nlihat detail transaksi?) then (Ya)
+    :Pilih salah satu transaksi;
+    :Tampilkan detail nota\ntransaksi secara lengkap;
+else (Tidak)
+endif
+
+if (Admin ingin\ncetak / unduh laporan?) then (Ya)
+    :Tekan tombol Cetak / Unduh;
+    :Proses data laporan\nmenjadi file PDF;
+    :Unduh file PDF ke\nperangkat admin secara otomatis;
+else (Tidak)
+endif
+
+else (Tidak)
+    :Tampilkan pesan\n"Belum ada transaksi\nyang tercatat";
+endif
+
+stop
+
+@enduml

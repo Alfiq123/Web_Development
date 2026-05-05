@@ -1,0 +1,72 @@
+@startuml UC-03 Sequence Claude
+!theme plain
+title Sequence Diagram - Kelola Stok Barang
+
+actor Admin
+participant "Halaman Kelola Stok" as UI
+participant "Sistem" as Sys
+database "Database" as DB
+
+== Notifikasi Stok Minimum (Otomatis) ==
+
+Sys -> DB: Cek stok seluruh barang
+activate Sys
+activate DB
+DB --> Sys: Kembalikan data stok
+deactivate DB
+Sys -> Sys: Deteksi barang\ndi bawah batas minimum
+
+opt Ada barang dengan stok minimum
+    Sys --> UI: Tampilkan notifikasi\n"Stok [nama barang] hampir habis,\nsegera lakukan pengisian"
+    activate UI
+    deactivate UI
+    deactivate Sys
+end
+
+== Tambah Stok ==
+
+Admin -> UI: Buka menu Kelola Stok
+activate UI
+UI -> DB: Ambil daftar barang & stok
+activate DB
+DB --> UI: Kembalikan data barang
+deactivate DB
+UI --> Admin: Tampilkan daftar barang\nbeserta jumlah stok saat ini
+
+Admin -> UI: Pilih barang, tekan Tambah Stok
+UI --> Admin: Tampilkan form jumlah\npenambahan & keterangan pemasukan
+
+Admin -> UI: Masukkan jumlah stok,\ntekan tombol Simpan
+
+alt Jumlah stok kosong atau bernilai 0
+    UI --> Admin: Tampilkan peringatan\n"Jumlah stok harus lebih dari 0"
+    UI --> Admin: Tampilkan kembali form isian stok
+
+else Jumlah stok valid
+    UI -> Sys: Kirim data penambahan stok
+    activate Sys
+    Sys -> DB: Perbarui jumlah stok barang
+    activate DB
+    DB --> Sys: Stok berhasil diperbarui
+    deactivate DB
+    Sys --> UI: Konfirmasi pembaruan stok
+    deactivate Sys
+    UI --> Admin: Tampilkan pesan\n"Stok barang berhasil diperbarui"
+    UI --> Admin: Perbarui tampilan daftar stok
+    deactivate UI
+end
+
+== Lihat Riwayat Stok ==
+
+Admin -> UI: Pilih barang, tekan Riwayat Stok
+activate UI
+UI -> DB: Ambil riwayat perubahan stok barang
+activate DB
+DB --> UI: Kembalikan data riwayat\n(tanggal, jumlah masuk/keluar, keterangan)
+deactivate DB
+UI --> Admin: Tampilkan riwayat perubahan stok
+Admin -> UI: Tutup halaman riwayat
+UI --> Admin: Kembali ke daftar stok barang
+deactivate UI
+
+@enduml

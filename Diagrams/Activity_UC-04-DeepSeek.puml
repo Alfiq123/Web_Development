@@ -1,0 +1,57 @@
+@startuml UC-04 DeepSeek V4
+!theme plain
+!pragma useVerticalIf on
+
+start
+:Admin pilih menu "Data Pelanggan";
+
+' Memulai perulangan di sini
+repeat :Sistem menampilkan daftar pelanggan\n(nama, alamat, telepon, email);
+
+if (Pilih Aksi?) then (Lihat Detail)
+    :Admin pilih pelanggan;
+    :Sistem tampilkan halaman detail;
+    :Admin selesai, tutup;
+
+elseif (Pilih Aksi?) then (Ubah Data)
+    :Admin klik Edit;
+    :Sistem tampilkan form terisi;
+    :Admin ubah data, klik Simpan;
+    :Sistem perbarui data di database;
+    :Tampilkan pesan:\n"Data berhasil diperbarui";
+
+elseif (Pilih Aksi?) then (Hapus Data)
+    :Admin klik Hapus;
+    :Sistem tampilkan dialog konfirmasi;
+    if (Admin pilih?) then (Ya)
+        :Sistem periksa pesanan aktif;
+        if (Ada pesanan aktif?) then (Ya)
+            :Tampilkan peringatan:\n"Data tidak dapat dihapus\nkarena masih memiliki pesanan aktif.";
+        else (Tidak)
+            :Hapus data dari database;
+            :Tampilkan pesan "Data berhasil dihapus";
+        endif
+    else (Tidak / Batal)
+        :Tutup dialog konfirmasi;
+    endif
+
+elseif (Pilih Aksi?) then (Cari)
+    :Admin ketik nama pelanggan;
+    :Sistem cari data berdasarkan kata kunci;
+    if (Ditemukan?) then (Tidak)
+        :Tampilkan pesan "Data pelanggan tidak ditemukan.";
+    else (Ya)
+        :Tampilkan daftar hasil pencarian;
+    endif
+    ' Catatan: Saya menghapus "stop" di sini agar setelah mencari,
+    ' Admin tetap bisa kembali ke daftar menu.
+
+else (Keluar)
+    ' Jika pilih keluar, program benar-benar berhenti (memutus loop)
+    stop
+endif
+
+' Garis panah otomatis dikumpulkan dan diarahkan kembali ke atas dengan rapi
+repeat while (Selesai berinteraksi?) is (Lanjut ke Daftar)
+
+@enduml

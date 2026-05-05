@@ -1,0 +1,53 @@
+@startuml UC-08 Sequence Claude
+!theme plain
+
+skinparam ActivityDiamondBackgroundColor #FFFFFF
+skinparam ActivityDiamondBorderColor #333333
+skinparam ArrowColor #333333
+skinparam ActivityBorderColor #333333
+skinparam ActivityBackgroundColor #F5F5F5
+
+start
+
+:Pelanggan membuka aplikasi dan menekan tombol Daftar;
+
+while (Sistem menampilkan form registrasi\n(nama lengkap, alamat, no. telepon,\nemail, password, konfirmasi password))
+    :Pelanggan mengisi seluruh data pada form;
+    :Pelanggan menekan tombol Daftar;
+    :Sistem memvalidasi kelengkapan dan format data;
+
+    if (Semua kolom terisi?) then
+        -[Hidden]->
+        ' stop
+    else (Tidak)
+        :Sistem mendeteksi kolom wajib yang kosong;
+        :Sistem menampilkan peringatan\n"Harap lengkapi semua data yang wajib diisi"\ndan menandai kolom yang kosong;
+        :Sistem kembali menampilkan form registrasi;
+    endif
+endwhile (Ya)
+
+if (Password dan konfirmasi password cocok?) then (Tidak)
+    :Sistem mendeteksi ketidakcocokan password;
+    :Sistem menampilkan peringatan\n"Password dan konfirmasi password tidak cocok";
+    :Sistem mengosongkan kolom password\ndan konfirmasi password;
+    stop
+else (Ya)
+endif
+
+:Sistem memeriksa email di database;
+
+if (Email sudah terdaftar?) then (Ya)
+    :Sistem mendeteksi email sudah ada di database;
+    :Sistem menampilkan peringatan\n"Email sudah terdaftar, silakan gunakan\nemail lain atau login";
+    :Sistem mengosongkan kolom email;
+    stop
+else (Tidak)
+endif
+
+:Sistem menyimpan data akun pelanggan baru ke database;
+:Sistem menampilkan pesan\n"Registrasi berhasil, silakan login dengan akun Anda";
+:Sistem mengarahkan ke halaman login;
+
+stop
+
+@enduml

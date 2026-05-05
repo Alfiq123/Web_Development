@@ -1,0 +1,76 @@
+@startuml Kelola Data Barang
+!theme plain
+' skinparam activityBackgroundColor #EAF3DE
+' skinparam activityBorderColor #3B6D11
+' skinparam activityDiamondBackgroundColor #FAEEDA
+' skinparam activityDiamondBorderColor #854F0B
+' skinparam activityEndColor #27500A
+' skinparam activityStartColor #27500A
+' skinparam arrowColor #3B6D11
+skinparam defaulttextalignment center
+
+title Activity Diagram - Kelola Data Barang
+
+start
+
+:Admin membuka menu Data Barang;
+:Sistem menampilkan daftar barang;
+
+fork
+    -> Tambah Barang;
+    :Admin menekan tombol Tambah Barang;
+    :Sistem menampilkan form isian
+    (nama, kategori, harga, stok, foto);
+    :Admin mengisi form dan menekan Simpan;
+    if (Semua kolom wajib terisi?) then (Ya)
+        :Sistem menyimpan data ke database;
+        :Sistem menampilkan pesan
+        "Data barang berhasil ditambahkan";
+        :Sistem memperbarui daftar barang;
+    else (Tidak)
+        :Sistem menampilkan pesan
+        "Harap lengkapi semua data wajib";
+        :Sistem menandai kolom\nkosong dengan merah;
+        :Kembali menampilkan form;
+        stop
+    endif
+
+fork again
+    -> Ubah Barang;
+    :Admin memilih barang dan menekan Edit;
+    :Sistem menampilkan form terisi\ndata barang yang dipilih;
+    :Admin mengubah data dan menekan Simpan;
+    if (Semua kolom wajib terisi?) then (Ya)
+        :Sistem memperbarui data di database;
+        :Sistem menampilkan pesan\n"Data barang berhasil diperbarui";
+    else (Tidak)
+        :Sistem menampilkan pesan
+        "Harap lengkapi semua data wajib";
+        :Sistem menandai kolom\nkosong dengan merah;
+        :Kembali menampilkan form;
+        stop
+    endif
+
+fork again
+    -> Hapus Barang;
+    :Admin memilih barang dan menekan Hapus;
+    :Sistem menampilkan dialog konfirmasi
+    "Apakah Anda yakin ingin menghapus?";
+    if (Admin mengonfirmasi?) then (Ya)
+        :Sistem menghapus data dari database;
+        :Sistem menampilkan pesan
+        "Data barang berhasil dihapus";
+        :Sistem memperbarui daftar barang;
+    else (Tidak)
+        :Sistem menutup dialog;
+        :Kembali menampilkan daftar\nbarang tanpa perubahan;
+        stop
+    endif
+
+end fork
+
+:Sistem menampilkan daftar barang terkini;
+
+stop
+
+@enduml
