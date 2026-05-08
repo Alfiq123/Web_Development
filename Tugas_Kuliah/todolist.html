@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entry Data Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            display: inline-block;
+            width: 120px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            padding: 8px;
+            width: 220px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .form-container .form-row {
+            margin-bottom: 8px;
+        }
+
+        .btn-tambah {
+            padding: 9px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .btn-tambah:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background-color: #3a7bd5;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .btn-hapus {
+            padding: 6px 12px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .btn-hapus:hover {
+            background-color: #c0392b;
+        }
+
+        #pesanKosong {
+            color: #999;
+            font-style: italic;
+            padding: 12px 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Entry Data Mahasiswa</h2>
+
+    <div class="form-container">
+        <div class="form-row">
+            <label for="inputNIM">NIM</label>
+            <input type="text" id="inputNIM" placeholder="Contoh: 12345678">
+        </div>
+        <div class="form-row">
+            <label for="inputNama">Nama</label>
+            <input type="text" id="inputNama" placeholder="Nama lengkap">
+        </div>
+        <div class="form-row">
+            <label for="inputJurusan">Jurusan</label>
+            <input type="text" id="inputJurusan" placeholder="Contoh: Informatika">
+        </div>
+        <button class="btn-tambah" onclick="tambahMahasiswa()">Tambah Data</button>
+    </div>
+
+    <table id="tabelMahasiswa">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Jurusan</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="bodyTabel">
+            <tr id="barisKosong">
+                <td colspan="5" id="pesanKosong">Belum ada data mahasiswa.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let nomor = 1;
+
+        // Tekan Enter di input terakhir = tambah data
+        document.getElementById("inputJurusan").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") tambahMahasiswa();
+        });
+
+        function tambahMahasiswa() {
+            const nim      = document.getElementById("inputNIM").value.trim();
+            const nama     = document.getElementById("inputNama").value.trim();
+            const jurusan  = document.getElementById("inputJurusan").value.trim();
+
+            if (nim === "" || nama === "" || jurusan === "") {
+                alert("Semua field harus diisi!");
+                return;
+            }
+
+            // Sembunyikan baris "belum ada data" jika masih ada
+            const barisKosong = document.getElementById("barisKosong");
+            if (barisKosong) {
+                barisKosong.remove();
+            }
+
+            const tbody = document.getElementById("bodyTabel");
+
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>${nomor++}</td>
+                <td>${nim}</td>
+                <td>${nama}</td>
+                <td>${jurusan}</td>
+                <td>
+                    <button class="btn-hapus" onclick="hapusBaris(this)">Hapus</button>
+                </td>
+            `;
+
+            tbody.appendChild(tr);
+
+            // Reset input
+            document.getElementById("inputNIM").value = "";
+            document.getElementById("inputNama").value = "";
+            document.getElementById("inputJurusan").value = "";
+            document.getElementById("inputNIM").focus();
+        }
+
+        function hapusBaris(tombol) {
+            const baris = tombol.closest("tr");
+            baris.remove();
+
+            // Jika tabel sudah kosong, tampilkan pesan lagi
+            const tbody = document.getElementById("bodyTabel");
+            if (tbody.rows.length === 0) {
+                const tr = document.createElement("tr");
+                tr.id = "barisKosong";
+                tr.innerHTML = `<td colspan="5" id="pesanKosong">Belum ada data mahasiswa.</td>`;
+                tbody.appendChild(tr);
+                nomor = 1; // Reset nomor
+            }
+
+            // Update nomor urut
+            updateNomor();
+        }
+
+        function updateNomor() {
+            const rows = document.querySelectorAll("#bodyTabel tr:not(#barisKosong)");
+            rows.forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
+            nomor = rows.length + 1;
+        }
+    </script>
+
+</body>
+
+</html>

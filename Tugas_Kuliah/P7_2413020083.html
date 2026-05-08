@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contoh To-Do List Sederhana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f5f5f5;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin-left: 5px;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        .form-container label {
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            width: 120px;
+        }
+
+        .form-container input {
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 220px;
+        }
+
+        .form-container .form-baris {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 700px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background-color: #1B3C53;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+<h2>Data Mahasiswa</h2>
+
+<div class="form-container">
+    <div class="form-baris">
+        <label for="inputNPM">NPM</label>
+        <input type="text" id="inputNPM" placeholder="Contoh: 2413000000">
+    </div>
+    <div class="form-baris">
+        <label for="inputNama">Nama</label>
+        <input type="text" id="inputNama" placeholder="Contoh: John Doe">
+    </div>
+    <div class="form-baris">
+        <label for="inputWA">Nomor WA</label>
+        <input type="tel" id="inputWA" placeholder="Contoh: 0000-0000-0000" pattern="(62)[0-9]{5,20}">
+    </div>
+    <div class="form-baris">
+        <label for="inputEmail">Email</label>
+        <input type="email" id="inputEmail" placeholder="Contoh: johndoe@gmail.com">
+    </div>
+    <div class="form-baris">
+        <label for="inputJurusan">Jurusan</label>
+        <input type="text" id="inputJurusan" placeholder="Contoh: Informatika">
+    </div>
+    <button onclick="tambahMahasiswa()">Tambah Data</button>
+</div>
+
+<table>
+    <thead id="tabelHead">
+    <tr>
+        <th>No</th>
+        <th>NPM</th>
+        <th>Nama</th>
+        <th>Nomor WA</th>
+        <th>Email</th>
+        <th>Jurusan</th>
+        <th>Aksi</th>
+    </tr>
+    </thead>
+    <tbody id="tabelBody">
+    <tr id="barisKosong">
+        <td colspan="5" id="pesanKosong">Data masih kosong...</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    let nomor = 1;
+
+    document.querySelector("#inputJurusan").addEventListener("keypress", (event) => {
+        if (event.key === "Enter") tambahMahasiswa()
+    })
+
+    function tambahMahasiswa() {
+        const npm = document.querySelector("#inputNPM").value;
+        const nama = document.querySelector("#inputNama").value;
+        const noWA = document.querySelector("#inputWA").value;
+        const email = document.querySelector("#inputEmail").value;
+        const jurusan = document.querySelector("#inputJurusan").value;
+
+        if (npm === "" || nama === "" || noWA === "" || email === "" || jurusan === "") {
+            alert("Semua field harus diisi!");
+            return;
+        }
+
+        const barisKosong = document.querySelector("#barisKosong");
+        if (barisKosong) { barisKosong.remove(); }
+
+        const tabelBody = document.querySelector("#tabelBody");
+        const tabelBaris = document.createElement("tr")
+
+        tabelBaris.innerHTML = `
+            <td>${nomor++}</td>
+            <td>${npm}</td>
+            <td>${nama}</td>
+            <td>${noWA}</td>
+            <td>${email}</td>
+            <td>${jurusan}</td>
+            <td> <button onclick="hapusMahasiswa(this)">Hapus</button> </td>
+        `;
+
+        tabelBody.appendChild(tabelBaris);
+
+        document.querySelector("#inputNPM").value = "";
+        document.querySelector("#inputNama").value = "";
+        document.querySelector("#inputWA").value = "";
+        document.querySelector("#inputJurusan").value = "";
+        document.querySelector("#inputEmail").value = "";
+        document.querySelector("#inputNPM").focus();
+    }
+
+    function hapusMahasiswa(tombol) {
+        const baris = tombol.closest("tr");
+        baris.remove();
+    }
+</script>
+
+</body>
+
+</html>
