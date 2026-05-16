@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexaCloud – Platform Digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">⚡ NexaCloud</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#fitur">Fitur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#harga">Harga</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalDaftar"></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-dark text-white py-5">
+        <div class="container text-center py-5">
+            <span class="badge bg-primary mb-3 px-3 py-2 fs-6">🚀 Platform No. 1 di Indonesia</span>
+            <h1 class="display-4 fw-bold mb-3">Kelola Bisnis Digital<br>Lebih Mudah & Cepat</h1>
+            <p class="lead text-secondary mb-4">NexaCloud menyediakan infrastruktur cloud terpercaya untuk startup hingga enterprise. Mulai gratis, tanpa kartu kredit.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <button class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalDaftar">Mulai Gratis Sekarang</button>
+                <button class="btn btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalDemo"><i class="bi bi-play-circle me-1"></i> Lihat Demo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FITUR -->
+    <section id="fitur" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-2">Fitur Unggulan</h2>
+            <p class="text-center text-muted mb-5">Semua yang kamu butuhkan ada di satu platform</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="fs-1 mb-3">☁️</div>
+                        <h5 class="fw-bold">Cloud Storage</h5>
+                        <p class="text-muted">Simpan dan akses data dari mana saja dengan keamanan tingkat enterprise.
+                        </p>
+                        <button class="btn btn-outline-primary btn-sm mt-auto" data-bs-toggle="modal" data-bs-target="#modalFitur" data-fitur="Cloud Storage">Selengkapnya</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="fs-1 mb-3">📊</div>
+                        <h5 class="fw-bold">Analytics Realtime</h5>
+                        <p class="text-muted">Pantau performa bisnis secara langsung dengan dashboard yang intuitif.</p>
+                        <button class="btn btn-outline-primary btn-sm mt-auto" data-bs-toggle="modal" data-bs-target="#modalFitur" data-fitur="Analytics Realtime">Selengkapnya</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4">
+                        <div class="fs-1 mb-3">🔒</div>
+                        <h5 class="fw-bold">Keamanan Berlapis</h5>
+                        <p class="text-muted">Enkripsi end-to-end dan autentikasi dua faktor untuk melindungi datamu.</p>
+                        <button class="btn btn-outline-primary btn-sm mt-auto" data-bs-toggle="modal" data-bs-target="#modalFitur" data-fitur="Keamanan Berlapis">Selengkapnya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HARGA -->
+    <section id="harga" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-2">Paket Harga</h2>
+            <p class="text-center text-muted mb-5">Pilih paket yang sesuai kebutuhanmu</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 border text-center p-4">
+                        <h5 class="fw-bold">Starter</h5>
+                        <div class="display-6 fw-bold my-3">Gratis</div>
+                        <ul class="list-unstyled text-muted mb-4">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> 5 GB Storage</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> 1 Pengguna</li>
+                            <li class="mb-1"><i class="bi bi-x-circle-fill text-danger me-1"></i> Analytics</li>
+                        </ul>
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalDaftar">Pilih Paket</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-primary border-2 text-center p-4 position-relative">
+                        <span class="badge bg-primary position-absolute top-0 start-50 translate-middle">Populer</span>
+                        <h5 class="fw-bold text-primary">Pro</h5>
+                        <div class="display-6 fw-bold my-3">Rp 99k<span class="fs-6 text-muted fw-normal">/bln</span>
+                        </div>
+                        <ul class="list-unstyled text-muted mb-4">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> 100 GB Storage</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> 10 Pengguna</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> Analytics Realtime</li>
+                        </ul>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDaftar">Pilih Paket</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border text-center p-4">
+                        <h5 class="fw-bold">Enterprise</h5>
+                        <div class="display-6 fw-bold my-3">Custom</div>
+                        <ul class="list-unstyled text-muted mb-4">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> Unlimited Storage</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> Unlimited Pengguna</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i> Dedicated Support
+                            </li>
+                        </ul>
+                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modalKontak">Hubungi Kami</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TENTANG -->
+    <section id="tentang" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3">Tentang NexaCloud</h2>
+                    <p class="text-secondary">NexaCloud didirikan pada 2022 oleh tim engineer berpengalaman yang percaya bahwa teknologi cloud seharusnya mudah diakses oleh semua kalangan bisnis di Indonesia.</p>
+                    <p class="text-secondary">Hingga kini kami telah melayani lebih dari <strong class="text-white">10.000+ pengguna aktif</strong> dari berbagai industri.</p>Tim Kami</button>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-3 text-center">
+                        <div class="col-6">
+                            <div class="bg-secondary bg-opacity-25 rounded p-4">
+                                <div class="display-5 fw-bold text-primary">10K+</div>
+                                <div class="text-secondary">Pengguna Aktif</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-secondary bg-opacity-25 rounded p-4">
+                                <div class="display-5 fw-bold text-primary">99.9%</div>
+                                <div class="text-secondary">Uptime</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-secondary bg-opacity-25 rounded p-4">
+                                <div class="display-5 fw-bold text-primary">34</div>
+                                <div class="text-secondary">Kota di Indonesia</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="bg-secondary bg-opacity-25 rounded p-4">
+                                <div class="display-5 fw-bold text-primary">24/7</div>
+                                <div class="text-secondary">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-secondary text-center py-4">
+        <p class="mb-0">© 2025 NexaCloud. Dibuat dengan ❤️ di Indonesia.</p>
+    </footer>
+
+
+    <!-- MODAL: DAFTAR -->
+    <div class="modal fade" id="modalDaftar" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Daftar Akun Gratis</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Isi form berikut untuk membuat akun NexaCloud kamu.</p>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Contoh: Budi Santoso" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="email@contoh.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Minimal 8 karakter" />
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="setuju" />
+                        <label class="form-check-label text-muted" for="setuju">Saya menyetujui <a href="#">Syarat & Ketentuan</a></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="btnDaftar">Buat Akun</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: DEMO -->
+    <div class="modal fade" id="modalDemo" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold"><i class="bi bi-play-circle me-2 text-primary"></i>Demo NexaCloud</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-5">
+                    <div class="bg-dark rounded p-5 mb-3">
+                        <div class="display-1 mb-3">📺</div>
+                        <p class="text-white">Video demo akan ditampilkan di sini.</p>
+                        <button class="btn btn-primary btn-lg"><i class="bi bi-play-fill me-1"></i> Putar Demo</button>
+                    </div>
+                    <p class="text-muted mt-3">Durasi: ±3 menit · Tidak perlu login</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDaftar">Coba Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: FITUR DETAIL -->
+    <div class="modal fade" id="modalFitur" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalFiturJudul">Detail Fitur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalFiturIsi">
+                    <p>Memuat detail fitur...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDaftar">Mulai Gratis</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: KONTAK -->
+    <div class="modal fade" id="modalKontak" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Hubungi Kami</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">Tim kami siap membantu kebutuhan enterprise kamu.</p>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Perusahaan</label>
+                        <input type="text" class="form-control" placeholder="PT. Contoh Indonesia" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Bisnis</label>
+                        <input type="email" class="form-control" placeholder="bisnis@perusahaan.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Pesan</label>
+                        <textarea class="form-control" rows="3" placeholder="Ceritakan kebutuhan kamu..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-dark">Kirim Pesan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: TIM -->
+    <div class="modal fade" id="modalTim" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Tim NexaCloud</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex align-items-center gap-3 py-3">
+                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="width:48px;height:48px;">AR</div>
+                            <div>
+                                <div class="fw-bold">Andi Rahmat</div>
+                                <div class="text-muted small">CEO & Co-Founder</div>
+                            </div>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center gap-3 py-3">
+                            <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold"
+                                style="width:48px;height:48px;">DS</div>
+                            <div>
+                                <div class="fw-bold">Dewi Sari</div>
+                                <div class="text-muted small">CTO & Lead Engineer</div>
+                            </div>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center gap-3 py-3">
+                            <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center fw-bold" style="width:48px;height:48px;">BP</div>
+                            <div>
+                                <div class="fw-bold">Bayu Pratama</div>
+                                <div class="text-muted small">Head of Product</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: SUKSES DAFTAR -->
+    <div class="modal fade" id="modalSukses" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content text-center p-4">
+                <div class="display-1 mb-2">🎉</div>
+                <h5 class="fw-bold">Pendaftaran Berhasil!</h5>
+                <p class="text-muted">Cek email kamu untuk verifikasi akun.</p>
+                <button class="btn btn-primary w-100" data-bs-dismiss="modal">Oke, Mengerti!</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Modal Fitur: tampilkan konten dinamis
+        const modalFitur = document.getElementById("modalFitur");
+        const deskripsi = {
+            "Cloud Storage": `<ul class="list-unstyled">
+                <li class="mb-2">✅ Kapasitas mulai dari 5 GB hingga Unlimited</li>
+                <li class="mb-2">✅ Sinkronisasi otomatis semua perangkat</li>
+                <li class="mb-2">✅ Backup harian dengan retensi 30 hari</li>
+                <li class="mb-2">✅ Enkripsi AES-256 untuk semua file</li>
+                <li class="mb-2">✅ Akses via Web, Android & iOS</li>
+            </ul>`,
+            "Analytics Realtime": `<ul class="list-unstyled">
+                <li class="mb-2">✅ Dashboard interaktif dengan grafik live</li>
+                <li class="mb-2">✅ Laporan harian, mingguan, dan bulanan</li>
+                <li class="mb-2">✅ Ekspor data ke Excel / CSV</li>
+                <li class="mb-2">✅ Alert otomatis jika ada anomali</li>
+                <li class="mb-2">✅ Integrasi dengan Google Sheets</li>
+            </ul>`,
+            "Keamanan Berlapis": `<ul class="list-unstyled">
+                <li class="mb-2">✅ Enkripsi end-to-end (E2EE)</li>
+                <li class="mb-2">✅ Autentikasi dua faktor (2FA)</li>
+                <li class="mb-2">✅ Log aktivitas lengkap</li>
+                <li class="mb-2">✅ Pemindaian malware otomatis</li>
+                <li class="mb-2">✅ Kepatuhan ISO 27001</li>
+            </ul>`
+        };
+        modalFitur.addEventListener("show.bs.modal", e => {
+            const fitur = e.relatedTarget.getAttribute("data-fitur");
+            document.getElementById("modalFiturJudul").textContent = fitur;
+            document.getElementById("modalFiturIsi").innerHTML = deskripsi[fitur] || ""<p>Informasi tidak tersedia.</p>"";
+        });
+
+        // Tombol Daftar -> tutup modal daftar, buka modal sukses
+        document.getElementById("btnDaftar").addEventListener("click", () => {
+            bootstrap.Modal.getInstance(document.getElementById("modalDaftar")).hide();
+            setTimeout(() => new bootstrap.Modal(document.getElementById("modalSukses")).show(), 400);
+        });
+    </script>
+</body>
+
+</html>

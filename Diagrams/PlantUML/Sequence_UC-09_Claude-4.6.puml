@@ -1,0 +1,64 @@
+@startuml Login Pelanggan
+title Sequence Diagram - Login Pelanggan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+Pelanggan -> UI : Membuka aplikasi Donny's Store
+activate UI
+UI --> Pelanggan : Tampilkan form login\n(email, password, tombol Login, tautan Daftar)
+
+Pelanggan -> UI : Memasukkan email & password\nlalu menekan tombol Login
+UI -> SYS : Submit data login
+activate SYS
+
+SYS -> SYS : Validasi kelengkapan kolom
+
+alt Kolom email & password terisi
+
+    SYS -> DB : Validasi email & password\nke tabel pelanggan
+    activate DB
+    DB --> SYS : Return hasil validasi
+
+    alt Email & password cocok
+
+        SYS -> SYS : Membuat sesi login pelanggan
+        SYS --> UI : Redirect ke halaman utama\n(katalog barang)
+        UI --> Pelanggan : Menampilkan halaman utama
+
+    else Email tidak ditemukan di database
+
+        SYS --> UI : "Akun tidak ditemukan, silakan\ndaftar terlebih dahulu." &\ntautan ke halaman registrasi
+        UI --> Pelanggan : Kembali tampilkan form login
+
+    else Email atau password tidak cocok
+
+        SYS --> UI : "Email atau password yang\nAnda masukkan salah."
+        UI --> Pelanggan : Kembali tampilkan form login\ndengan kolom password dikosongkan
+
+        Pelanggan -> UI : Memasukkan ulang email & password\nyang benar lalu menekan tombol Login
+        UI -> SYS : Submit ulang data login
+        SYS -> DB : Validasi ulang email & password
+        DB --> SYS : Return data cocok
+        deactivate DB
+        SYS -> SYS : Membuat sesi login pelanggan
+        SYS --> UI : Redirect ke halaman utama
+        UI --> Pelanggan : Menampilkan halaman utama
+
+    end
+
+else Kolom email atau password kosong
+
+    SYS --> UI : "Email dan password\ntidak boleh kosong."
+    deactivate SYS
+    UI --> Pelanggan : Kembali tampilkan form login\nuntuk diisi ulang
+    deactivate UI
+
+end
+
+@enduml

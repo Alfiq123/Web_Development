@@ -1,0 +1,58 @@
+@startuml Registrasi Pelanggan
+title Sequence Diagram - Registrasi Pelanggan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+Pelanggan -> UI : Membuka aplikasi &\nmenekan tombol Daftar
+activate UI
+UI --> Pelanggan : Tampilkan form registrasi\n(nama lengkap, alamat, no. telepon,\nemail, password, konfirmasi password)
+
+Pelanggan -> UI : Mengisi seluruh data pada form registrasi
+Pelanggan -> UI : Menekan tombol Daftar
+UI -> SYS : Submit data registrasi
+activate SYS
+
+SYS -> SYS : Validasi kelengkapan\n& format data
+
+alt Data lengkap & format valid
+
+    SYS -> DB : Periksa apakah email sudah terdaftar
+    activate DB
+    DB --> SYS : Return status email
+
+    alt Email belum terdaftar
+
+        SYS -> DB : Simpan data akun pelanggan baru
+        DB --> SYS : Konfirmasi penyimpanan berhasil
+        deactivate DB
+        SYS --> UI : "Registrasi berhasil, silakan login\ndengan akun Anda."
+        UI --> Pelanggan : Mengarahkan ke halaman login
+
+    else Email sudah terdaftar
+
+        SYS --> UI : "Email sudah terdaftar, silakan\ngunakan email lain atau login."
+        UI --> Pelanggan : Kembali tampilkan form registrasi\ndengan kolom email dikosongkan
+
+    end
+
+else Form tidak lengkap
+
+    SYS --> UI : "Harap lengkapi semua data\nyang wajib diisi" &\ntandai kolom yang kosong
+    UI --> Pelanggan : Kembali tampilkan form registrasi\nuntuk dilengkapi
+
+else Password tidak cocok
+
+    SYS --> UI : "Password dan konfirmasi\npassword tidak cocok."
+    deactivate SYS
+    UI --> Pelanggan : Kosongkan kolom password\n& konfirmasi password untuk diisi ulang
+    deactivate UI
+
+end
+
+@enduml

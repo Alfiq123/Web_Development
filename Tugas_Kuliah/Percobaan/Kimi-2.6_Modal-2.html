@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Interaktif - BrandKu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1060;"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">BrandKu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fitur">Fitur</a></li>
+                <li class="nav-item"><a class="nav-link" href="#statistik">Statistik</a></li>
+                <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+            </ul>
+            <button class="btn btn-outline-light btn-sm ms-lg-3" id="btnTema">Toggle Tema</button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="beranda" class="bg-light pt-5 mt-5 pb-5">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3" id="heroTitle">Selamat Datang di BrandKu</h1>
+                <p class="lead text-secondary mb-4" id="heroDesc">
+                    Kami menyediakan solusi terbaik untuk kebutuhan digital Anda.
+                </p>
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-primary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#ctaModal">
+                        Mulai Sekarang
+                    </button>
+                    <button class="btn btn-outline-secondary btn-lg px-4" id="btnInfo">
+                        Info Detail
+                    </button>
+                </div>
+                <div id="infoBox" class="alert alert-info mt-4 d-none" role="alert">
+                    BrandKu telah melayani <strong>500+</strong> klien sejak 2020 dengan tingkat kepuasan <strong>98%</strong>.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="fitur" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Mengapa Memilih Kami?</h2>
+            <p class="text-secondary">Kelebihan yang kami tawarkan untuk Anda</p>
+        </div>
+        <div class="row text-center g-4" id="featuresRow">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body p-4">
+                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Cepat & Efisien</h5>
+                        <p class="card-text text-secondary">Proses kerja optimal dengan hasil berkualitas tinggi.</p>
+                        <button class="btn btn-sm btn-outline-primary mt-2 btn-detail" data-fitur="cepat">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body p-4">
+                        <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+                                <path d="M5.338 1.59A61.44 61.44 0 0 1 8 1c.78 0 1.5.09 2.16.25.67.17 1.3.42 1.9.72.6.3 1.15.66 1.65 1.08.5.42.95.9 1.33 1.43.38.53.7 1.1.95 1.7.25.6.43 1.24.53 1.9.1.66.15 1.34.15 2.02 0 .68-.05 1.36-.15 2.02-.1.66-.28 1.3-.53 1.9-.25.6-.57 1.17-.95 1.7-.38.53-.83 1.01-1.33 1.43-.5.42-1.05.78-1.65 1.08-.6.3-1.23.55-1.9.72A7.96 7.96 0 0 1 8 15c-.78 0-1.5-.09-2.16-.25a7.5 7.5 0 0 1-1.9-.72 6.7 6.7 0 0 1-1.65-1.08 5.8 5.8 0 0 1-1.33-1.43 5.3 5.3 0 0 1-.95-1.7c-.25-.6-.43-1.24-.53-1.9A7.56 7.56 0 0 1 0 8c0-.68.05-1.36.15-2.02.1-.66.28-1.3.53-1.9.25-.6.57-1.17.95-1.7.38-.53.83-1.01 1.33-1.43.5-.42 1.05-.78 1.65-1.08.6-.3 1.23-.55 1.9-.72A7.96 7.96 0 0 1 8 1zm0 1c-.66 0-1.28.08-1.87.23-.59.15-1.14.37-1.65.65-.51.28-.97.62-1.39 1.01-.42.39-.78.83-1.08 1.32-.3.49-.54 1.02-.72 1.58-.18.56-.31 1.15-.38 1.77-.07.62-.11 1.26-.11 1.91 0 .65.04 1.29.11 1.91.07.62.2 1.21.38 1.77.18.56.42 1.09.72 1.58.3.49.66.93 1.08 1.32.42.39.88.73 1.39 1.01.51.28 1.06.5 1.65.65.59.15 1.21.23 1.87.23.66 0 1.28-.08 1.87-.23.59-.15 1.14-.37 1.65-.65.51-.28.97-.62 1.39-1.01.42-.39.78-.83 1.08-1.32.3-.49.54-1.02.72-1.58.18-.56.31-1.15.38-1.77.07-.62.11-1.26.11-1.91 0-.65-.04-1.29-.11-1.91-.07-.62-.2-1.21-.38-1.77-.18-.56-.42-1.09-.72-1.58-.3-.49-.66-.93-1.08-1.32-.42-.39-.88-.73-1.39-1.01-.51-.28-1.06-.5-1.65-.65A7.96 7.96 0 0 0 8 2zm2.854 4.854a.5.5 0 0 0-.708-.708L7.5 6.793 6.354 5.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Aman & Terpercaya</h5>
+                        <p class="card-text text-secondary">Keamanan data dan privasi adalah prioritas utama.</p>
+                        <button class="btn btn-sm btn-outline-success mt-2 btn-detail" data-fitur="aman">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm feature-card">
+                    <div class="card-body p-4">
+                        <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 64px; height: 64px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                                <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                            </svg>
+                        </div>
+                        <h5 class="card-title">Dukungan 24/7</h5>
+                        <p class="card-text text-secondary">Tim support siap membantu kapan saja.</p>
+                        <button class="btn btn-sm btn-outline-warning mt-2 btn-detail" data-fitur="dukungan">Lihat Detail</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dynamic Detail Container -->
+        <div id="detailContainer" class="mt-4 d-none">
+            <div class="alert alert-secondary" role="alert">
+                <h6 class="alert-heading" id="detailTitle">Detail</h6>
+                <p class="mb-0" id="detailText"></p>
+                <button type="button" class="btn-close float-end" id="closeDetail" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistik Section dengan Counter Animasi -->
+<section id="statistik" class="bg-light py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Statistik Kami</h2>
+            <p class="text-secondary">Pencapaian yang telah kami raih</p>
+        </div>
+        <div class="row text-center g-4">
+            <div class="col-md-3 col-6">
+                <div class="p-3">
+                    <h3 class="display-5 fw-bold text-primary">
+                        <span class="counter" data-target="500">0</span>+
+                    </h3>
+                    <p class="text-secondary">Klien Puas</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-3">
+                    <h3 class="display-5 fw-bold text-success">
+                        <span class="counter" data-target="98">0</span>%
+                    </h3>
+                    <p class="text-secondary">Tingkat Kepuasan</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-3">
+                    <h3 class="display-5 fw-bold text-warning">
+                        <span class="counter" data-target="24">0</span>/7
+                    </h3>
+                    <p class="text-secondary">Jam Layanan</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="p-3">
+                    <h3 class="display-5 fw-bold text-danger">
+                        <span class="counter" data-target="150">0</span>+
+                    </h3>
+                    <p class="text-secondary">Proyek Selesai</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kontak Section -->
+<section id="kontak" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-body p-5">
+                        <h3 class="text-center mb-4">Formulir Kontak</h3>
+                        <form id="formKontak" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="kontakNama" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="kontakNama" required>
+                                    <div class="invalid-feedback">Nama tidak boleh kosong.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="kontakEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="kontakEmail" required>
+                                    <div class="invalid-feedback">Masukkan email yang valid.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="kontakSubjek" class="form-label">Subjek</label>
+                                    <select class="form-select" id="kontakSubjek" required>
+                                        <option value="" selected disabled>Pilih subjek...</option>
+                                        <option value="konsultasi">Konsultasi</option>
+                                        <option value="penawaran">Penawaran</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                                    <div class="invalid-feedback">Pilih subjek pesan.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="kontakPesan" class="form-label">Pesan</label>
+                                    <textarea class="form-control" id="kontakPesan" rows="4" required minlength="10"></textarea>
+                                    <div class="invalid-feedback">Pesan minimal 10 karakter.</div>
+                                    <div class="form-text text-end"><span id="charCount">0</span>/500 karakter</div>
+                                </div>
+                                <div class="col-12 d-flex justify-content-between align-items-center">
+                                    <button type="button" class="btn btn-outline-danger" id="btnReset">Reset</button>
+                                    <button type="submit" class="btn btn-primary px-5" id="btnSubmit">
+                                        <span class="spinner-border spinner-border-sm d-none" id="submitSpinner"></span>
+                                        Kirim Pesan
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-primary text-white py-5">
+    <div class="container text-center">
+        <h2 class="mb-3">Siap Memulai Proyek Anda?</h2>
+        <p class="lead mb-4">Hubungi kami sekarang dan dapatkan konsultasi gratis.</p>
+        <button class="btn btn-light btn-lg px-5 fw-semibold text-primary" data-bs-toggle="modal" data-bs-target="#ctaModal">
+            Hubungi Kami
+        </button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <p class="mb-2">&copy; <span id="yearFooter">2026</span> BrandKu. All rights reserved.</p>
+        <small class="text-secondary">Waktu akses: <span id="waktuAkses"></span></small>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button type="button" class="btn btn-primary btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 d-none" id="btnTop" style="width: 50px; height: 50px; z-index: 1040;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+    </svg>
+</button>
+
+<!-- Modal CTA -->
+<div class="modal fade" id="ctaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Mulai Perjalanan Anda</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formCta" novalidate>
+                    <div class="mb-3">
+                        <label for="ctaNama" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="ctaNama" required minlength="3">
+                        <div class="invalid-feedback">Nama minimal 3 karakter.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ctaEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="ctaEmail" required>
+                        <div class="invalid-feedback">Email tidak valid.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ctaTelp" class="form-label">No. Telepon</label>
+                        <input type="tel" class="form-control" id="ctaTelp" placeholder="0812xxxxxxx">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-primary" id="btnCtaSubmit">
+                    <span class="spinner-border spinner-border-sm d-none" id="ctaSpinner"></span>
+                    Kirim
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript DOM -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // 1. SET TAHUN & WAKTU DINAMIS
+        const now = new Date();
+        document.getElementById('yearFooter').textContent = now.getFullYear();
+        document.getElementById('waktuAkses').textContent = now.toLocaleString('id-ID');
+
+        // 2. TOGGLE INFO BOX
+        const btnInfo = document.getElementById('btnInfo');
+        const infoBox = document.getElementById('infoBox');
+        btnInfo.addEventListener('click', function() {
+            infoBox.classList.toggle('d-none');
+            this.textContent = infoBox.classList.contains('d-none') ? 'Info Detail' : 'Sembunyikan Info';
+            this.classList.toggle('btn-outline-secondary');
+            this.classList.toggle('btn-secondary');
+        });
+
+        // 3. SMOOTH SCROLLING UNTUK NAV LINKS
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const pos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: pos, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // 4. TOGGLE TEMA (LIGHT/DARK) - Murni Bootstrap class
+        const btnTema = document.getElementById('btnTema');
+        let isDark = false;
+        btnTema.addEventListener('click', function() {
+            isDark = !isDark;
+            document.body.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+            this.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+            this.classList.toggle('btn-outline-light');
+            this.classList.toggle('btn-light');
+            this.classList.toggle('text-dark');
+        });
+
+        // 5. COUNTER ANIMATION DENGAN INTERSECTION OBSERVER
+        const counters = document.querySelectorAll('.counter');
+        const observerOptions = { threshold: 0.5 };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    const step = Math.ceil(target / (duration / 16));
+                    let current = 0;
+
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = current;
+                        }
+                    }, 16);
+
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // 6. TOAST NOTIFICATION HELPER
+        function showToast(message, type = 'success') {
+            const container = document.querySelector('.toast-container');
+            const toastEl = document.createElement('div');
+            toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+            toastEl.setAttribute('role', 'alert');
+            toastEl.innerHTML = `
+                    <div class="d-flex">
+                        <div class="toast-body">${message}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                `;
+            container.appendChild(toastEl);
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 });
+            toast.show();
+            toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+        }
+
+        // 7. VALIDASI REAL-TIME FORM KONTAK
+        const formKontak = document.getElementById('formKontak');
+        const kontakNama = document.getElementById('kontakNama');
+        const kontakEmail = document.getElementById('kontakEmail');
+        const kontakSubjek = document.getElementById('kontakSubjek');
+        const kontakPesan = document.getElementById('kontakPesan');
+        const charCount = document.getElementById('charCount');
+
+        function validateField(input, condition) {
+            if (condition) {
+                input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
+                return true;
+            } else {
+                input.classList.remove('is-valid');
+                input.classList.add('is-invalid');
+                return false;
+            }
+        }
+
+        kontakNama.addEventListener('input', () => validateField(kontakNama, kontakNama.value.trim().length >= 3));
+        kontakEmail.addEventListener('input', () => {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            validateField(kontakEmail, emailRegex.test(kontakEmail.value));
+        });
+        kontakSubjek.addEventListener('change', () => validateField(kontakSubjek, kontakSubjek.value !== ''));
+        kontakPesan.addEventListener('input', function() {
+            const len = this.value.length;
+            charCount.textContent = len;
+            if (len > 500) {
+                this.value = this.value.substring(0, 500);
+                charCount.textContent = 500;
+            }
+            charCount.classList.toggle('text-danger', len >= 500);
+            validateField(this, len >= 10 && len <= 500);
+        });
+
+        // 8. SUBMIT FORM KONTAK
+        formKontak.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const validNama = validateField(kontakNama, kontakNama.value.trim().length >= 3);
+            const validEmail = validateField(kontakEmail, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(kontakEmail.value));
+            const validSubjek = validateField(kontakSubjek, kontakSubjek.value !== '');
+            const validPesan = validateField(kontakPesan, kontakPesan.value.length >= 10);
+
+            if (validNama && validEmail && validSubjek && validPesan) {
+                const btn = document.getElementById('btnSubmit');
+                const spinner = document.getElementById('submitSpinner');
+                btn.disabled = true;
+                spinner.classList.remove('d-none');
+
+                // Simulasi AJAX
+                setTimeout(() => {
+                    btn.disabled = false;
+                    spinner.classList.add('d-none');
+                    formKontak.reset();
+                    document.querySelectorAll('.is-valid').forEach(el => el.classList.remove('is-valid'));
+                    charCount.textContent = '0';
+                    charCount.classList.remove('text-danger');
+                    showToast('Pesan berhasil dikirim! Kami akan menghubungi Anda segera.', 'success');
+                }, 1500);
+            } else {
+                showToast('Mohon periksa kembali formulir Anda.', 'danger');
+            }
+        });
+
+        // 9. RESET FORM
+        document.getElementById('btnReset').addEventListener('click', function() {
+            formKontak.reset();
+            document.querySelectorAll('.is-valid, .is-invalid').forEach(el => {
+                el.classList.remove('is-valid', 'is-invalid');
+            });
+            charCount.textContent = '0';
+            charCount.classList.remove('text-danger');
+        });
+
+        // 10. MODAL CTA SUBMIT
+        const btnCtaSubmit = document.getElementById('btnCtaSubmit');
+        const ctaModal = document.getElementById('ctaModal');
+        const bsCtaModal = new bootstrap.Modal(ctaModal);
+
+        btnCtaSubmit.addEventListener('click', function() {
+            const nama = document.getElementById('ctaNama');
+            const email = document.getElementById('ctaEmail');
+            const validNama = nama.value.trim().length >= 3;
+            const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value);
+
+            if (!validNama) nama.classList.add('is-invalid');
+            else nama.classList.remove('is-invalid');
+
+            if (!validEmail) email.classList.add('is-invalid');
+            else email.classList.remove('is-invalid');
+
+            if (validNama && validEmail) {
+                const spinner = document.getElementById('ctaSpinner');
+                btnCtaSubmit.disabled = true;
+                spinner.classList.remove('d-none');
+
+                setTimeout(() => {
+                    btnCtaSubmit.disabled = false;
+                    spinner.classList.add('d-none');
+                    bsCtaModal.hide();
+                    document.getElementById('formCta').reset();
+                    nama.classList.remove('is-invalid');
+                    email.classList.remove('is-invalid');
+                    showToast('Data berhasil dikirim! Tim kami akan menghubungi Anda.', 'success');
+                }, 1500);
+            }
+        });
+
+        // Hapus invalid saat input modal
+        ['ctaNama', 'ctaEmail'].forEach(id => {
+            document.getElementById(id).addEventListener('input', function() {
+                this.classList.remove('is-invalid');
+            });
+        });
+
+        // 11. DETAIL FITUR DINAMIS
+        const detailData = {
+            cepat: 'Tim kami bekerja dengan metodologi Agile untuk memastikan delivery cepat tanpa mengorbankan kualitas. Rata-rata waktu pengerjaan 2-4 minggu.',
+            aman: 'Kami menggunakan enkripsi SSL, autentikasi dua faktor, dan audit keamanan berkala. Data Anda disimpan di server dengan sertifikasi ISO 27001.',
+            dukungan: 'Support tersedia via live chat, email, dan telepon. Respon rata-rata < 5 menit untuk inquiry urgent. Dokumentasi lengkap selalu tersedia.'
+        };
+
+        document.querySelectorAll('.btn-detail').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const key = this.getAttribute('data-fitur');
+                const container = document.getElementById('detailContainer');
+                document.getElementById('detailTitle').textContent = 'Detail: ' + this.closest('.card').querySelector('.card-title').textContent;
+                document.getElementById('detailText').textContent = detailData[key];
+                container.classList.remove('d-none');
+                container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+
+        document.getElementById('closeDetail').addEventListener('click', function() {
+            document.getElementById('detailContainer').classList.add('d-none');
+        });
+
+        // 12. BACK TO TOP BUTTON
+        const btnTop = document.getElementById('btnTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                btnTop.classList.remove('d-none');
+            } else {
+                btnTop.classList.add('d-none');
+            }
+        });
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 13. NAVBAR BACKGROUND ON SCROLL
+        const navbar = document.getElementById('mainNavbar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('shadow');
+            } else {
+                navbar.classList.remove('shadow');
+            }
+        });
+
+        // 14. HOVER EFFECT CARD VIA DOM (tambah class Bootstrap)
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('shadow');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('shadow');
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

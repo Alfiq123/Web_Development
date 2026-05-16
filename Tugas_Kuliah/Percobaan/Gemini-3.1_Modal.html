@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Bootstrap</title>
+    <!-- Memuat CSS Bootstrap 5 dari CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">WebKu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#fitur">Fitur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kontak">Kontak</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="container my-5">
+    <div class="row align-items-center bg-white p-5 rounded-4 shadow-sm">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold text-primary">Selamat Datang di WebKu</h1>
+            <p class="lead text-secondary mt-3">Solusi terbaik untuk kebutuhan bisnis Anda. Kami menyediakan layanan cepat, aman, dan terpercaya tanpa perlu ribet coding CSS.</p>
+            <!-- Tombol untuk memunculkan Modal -->
+            <button type="button" class="btn btn-primary btn-lg mt-3 px-4" data-bs-toggle="modal" data-bs-target="#promoModal">
+                Dapatkan Promo Sekarang
+            </button>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block text-center">
+            <img src="https://dummyimage.com/500x400/0d6efd/fff&text=Gambar+Ilustrasi" alt="Ilustrasi" class="img-fluid rounded-3">
+        </div>
+    </div>
+</div>
+
+<!-- Fitur Section -->
+<div id="fitur" class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Kenapa Memilih Kami?</h2>
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-success">Cepat</h3>
+                    <p class="card-text text-muted">Layanan kami dioptimalkan untuk kecepatan dan efisiensi waktu Anda.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-danger">Aman</h3>
+                    <p class="card-text text-muted">Keamanan data Anda adalah prioritas utama kami dengan enkripsi terbaik.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-warning">Terjangkau</h3>
+                    <p class="card-text text-muted">Harga bersahabat dengan kualitas premium yang tidak menguras kantong.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer id="kontak" class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+        <p class="mb-0">&copy; 2026 WebKu. Semua Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold" id="promoModalLabel">Promo Spesial Khusus Hari Ini!</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <h4 class="text-danger fw-bold">Diskon 50%</h4>
+                <p class="text-muted">Masukkan email Anda untuk mendapatkan kode voucher diskon 50% untuk layanan pertama Anda.</p>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Masukkan Email Anda" aria-label="Email Anda">
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nanti Saja</button>
+                <button type="button" class="btn btn-primary">Kirim Kode Promo</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Memuat JS Bootstrap 5 dari CDN (Wajib untuk Modal) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

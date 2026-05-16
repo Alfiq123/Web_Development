@@ -1,0 +1,52 @@
+@startuml Kelola Data Pelanggan
+
+!theme plain
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+title Sequence Diagram - Kelola Data Pelanggan
+
+actor "Admin" as AD
+participant "UserInterface" as UI
+participant "Controller" as CR
+database "Database" as DB
+
+== Skenario Normal: Lihat Daftar Pelanggan ==
+
+AD -> UI : Memilih menu data pelanggan
+activate UI
+UI -> AD : Menampilkan daftar seluruh pelanggan
+AD -> UI : Memilih atau mencari salah satu pelanggan
+UI -> AD : Menampilkan halaman detail suatu pelanggan
+deactivate UI
+
+== Skenario Normal: Ubah Data Pelanggan ==
+
+AD -> UI : Mengedit salah satu data pelanggan
+activate UI
+UI -> AD : Menampilkan form data pelanggan
+AD -> UI : Mengubah data yang diperlukan
+UI -> DB : Memperbarui data pelanggan
+activate DB
+DB -> UI : Berhasil memperbarui data pelanggan
+deactivate DB
+UI -> AD : Menampilkan Pesan
+deactivate UI
+
+== Skenario Normal: Hapus Data Pelanggan ==
+
+AD -> UI : Menghapus salah satu data pelanggan
+activate UI
+UI -> CR : Request hapus pelanggan
+activate CR
+CR -> DB : Cek pesanan aktif
+activate DB
+
+alt Ada pesanan aktif
+    CR -> UI : Gagal hapus
+else Tidak ada pesanan
+    CR -> DB : Hapus data pelanggan
+    CR -> UI : Berhasil Menghapus data
+end
+
+@enduml

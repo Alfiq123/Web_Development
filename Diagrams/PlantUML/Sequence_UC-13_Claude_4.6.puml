@@ -1,0 +1,53 @@
+@startuml Logout Pelanggan
+title Sequence Diagram - Logout Pelanggan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Server\nSesi" as DB
+
+== Skenario Normal: Logout Berhasil ==
+
+Pelanggan -> UI : Menekan tombol Logout\ndi navigasi aplikasi
+activate UI
+UI --> Pelanggan : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin\nkeluar dari aplikasi?"
+
+alt Pelanggan menekan tombol Ya
+
+    Pelanggan -> UI : Menekan tombol Ya
+    UI -> SYS : Request logout
+    activate SYS
+    SYS -> DB : Hapus data sesi login pelanggan
+    activate DB
+    DB --> SYS : Konfirmasi sesi dihapus
+    deactivate DB
+    SYS --> UI : Redirect ke halaman login
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan halaman login
+
+else Pelanggan menekan tombol Tidak
+
+    Pelanggan -> UI : Menekan tombol Tidak
+    UI --> Pelanggan : Menutup dialog, pelanggan tetap\ndi halaman yang sedang dibuka
+    deactivate UI
+
+end
+
+== Skenario Alternatif: Sesi Habis Otomatis (Timeout) ==
+
+SYS -> SYS : Mendeteksi tidak ada aktivitas\ndari pelanggan dalam jangka waktu tertentu
+activate SYS
+SYS -> DB : Hapus data sesi login pelanggan\nsecara otomatis
+activate DB
+DB --> SYS : Konfirmasi sesi dihapus
+deactivate DB
+SYS --> UI : "Sesi Anda telah berakhir,\nsilakan login kembali."
+deactivate SYS
+activate UI
+UI --> Pelanggan : Mengarahkan ke halaman login
+deactivate UI
+
+@enduml

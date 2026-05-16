@@ -1,0 +1,85 @@
+@startuml Lihat Laporan Transaksi
+title Sequence Diagram - Lihat Laporan Transaksi
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Admin
+participant "Dashboard" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Lihat Laporan Semua Transaksi ==
+
+Admin -> UI : Memilih menu Laporan Transaksi
+activate UI
+UI -> SYS : Request riwayat transaksi
+activate SYS
+SYS -> DB : Query transaksi berstatus "Selesai"
+activate DB
+DB --> SYS : Return data transaksi
+
+alt Ada transaksi tercatat
+
+    SYS --> UI : Tampilkan seluruh riwayat transaksi\n(tanggal, nama pelanggan, barang, jumlah, total harga)
+    UI --> Admin : Menampilkan daftar transaksi
+
+    Admin -> UI : Memilih salah satu transaksi
+    UI -> SYS : Request detail nota transaksi
+    SYS -> DB : Query detail transaksi yang dipilih
+    DB --> SYS : Return detail nota transaksi
+    deactivate DB
+    SYS --> UI : Tampilkan detail nota transaksi secara lengkap
+    UI --> Admin : Menampilkan detail nota transaksi
+
+else Belum ada transaksi tercatat
+
+    SYS --> UI : "Belum ada transaksi yang tercatat."
+    deactivate SYS
+    UI --> Admin : Menampilkan pesan kosong
+    deactivate UI
+
+end
+
+== Skenario Normal: Filter Laporan Berdasarkan Periode ==
+
+Admin -> UI : Memilih rentang tanggal pada form filter\nlalu menekan tombol Tampilkan
+activate UI
+UI -> SYS : Request transaksi berdasarkan periode
+activate SYS
+SYS -> DB : Query & filter transaksi\nsesuai rentang tanggal yang dipilih
+activate DB
+DB --> SYS : Return hasil filter transaksi
+deactivate DB
+
+alt Ada transaksi pada periode tersebut
+
+    SYS --> UI : Tampilkan laporan transaksi periode terpilih\nbeserta total pendapatan keseluruhan
+    UI --> Admin : Menampilkan hasil laporan
+
+else Tidak ada transaksi pada periode tersebut
+
+    SYS --> UI : "Tidak ada transaksi pada periode yang dipilih."
+    deactivate SYS
+    UI --> Admin : Menampilkan pesan tidak ditemukan
+    deactivate UI
+
+end
+
+== Skenario Normal: Cetak / Unduh Laporan ==
+
+Admin -> UI : Menekan tombol Cetak / Unduh
+activate UI
+UI -> SYS : Request generate file laporan
+activate SYS
+SYS -> DB : Ambil data laporan transaksi
+activate DB
+DB --> SYS : Return data laporan
+deactivate DB
+SYS -> SYS : Proses data &\ngenerate file PDF
+SYS --> UI : File laporan PDF siap diunduh
+deactivate SYS
+UI --> Admin : File laporan terunduh otomatis\nke perangkat admin
+deactivate UI
+
+@enduml

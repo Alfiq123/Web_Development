@@ -1,0 +1,91 @@
+@startuml Lihat Riwayat Pesanan
+title Sequence Diagram - Lihat Riwayat Pesanan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Lihat Semua Riwayat Pesanan ==
+
+Pelanggan -> UI : Memilih menu Riwayat Pesanan
+activate UI
+UI -> SYS : Request riwayat pesanan pelanggan
+activate SYS
+SYS -> DB : Query semua pesanan\nmilik pelanggan yang sedang login
+activate DB
+DB --> SYS : Return data pesanan
+
+alt Ada riwayat pesanan
+
+    SYS --> UI : Tampilkan daftar pesanan\n(nomor pesanan, nama barang, tanggal pesan,\ntotal harga, status pesanan)
+    UI --> Pelanggan : Menampilkan daftar riwayat pesanan
+
+    Pelanggan -> UI : Memilih salah satu pesanan
+    UI -> SYS : Request detail pesanan
+    SYS -> DB : Query detail pesanan yang dipilih
+    DB --> SYS : Return detail pesanan
+    deactivate DB
+    SYS --> UI : Tampilkan detail pesanan\n(nama barang, jumlah, harga satuan,\ntotal harga, alamat pengiriman,\nriwayat perubahan status)
+    UI --> Pelanggan : Menampilkan detail pesanan
+
+else Belum ada riwayat pesanan
+
+    SYS --> UI : "Anda belum memiliki riwayat pesanan."\nbeserta tautan ke halaman katalog barang
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan pesan kosong\n& tautan ke katalog
+    deactivate UI
+
+end
+
+== Skenario Normal: Filter Riwayat Berdasarkan Status ==
+
+Pelanggan -> UI : Memilih filter status pesanan\n(contoh: "Selesai")
+activate UI
+UI -> SYS : Request filter pesanan\nberdasarkan status
+activate SYS
+SYS -> DB : Query pesanan sesuai\nstatus yang dipilih
+activate DB
+DB --> SYS : Return data pesanan terfilter
+deactivate DB
+SYS --> UI : Tampilkan daftar pesanan\nsesuai filter status
+deactivate SYS
+UI --> Pelanggan : Menampilkan hasil filter\nriwayat pesanan
+deactivate UI
+
+== Skenario Normal: Batalkan Pesanan ==
+
+Pelanggan -> UI : Memilih pesanan "Menunggu Konfirmasi"\nlalu menekan tombol Batalkan Pesanan
+activate UI
+UI -> SYS : Request status pesanan
+activate SYS
+SYS -> DB : Query status pesanan yang dipilih
+activate DB
+DB --> SYS : Return status pesanan
+
+alt Status "Menunggu Konfirmasi"\n(dapat dibatalkan)
+
+    SYS --> UI : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin\nmembatalkan pesanan ini?"
+    UI --> Pelanggan : Menampilkan dialog konfirmasi
+
+    Pelanggan -> UI : Menekan tombol Ya
+    UI -> SYS : Request batalkan pesanan
+    SYS -> DB : Update status pesanan\n→ "Dibatalkan"
+    DB --> SYS : Konfirmasi update berhasil
+    deactivate DB
+    SYS --> UI : "Pesanan berhasil dibatalkan."
+    UI --> Pelanggan : Memperbarui daftar\nriwayat pesanan
+
+else Status "Dikonfirmasi" atau "Selesai"\n(tidak dapat dibatalkan)
+
+    SYS --> UI : "Pesanan tidak dapat dibatalkan\nkarena sudah diproses oleh toko."
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan pesan\nperingatan
+    deactivate UI
+
+end
+
+@enduml

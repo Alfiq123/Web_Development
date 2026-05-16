@@ -1,0 +1,125 @@
+@startuml SQ-04 Kelola Data Pelanggan
+!theme plain
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+title Sequence Diagram - Manajemen Data Pelanggan
+
+actor Admin
+participant "Dashboard" as UI
+participant "CustomerController" as CC
+participant "OrderService" as OS
+database "Database" as DB
+
+== Skenario Normal: Lihat Daftar Pelanggan ==
+
+Admin -> UI : Pilih menu "Data Pelanggan"
+activate UI
+UI -> CC : Menampilkan daftar seluruh pelanggan
+activate CC
+CC -> DB : SELECT * FROM customers
+activate DB
+DB --> CC : return listCustomer[]
+deactivate DB
+CC --> UI : return listCustomer[]
+deactivate CC
+UI --> Admin : Tampilkan daftar pelanggan\n(nama, alamat, telepon, email)
+deactivate UI
+
+== Skenario Normal: Lihat Detail Pelanggan ==
+
+Admin -> UI : Pilih salah satu pelanggan
+activate UI
+UI -> CC : getCustomerDetail(customerId)
+activate CC
+CC -> DB : SELECT * FROM customers WHERE id=customerId
+activate DB
+DB --> CC : return customerData
+deactivate DB
+CC --> UI : return customerData
+deactivate CC
+UI --> Admin : Tampilkan halaman detail pelanggan
+deactivate UI
+
+== Skenario Normal: Ubah Data Pelanggan ==
+
+Admin -> UI : Pilih pelanggan & tekan tombol "Edit"
+activate UI
+UI --> Admin : Tampilkan form terisi data pelanggan
+deactivate UI
+
+Admin -> UI : Ubah data & tekan "Simpan"
+activate UI
+UI -> CC : updateCustomer(customerId, data)
+activate CC
+CC -> DB : UPDATE customers SET ... WHERE id=customerId
+activate DB
+DB --> CC : return success
+deactivate DB
+CC --> UI : return success
+deactivate CC
+UI --> Admin : Tampilkan pesan "Data pelanggan berhasil diperbarui"\n& kembali ke daftar pelanggan
+deactivate UI
+
+== Skenario Normal & Alternatif: Hapus Data Pelanggan ==
+
+Admin -> UI : Pilih pelanggan & tekan tombol "Hapus"
+activate UI
+UI --> Admin : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin menghapus?"
+
+alt Admin menekan "Ya"
+    Admin -> UI : Konfirmasi hapus (Ya)
+    UI -> CC : deleteCustomer(customerId)
+    activate CC
+    
+    CC -> OS : checkActiveOrders(customerId)
+    activate OS
+    OS -> DB : SELECT * FROM orders\nWHERE customer_id=customerId AND status != 'selesai'
+    activate DB
+    DB --> OS : return orderList[]
+    deactivate DB
+    
+    alt orderList is not empty (Pesanan Aktif Ditemukan)
+        OS --> CC : return hasActiveOrders = true
+        deactivate OS
+        CC --> UI : return error/warning
+        deactivate CC
+        UI --> Admin : Tampilkan pesan peringatan\n"Data pelanggan tidak dapat dihapus karena\nmasih memiliki pesanan aktif."
+        UI --> Admin : Kembali ke daftar pelanggan tanpa perubahan
+        
+    else orderList is empty (Tidak Ada Pesanan Aktif)
+        OS --> CC : return hasActiveOrders = false
+        deactivate OS
+        CC -> DB : DELETE FROM customers WHERE id=customerId
+        activate DB
+        DB --> CC : return success
+        deactivate DB
+        CC --> UI : return success
+        deactivate CC
+        UI --> Admin : Tampilkan pesan "Data pelanggan berhasil dihapus"\n& perbarui daftar pelanggan
+    end
+    
+else Admin menekan "Tidak" (Batal Hapus)
+    Admin -> UI : Batal hapus (Tidak)
+    UI --> Admin : Tutup dialog & kembali ke daftar pelanggan\n(tanpa perubahan)
+end
+deactivate UI
+
+== Skenario Alternatif: Pencarian Tidak Ditemukan ==
+
+opt Pencarian Data Pelanggan
+    Admin -> UI : Ketik nama pelanggan di kolom pencarian
+    activate UI
+    UI -> CC : searchCustomer(keyword)
+    activate CC
+    CC -> DB : SELECT * FROM customers WHERE name LIKE '%keyword%'
+    activate DB
+    DB --> CC : return empty result []
+    deactivate DB
+    CC --> UI : return empty result []
+    deactivate CC
+    UI --> Admin : Tampilkan pesan "Data pelanggan tidak ditemukan."
+    deactivate UI
+end
+
+@enduml

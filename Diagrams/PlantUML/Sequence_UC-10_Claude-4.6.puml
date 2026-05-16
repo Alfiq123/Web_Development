@@ -1,0 +1,91 @@
+@startuml Lihat Katalog Barang
+title Sequence Diagram - Lihat Katalog Barang
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Lihat Semua Katalog Barang ==
+
+Pelanggan -> UI : Membuka halaman utama\nsetelah login
+activate UI
+UI -> SYS : Request daftar seluruh barang
+activate SYS
+SYS -> DB : Query semua barang tersedia
+activate DB
+DB --> SYS : Return data barang
+SYS --> UI : Tampilkan daftar barang\n(foto, nama, kategori, harga, status stok)
+UI --> Pelanggan : Menampilkan katalog barang
+
+Pelanggan -> UI : Memilih salah satu barang
+UI -> SYS : Request detail barang
+SYS -> DB : Query detail barang yang dipilih
+DB --> SYS : Return detail barang
+deactivate DB
+
+alt Stok tersedia
+
+    SYS --> UI : Tampilkan detail barang\n(foto, deskripsi, harga satuan, jumlah stok)
+    UI --> Pelanggan : Menampilkan halaman detail barang\ndengan tombol Pesan aktif
+
+else Stok habis
+
+    SYS --> UI : Tampilkan detail barang\ndengan label "Stok Habis"
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan halaman detail barang\ndengan tombol Pesan dinonaktifkan
+    deactivate UI
+
+end
+
+== Skenario Normal: Cari Barang Berdasarkan Nama ==
+
+Pelanggan -> UI : Mengetikkan nama barang\npada kolom pencarian
+activate UI
+UI -> SYS : Request pencarian barang\nberdasarkan kata kunci
+activate SYS
+SYS -> DB : Query barang sesuai kata kunci
+activate DB
+DB --> SYS : Return hasil pencarian
+
+alt Barang ditemukan
+
+    SYS --> UI : Tampilkan daftar barang\nyang cocok dengan kata kunci
+    UI --> Pelanggan : Menampilkan hasil pencarian
+
+    Pelanggan -> UI : Memilih barang dari hasil pencarian
+    UI -> SYS : Request detail barang
+    SYS -> DB : Query detail barang yang dipilih
+    DB --> SYS : Return detail barang
+    deactivate DB
+    SYS --> UI : Tampilkan halaman detail barang
+    UI --> Pelanggan : Menampilkan detail barang
+
+else Barang tidak ditemukan
+
+    SYS --> UI : "Barang tidak ditemukan,\ncoba kata kunci lain."
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan pesan tidak ditemukan
+    deactivate UI
+
+end
+
+== Skenario Normal: Filter Barang Berdasarkan Kategori ==
+
+Pelanggan -> UI : Memilih kategori\n(sepatu / sandal / tas) pada menu filter
+activate UI
+UI -> SYS : Request filter barang\nberdasarkan kategori
+activate SYS
+SYS -> DB : Query barang sesuai kategori
+activate DB
+DB --> SYS : Return data barang per kategori
+deactivate DB
+SYS --> UI : Tampilkan barang sesuai\nkategori yang dipilih
+deactivate SYS
+UI --> Pelanggan : Menampilkan hasil filter katalog
+deactivate UI
+
+@enduml

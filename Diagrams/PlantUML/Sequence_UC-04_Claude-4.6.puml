@@ -1,0 +1,107 @@
+@startuml Kelola Data Pelanggan
+title Sequence Diagram - Kelola Data Pelanggan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Admin
+participant "Dashboard" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Lihat Daftar Pelanggan ==
+
+Admin -> UI : Memilih menu Data Pelanggan
+activate UI
+UI -> SYS : Request daftar pelanggan
+activate SYS
+SYS -> DB : Query semua data pelanggan
+activate DB
+DB --> SYS : Return data pelanggan
+SYS --> UI : Tampilkan daftar pelanggan\n(nama, alamat, no. telepon, email)
+UI --> Admin : Menampilkan daftar pelanggan
+
+Admin -> UI : Memilih salah satu pelanggan
+UI -> SYS : Request detail pelanggan
+SYS -> DB : Query detail pelanggan
+DB --> SYS : Return detail pelanggan
+deactivate DB
+SYS --> UI : Tampilkan halaman detail pelanggan
+deactivate SYS
+UI --> Admin : Menampilkan detail data pelanggan
+deactivate UI
+
+== Skenario Normal: Ubah Data Pelanggan ==
+
+Admin -> UI : Memilih pelanggan lalu menekan tombol Edit
+activate UI
+UI -> SYS : Request data pelanggan untuk diedit
+activate SYS
+SYS -> DB : Query data pelanggan
+activate DB
+DB --> SYS : Return data pelanggan
+SYS --> UI : Tampilkan form berisi data pelanggan
+UI --> Admin : Menampilkan form edit
+
+Admin -> UI : Mengubah data lalu menekan tombol Simpan
+UI -> SYS : Request update data pelanggan
+SYS -> DB : Update data pelanggan di database
+DB --> SYS : Konfirmasi update berhasil
+deactivate DB
+SYS --> UI : "Data pelanggan berhasil diperbarui"
+deactivate SYS
+UI --> Admin : Kembali ke daftar pelanggan
+deactivate UI
+
+== Skenario Normal: Hapus Data Pelanggan ==
+
+Admin -> UI : Memilih pelanggan lalu menekan tombol Hapus
+activate UI
+UI --> Admin : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin menghapus\ndata pelanggan ini?"
+
+alt Admin menekan tombol Ya
+
+    Admin -> UI : Menekan tombol Ya
+    UI -> SYS : Request hapus pelanggan
+    activate SYS
+    SYS -> DB : Cek pesanan aktif pelanggan
+    activate DB
+    DB --> SYS : Return status pesanan
+
+    alt Tidak ada pesanan aktif
+        SYS -> DB : Hapus data pelanggan
+        DB --> SYS : Konfirmasi penghapusan berhasil
+        deactivate DB
+        SYS --> UI : "Data pelanggan berhasil dihapus"
+        deactivate SYS
+        UI --> Admin : Memperbarui daftar pelanggan
+
+    else Masih ada pesanan aktif
+        SYS --> UI : "Data pelanggan tidak dapat dihapus\nkarena masih memiliki pesanan aktif."
+        UI --> Admin : Kembali ke daftar pelanggan\ntanpa perubahan
+    end
+
+else Admin menekan tombol Tidak
+
+    Admin -> UI : Menekan tombol Tidak
+    UI --> Admin : Menutup dialog, kembali ke\ndaftar pelanggan tanpa perubahan
+    deactivate UI
+
+end
+
+== Skenario Alternatif: Data Pelanggan Tidak Ditemukan ==
+
+Admin -> UI : Mengetikkan nama pelanggan\npada kolom pencarian
+activate UI
+UI -> SYS : Request pencarian pelanggan
+activate SYS
+SYS -> DB : Query berdasarkan kata kunci
+activate DB
+DB --> SYS : Return hasil pencarian (kosong)
+deactivate DB
+SYS --> UI : "Data pelanggan tidak ditemukan."
+deactivate SYS
+UI --> Admin : Menampilkan pesan tidak ditemukan
+deactivate UI
+
+@enduml

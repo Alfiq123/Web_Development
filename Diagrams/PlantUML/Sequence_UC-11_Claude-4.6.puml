@@ -1,0 +1,78 @@
+@startuml Pesan Barang
+title Sequence Diagram - Pesan Barang
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+Pelanggan -> UI : Memilih barang dari katalog &\nmembuka halaman detail barang
+activate UI
+UI -> SYS : Request detail barang
+activate SYS
+SYS -> DB : Query detail & stok barang
+activate DB
+DB --> SYS : Return detail barang
+SYS --> UI : Tampilkan detail barang,\ninfo stok & tombol Pesan aktif
+UI --> Pelanggan : Menampilkan halaman detail barang
+
+Pelanggan -> UI : Memasukkan jumlah pesanan\nlalu menekan tombol Pesan
+UI -> SYS : Submit jumlah pesanan
+SYS -> DB : Cek ketersediaan stok
+DB --> SYS : Return jumlah stok
+
+alt Jumlah pesanan valid (> 0 & tidak melebihi stok)
+
+    SYS --> UI : Tampilkan form konfirmasi pesanan\n(nama barang, jumlah, total harga,\nkolom alamat pengiriman)
+    UI --> Pelanggan : Menampilkan form konfirmasi pesanan
+
+    Pelanggan -> UI : Memverifikasi detail pesanan,\nmengisi alamat pengiriman,\nlalu menekan tombol Konfirmasi Pesanan
+    UI -> SYS : Submit konfirmasi pesanan
+
+    SYS -> SYS : Validasi kelengkapan\nalamat pengiriman
+
+    alt Alamat pengiriman terisi
+
+        SYS -> DB : Periksa ulang ketersediaan stok
+        DB --> SYS : Return status stok terkini
+
+        alt Stok masih tersedia
+
+            SYS -> DB : Simpan pesanan dengan\nstatus "Menunggu Konfirmasi"
+            DB --> SYS : Konfirmasi penyimpanan berhasil
+            deactivate DB
+            SYS --> UI : "Pesanan berhasil dikirim,\nmenunggu konfirmasi dari toko."\nbeserta nomor pesanan
+            UI --> Pelanggan : Menampilkan notifikasi\npesanan berhasil
+
+        else Stok baru saja habis
+
+            SYS --> UI : "Maaf, stok barang ini baru saja habis.\nSilakan pilih barang lain."
+            UI --> Pelanggan : Mengarahkan kembali\nke halaman katalog barang
+
+        end
+
+    else Alamat pengiriman kosong
+
+        SYS --> UI : "Alamat pengiriman tidak boleh kosong."
+        UI --> Pelanggan : Tandai kolom alamat pengiriman\n& tunggu pelanggan mengisi
+
+    end
+
+else Jumlah pesanan nol atau tidak diisi
+
+    SYS --> UI : "Jumlah pesanan harus lebih dari 0."
+    UI --> Pelanggan : Kembali tampilkan form pemesanan\nuntuk diisi ulang
+
+else Jumlah pesanan melebihi stok
+
+    SYS --> UI : "Jumlah pesanan melebihi stok\nyang tersedia. Stok saat ini: [jumlah stok]."
+    deactivate SYS
+    UI --> Pelanggan : Kosongkan kolom jumlah pesanan\nuntuk diisi ulang
+    deactivate UI
+
+end
+
+@enduml

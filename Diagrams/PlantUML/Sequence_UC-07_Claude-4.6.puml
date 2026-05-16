@@ -1,0 +1,53 @@
+@startuml Logout
+title Sequence Diagram - Logout
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Admin
+participant "Dashboard" as UI
+participant "Sistem" as SYS
+database "Server\nSesi" as DB
+
+== Skenario Normal: Logout Berhasil ==
+
+Admin -> UI : Menekan tombol Logout\ndi navigasi dashboard
+activate UI
+UI --> Admin : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin keluar dari sistem?"
+
+alt Admin menekan tombol Ya
+
+    Admin -> UI : Menekan tombol Ya
+    UI -> SYS : Request logout
+    activate SYS
+    SYS -> DB : Hapus data sesi login admin
+    activate DB
+    DB --> SYS : Konfirmasi sesi dihapus
+    deactivate DB
+    SYS --> UI : Redirect ke halaman login
+    deactivate SYS
+    UI --> Admin : Menampilkan halaman login
+
+else Admin menekan tombol Tidak
+
+    Admin -> UI : Menekan tombol Tidak
+    UI --> Admin : Menutup dialog, admin tetap\ndi halaman dashboard
+    deactivate UI
+
+end
+
+== Skenario Alternatif: Sesi Habis Otomatis (Timeout) ==
+
+SYS -> SYS : Mendeteksi tidak ada aktivitas\ndari admin dalam jangka waktu tertentu
+activate SYS
+SYS -> DB : Hapus data sesi login admin secara otomatis
+activate DB
+DB --> SYS : Konfirmasi sesi dihapus
+deactivate DB
+SYS --> UI : "Sesi Anda telah berakhir,\nsilakan login kembali."
+deactivate SYS
+activate UI
+UI --> Admin : Mengarahkan ke halaman login
+deactivate UI
+
+@enduml

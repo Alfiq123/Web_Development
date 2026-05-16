@@ -1,0 +1,178 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="kRTLe06VZinli7txRw07">
+    <mxGraphModel dx="983" dy="704" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-5" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="400" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-7" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-4" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Pelanggan menekan tombol daftar" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-9" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-8" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-6" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem menampilkan form registrasi" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-11" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-10" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-8" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Pelanggan mengisi data-data di form" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-21" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nQ1ZGF55TLICLY4aUKFS-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-10" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Pelanggan menekan tombol daftar" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-15" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-14" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-12" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem memvalidasi kelengkapan data" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-17" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-14" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem memeriksa email pelanggan" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-19" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-18" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-16" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem menyimpan data pelanggan baru ke database" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="789" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-83" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nQ1ZGF55TLICLY4aUKFS-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-18" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem menampilkan pesan &quot;Registrasi Berhasil&quot;" vertex="1">
+          <mxGeometry height="60" width="120" x="280" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-35" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="nQ1ZGF55TLICLY4aUKFS-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="413" y="580" />
+              <mxPoint x="340" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-36" connectable="0" parent="nQ1ZGF55TLICLY4aUKFS-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Form Lengkap" vertex="1">
+          <mxGeometry relative="1" x="-0.02" y="2" as="geometry">
+            <mxPoint x="-19" y="-18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-64" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="nQ1ZGF55TLICLY4aUKFS-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-65" connectable="0" parent="nQ1ZGF55TLICLY4aUKFS-64" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Email sudah terdaftar" vertex="1">
+          <mxGeometry relative="1" x="0.4424" y="4" as="geometry">
+            <mxPoint x="-3" y="41" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-68" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;curved=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="nQ1ZGF55TLICLY4aUKFS-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="664" y="535" />
+            </Array>
+            <mxPoint x="395" y="665" as="sourcePoint" />
+            <mxPoint x="675" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-69" connectable="0" parent="nQ1ZGF55TLICLY4aUKFS-68" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Form tidak lengkap" vertex="1">
+          <mxGeometry relative="1" x="0.5153" as="geometry">
+            <mxPoint y="40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-73" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;curved=0;" target="nQ1ZGF55TLICLY4aUKFS-56">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="437" y="580" />
+              <mxPoint x="510" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-74" connectable="0" parent="nQ1ZGF55TLICLY4aUKFS-73" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Password tidak cocok" vertex="1">
+          <mxGeometry relative="1" x="0.5693" as="geometry">
+            <mxPoint x="-1" y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-20" parent="1" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="400" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-29" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=0;" target="nQ1ZGF55TLICLY4aUKFS-28" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-25" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem mendeteksi ada kolom yang kosong." vertex="1">
+          <mxGeometry height="60" width="120" x="603.75" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-72" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="nQ1ZGF55TLICLY4aUKFS-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="745" y="730" />
+              <mxPoint x="745" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-28" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem menampilkan pesan peringatan" vertex="1">
+          <mxGeometry height="60" width="120" x="603.75" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-52" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-51" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-49" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem mendeteksi bahwa email sudah terdaftar" vertex="1">
+          <mxGeometry height="60" width="120" x="126.25" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-53" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-51" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;curved=0;" target="nQ1ZGF55TLICLY4aUKFS-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="730" />
+              <mxPoint x="105" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-51" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem menampilkan pesan &quot;Email sudah terdaftar&quot;" vertex="1">
+          <mxGeometry height="60" width="120" x="126.25" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-59" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-58" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-56" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem mendeteksi password tidak cocok" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-61" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="nQ1ZGF55TLICLY4aUKFS-60" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-58" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem memberikan pesan &quot;Password tidak cocok&quot;" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-84" edge="1" parent="1" source="nQ1ZGF55TLICLY4aUKFS-60" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="nQ1ZGF55TLICLY4aUKFS-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="819" />
+              <mxPoint x="770" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-60" parent="1" style="whiteSpace=wrap;html=1;rounded=1;" value="Sistem mengosongkan kolom password" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="789" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-82" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="315" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="nQ1ZGF55TLICLY4aUKFS-87" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=solid;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="10" width="10" x="740" y="335" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

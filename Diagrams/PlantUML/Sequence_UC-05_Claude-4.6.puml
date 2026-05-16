@@ -1,0 +1,93 @@
+@startuml Konfirmasi Pesanan
+title Sequence Diagram - Konfirmasi Pesanan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Admin
+participant "Dashboard" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Konfirmasi Pesanan ==
+
+Admin -> UI : Membuka menu Kelola Pesanan
+activate UI
+UI -> SYS : Request daftar pesanan masuk
+activate SYS
+SYS -> DB : Query pesanan status "Menunggu Konfirmasi"
+activate DB
+DB --> SYS : Return daftar pesanan
+
+alt Ada pesanan
+
+    SYS --> UI : Tampilkan daftar pesanan\n(nama pelanggan, barang, jumlah, total harga)
+    UI --> Admin : Menampilkan daftar pesanan
+
+    Admin -> UI : Memilih pesanan lalu menekan tombol Lihat Detail
+    UI -> SYS : Request detail pesanan
+    SYS -> DB : Query detail pesanan
+    DB --> SYS : Return detail pesanan
+    SYS --> UI : Tampilkan detail lengkap pesanan\n(pelanggan, barang, jumlah, alamat pengiriman)
+    UI --> Admin : Menampilkan detail pesanan
+
+    Admin -> UI : Menekan tombol Konfirmasi Pesanan
+
+    alt "Ya"
+
+    UI -> SYS : Request konfirmasi pesanan
+    SYS -> DB : Verifikasi ketersediaan stok barang
+    DB --> SYS : Return status stok
+
+        alt Stok mencukupi
+
+            SYS -> DB : Update status pesanan → "Dikonfirmasi"\n& kurangi stok barang
+            DB --> SYS : Konfirmasi update berhasil
+            SYS --> UI : "Pesanan berhasil dikonfirmasi"
+            UI --> Admin : Memperbarui daftar pesanan
+
+        else Stok tidak mencukupi
+
+            SYS --> UI : "Stok barang tidak mencukupi,\npesanan tidak dapat dikonfirmasi."
+            UI --> Admin : Kembali ke detail pesanan\ntanpa mengubah status
+
+        end
+
+    else "Tidak"
+
+    UI --> Admin : Tampilkan dialog konfirmasi\n"Apakah Anda yakin ingin menolak pesanan ini?"
+    Admin -> UI : Menekan tombol Ya\n& mengisi alasan penolakan
+    UI -> SYS : Request tolak pesanan\nbeserta alasan penolakan
+    SYS -> DB : Update status pesanan → "Ditolak"\n& simpan alasan penolakan
+    DB --> SYS : Konfirmasi update berhasil
+    deactivate DB
+    SYS --> UI : "Pesanan telah ditolak."
+    UI --> Admin : Memperbarui daftar pesanan
+
+    end
+
+else Belum ada pesanan
+
+    SYS --> UI : "Belum ada pesanan masuk saat ini."
+    deactivate SYS
+    UI --> Admin : Menampilkan pesan kosong
+    deactivate UI
+
+end
+
+== Skenario Normal: Tandai Pesanan Selesai ==
+
+Admin -> UI : Memilih pesanan "Dikonfirmasi"\nlalu menekan tombol Selesai
+activate UI
+UI -> SYS : Request tandai pesanan selesai
+activate SYS
+SYS -> DB : Update status pesanan → "Selesai"\n& catat transaksi ke laporan penjualan
+activate DB
+DB --> SYS : Konfirmasi update berhasil
+deactivate DB
+SYS --> UI : "Pesanan telah ditandai selesai."
+deactivate SYS
+UI --> Admin : Memperbarui daftar pesanan
+deactivate UI
+
+@enduml
