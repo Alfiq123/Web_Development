@@ -1,0 +1,79 @@
+@startuml Class Diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+entity "Pelanggan" as User {
+    id: number
+    --
+    first_name: varchar2(128)
+    last_name: varchar2(128)
+    address: varchar2(256)
+    city: varchar2(128)
+    postal_code: varchar2(10)
+}
+
+class Admin {
+    
+}
+
+class LoginAdmin {
+    - username : string
+    - name : string
+    - email : string
+    - password : string
+}
+
+class KelolaDataBarang {
+    -
+}
+
+class KelolaStokBarang {
+    -
+}
+
+class KelolaDataPelanggan {
+    -
+}
+
+class KonfirmasiPesanan {
+    -
+}
+
+class LihatLaporanTransaksi {
+    -
+}
+
+class LogoutAdmin {
+    -
+}
+
+
+class Registrasi {
+    -
+}
+
+class LoginPelanggan {
+    -
+}
+
+class LihatKatalogBarang {
+    -
+}
+
+class PesanBarang {
+    -
+}
+
+class LihatRiwayatPesanan {
+    -
+}
+
+class LogoutPelanggan {
+    -
+}
+
+User --{ PesanBarang
+
+@enduml

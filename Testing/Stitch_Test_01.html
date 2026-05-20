@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Customer Management - Donny Store Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#564427",
+                        "outline": "#75777d",
+                        "on-background": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-fixed": "#002113",
+                        "primary-fixed": "#d8e3fb",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary": "#006c49",
+                        "surface-container": "#e5eeff",
+                        "on-surface": "#0b1c30",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary-container": "#8590a6",
+                        "on-tertiary-container": "#a38c6a",
+                        "background": "#f8f9ff",
+                        "primary-container": "#1e293b",
+                        "on-secondary-container": "#00714d",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#45474c",
+                        "on-secondary-fixed-variant": "#005236",
+                        "primary": "#091426",
+                        "secondary-container": "#6cf8bb",
+                        "on-primary-fixed": "#111c2d",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-fixed-dim": "#ddc39d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "surface-tint": "#545f73",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#bcc7de",
+                        "tertiary": "#1e1200",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary-fixed": "#fadfb8",
+                        "surface-container-low": "#eff4ff",
+                        "outline-variant": "#c5c6cd",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed": "#271902",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "primary-fixed-dim": "#bcc7de",
+                        "tertiary-container": "#35260c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-padding": "32px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "sidebar-width": "260px",
+                        "stack-md": "16px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen bg-background text-on-background flex">
+    <!-- SideNavBar Component -->
+    <nav class="fixed left-0 top-0 h-full w-[260px] bg-primary flex flex-col py-stack-lg shadow-sm z-20">
+        <!-- Header -->
+        <div class="px-6 mb-8 flex flex-col gap-1">
+            <span class="font-headline-md text-headline-md font-bold text-on-primary">Donny Store</span>
+            <span class="font-label-sm text-label-sm text-on-primary-fixed-variant">Wholesale Admin</span>
+        </div>
+        <!-- Navigation Tabs -->
+        <div class="flex-1 px-4 space-y-2">
+            <!-- Dashboard (Inactive) -->
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary-fixed-variant font-body-md hover:bg-primary-container hover:text-on-primary transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <!-- Item Management (Inactive) -->
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary-fixed-variant font-body-md hover:bg-primary-container hover:text-on-primary transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                <span>Item Management</span>
+            </a>
+            <!-- Customers (Active) -->
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary font-bold border-l-4 border-secondary bg-primary-container scale-[0.98] transition-transform duration-150"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="group" data-weight="fill"
+                    style="font-variation-settings: 'FILL' 1;">group</span>
+                <span>Customers</span>
+            </a>
+            <!-- Orders (Inactive) -->
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary-fixed-variant font-body-md hover:bg-primary-container hover:text-on-primary transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="verified">verified</span>
+                <span>Orders</span>
+            </a>
+        </div>
+        <!-- CTA -->
+        <div class="px-6 mt-4 mb-8">
+            <button
+                class="w-full bg-secondary text-on-secondary font-label-sm text-label-sm py-2 rounded-lg hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors duration-200 shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:shadow-none">
+                Add New Item
+            </button>
+        </div>
+        <!-- Footer Tabs -->
+        <div class="px-4 space-y-2">
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary-fixed-variant font-body-md hover:bg-primary-container hover:text-on-primary transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span>Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-primary-fixed-variant font-body-md hover:bg-primary-container hover:text-on-primary transition-colors duration-200"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="logout">logout</span>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+    <!-- TopAppBar Component -->
+    <header
+        class="fixed top-0 right-0 left-[260px] h-16 bg-surface border-b border-outline-variant flex justify-between items-center px-container-padding z-10">
+        <!-- Left Side: Brand Logo / Title -->
+        <div class="font-headline-md text-headline-md font-bold text-primary">
+            Donny Store Admin
+        </div>
+        <!-- Right Side: Trailing Icons & Profile -->
+        <div class="flex items-center gap-4">
+            <button
+                class="text-primary hover:text-secondary transition-colors duration-200 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container focus:ring-2 focus:ring-primary focus:ring-inset outline-none">
+                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+            </button>
+            <button
+                class="text-primary hover:text-secondary transition-colors duration-200 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container focus:ring-2 focus:ring-primary focus:ring-inset outline-none">
+                <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+            </button>
+            <div
+                class="ml-2 w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center border border-outline-variant overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+                <img alt="Administrator Profile" class="w-full h-full object-cover"
+                    data-alt="A small circular avatar placeholder image indicating a logged-in administrator profile. The image features a solid dark navy background with a crisp white sans-serif letter A centered within it. The style is clean, modern, and flat, designed to sit seamlessly within a bright corporate dashboard header. Lighting is neutral and consistent."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIT8Vy2KP_UMjEECr2--x_CcaYV0p1HKxRKPwsqdJVNbMYEjDtXZm9f7_GH1TKnHU9yvvFAES2ORKdRGKYqFWBB_XinOJQnCSvx_2-_7W4wH8KJh8J-oRGmCUXHPc82JBLZoB3yUi18vBCgXSG7QxneSry3y4UVc6OaLibuxgF8WjzvU-OmqJV2HLUjiSqtX0o-upK2NUjz8srMHzxxp9ne9lqJF8D5iBNR31TgZERqr5wmYZHHKUekyX4Gzow3-PfgqXkh6oySA" />
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-[260px] mt-16 p-container-padding w-full max-w-[1600px]">
+        <!-- Page Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-stack-lg">
+            <div>
+                <h1 class="font-headline-lg text-headline-lg text-on-background">Customers</h1>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage wholesale accounts, track
+                    orders, and view contact details.</p>
+            </div>
+            <button
+                class="bg-primary-container text-on-primary h-10 px-4 rounded-lg font-label-sm text-label-sm flex items-center gap-2 hover:bg-primary transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background outline-none">
+                <span class="material-symbols-outlined text-[18px]">person_add</span>
+                New Customer
+            </button>
+        </div>
+        <!-- Action Bar (Search & Filters) -->
+        <div
+            class="bg-surface rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] p-4 mb-stack-md flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Search -->
+            <div class="relative w-full md:w-96">
+                <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">search</span>
+                <input
+                    class="w-full h-10 pl-10 pr-4 rounded-lg border border-outline-variant bg-surface font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-colors"
+                    placeholder="Search customers..." type="text" />
+            </div>
+            <!-- Filters -->
+            <div class="flex items-center gap-4 w-full md:w-auto">
+                <div class="flex items-center gap-2">
+                    <label class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Status:</label>
+                    <div class="relative">
+                        <select
+                            class="h-10 pl-3 pr-10 rounded-lg border border-outline-variant bg-surface font-body-md text-body-md text-on-surface appearance-none focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-colors cursor-pointer min-w-[140px]">
+                            <option value="all">All Statuses</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                        <span
+                            class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[20px]">expand_more</span>
+                    </div>
+                </div>
+                <button
+                    class="h-10 px-4 rounded-lg border border-outline-variant text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2 hover:bg-surface-container-low hover:text-on-surface transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    More Filters
+                </button>
+            </div>
+        </div>
+        <!-- Data Table Card -->
+        <div
+            class="bg-surface rounded-xl border border-outline-variant shadow-[0_4px_12px_rgba(0,0,0,0.02)] overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-outline-variant bg-surface-container-lowest">
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                Nama Pelanggan</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                No. WhatsApp</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                Alamat</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                Total Pesanan</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                Tanggal Bergabung</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">
+                                Status</th>
+                            <th
+                                class="px-6 py-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap text-right">
+                                Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-label-sm text-label-sm text-on-primary-fixed flex-shrink-0">
+                                        TB
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors cursor-pointer">Toko
+                                            Berkah</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-outline font-normal">CUST-10042</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">+62
+                                812-3456-7890</td>
+                            <td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant max-w-[200px] truncate"
+                                title="Jl. Sudirman No. 45, Blok C, Jakarta Pusat">
+                                Jl. Sudirman No. 45, Blok C, Jakarta Pusat
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface font-medium">Rp
+                                45.250.000</td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">12 Oct 2023</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                                    Active
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button
+                                    class="w-8 h-8 rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-colors inline-flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-label-sm text-label-sm text-on-primary-fixed flex-shrink-0">
+                                        SM
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors cursor-pointer">Sinar
+                                            Makmur Grosir</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-outline font-normal">CUST-10045</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">+62
+                                856-7788-9900</td>
+                            <td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant max-w-[200px] truncate"
+                                title="Komp. Pergudangan Margomulyo Indah Blok A/12, Surabaya">
+                                Komp. Pergudangan Margomulyo...
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface font-medium">Rp
+                                128.400.000</td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">05 Nov 2023</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                                    Active
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button
+                                    class="w-8 h-8 rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-colors inline-flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant flex-shrink-0">
+                                        MJ
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors cursor-pointer">Maju
+                                            Jaya Sentosa</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-outline font-normal">CUST-10051</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">+62
+                                811-2233-4455</td>
+                            <td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant max-w-[200px] truncate"
+                                title="Jl. Asia Afrika No. 120, Bandung">
+                                Jl. Asia Afrika No. 120, Bandung
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface font-medium">Rp 0</td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">10 Jan 2024</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm">
+                                    Inactive
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button
+                                    class="w-8 h-8 rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-colors inline-flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- Row 4 -->
+                        <tr class="hover:bg-surface-container-low transition-colors duration-150 group">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-label-sm text-label-sm text-on-primary-fixed flex-shrink-0">
+                                        AM
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors cursor-pointer">Amanah
+                                            Mart</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-outline font-normal">CUST-10068</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">+62
+                                821-9988-7766</td>
+                            <td class="px-6 py-4 font-body-md text-body-md text-on-surface-variant max-w-[200px] truncate"
+                                title="Pasar Induk Kramat Jati, Kios Blok B No. 4, Jakarta Timur">
+                                Pasar Induk Kramat Jati, Kios Blok...
+                            </td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface font-medium">Rp
+                                15.600.000</td>
+                            <td class="px-6 py-4 font-data-mono text-data-mono text-on-surface-variant">22 Jan 2024</td>
+                            <td class="px-6 py-4">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                                    Pending
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <button
+                                    class="w-8 h-8 rounded hover:bg-surface-variant text-outline hover:text-on-surface transition-colors inline-flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Table Footer / Pagination -->
+            <div
+                class="px-6 py-4 border-t border-outline-variant bg-surface flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span class="font-body-md text-body-md text-on-surface-variant">
+                    Showing <span class="font-medium text-on-surface">1</span> to <span
+                        class="font-medium text-on-surface">4</span> of <span
+                        class="font-medium text-on-surface">128</span> entries
+                </span>
+                <div class="flex items-center gap-1">
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-outline hover:bg-surface-container-low transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled="">
+                        <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+                    </button>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded bg-primary-container text-on-primary font-data-mono text-data-mono transition-colors">
+                        1
+                    </button>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low font-data-mono text-data-mono transition-colors">
+                        2
+                    </button>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low font-data-mono text-data-mono transition-colors">
+                        3
+                    </button>
+                    <span class="w-8 h-8 flex items-center justify-center text-outline">...</span>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low font-data-mono text-data-mono transition-colors">
+                        13
+                    </button>
+                    <button
+                        class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors">
+                        <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

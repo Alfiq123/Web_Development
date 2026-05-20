@@ -1,0 +1,96 @@
+@startuml DonnyStore
+
+!theme plain
+
+' skinparam arrowColor #555555
+' skinparam classAttributeIconSize 0
+' skinparam classBackgroundColor #FAFAFA
+' skinparam classBorderColor #AAAAAA
+' skinparam classFontSize 12
+skinparam linetype ortho
+
+abstract class User {
+    - id : int
+    - username : String
+    - password : String
+    - email : String
+    + login() : boolean
+    + logout() : void
+}
+
+class Admin {
+    - namaAdmin : String
+    + kelolaDataBarang() : void
+    + kelolaStokBarang() : void
+    + kelolaDataPelanggan() : void
+    + konfirmasiPesanan() : void
+    + lihatLaporanTransaksi() : void
+}
+
+class Pelanggan {
+    - namaPelanggan : String
+    - alamat : String
+    - noTelp : String
+    + registrasi() : void
+    + lihatKatalog() : List~Barang~
+    + pesanBarang() : void
+    + lihatRiwayatPesanan() : List~Pesanan~
+}
+
+class Barang {
+    - idBarang : int
+    - namaBarang : String
+    - harga : double
+    - kategori : String
+    + getInfo() : String
+}
+
+class Stok {
+    - idStok : int
+    - jumlah : int
+    - satuan : String
+    - tanggalUpdate : Date
+    + updateStok(jumlah : int) : void
+    + cekKetersediaan() : boolean
+}
+
+class Pesanan {
+    - idPesanan : int
+    - tanggalPesan : Date
+    - statusPesanan : String
+    - totalHarga : double
+    + hitungTotal() : double
+    + updateStatus(status : String) : void
+}
+
+class DetailPesanan {
+    - idDetail : int
+    - jumlah : int
+    - hargaSatuan : double
+    + getSubtotal() : double
+}
+
+class Laporan {
+    - idLaporan : int
+    - periode : String
+    - totalPendapatan : double
+    - totalTransaksi : int
+    + generate() : void
+    + tampilkan() : String
+}
+
+User <|-- Admin
+User <|-- Pelanggan
+
+Pelanggan "1" -- "0..*" Pesanan
+Admin "1" -- "0..*" Pesanan
+Admin "1" -- "0..*" Laporan
+
+Pesanan "1" *-- "1..*" DetailPesanan
+DetailPesanan "0..*" --> "1" Barang
+
+Barang "1" -- "1" Stok
+Admin "1" -- "0..*" Stok
+Admin "1" -- "0..*" Barang
+
+@enduml
