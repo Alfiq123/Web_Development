@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="D-kXGX2GNe1WOqVTpzhS" name="Page-1">
-        <mxGraphModel dx="788" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="346" dy="347" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -8,7 +8,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;spacing=2;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
-                    <mxGeometry x="315" y="10" width="50" height="50" as="geometry"/>
+                    <mxGeometry x="325" y="30" width="30" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="" style="edgeStyle=none;html=1;spacing=2;spacingLeft=2;spacingRight=2;" parent="1" source="3" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -31,7 +31,7 @@
                 <mxCell id="12" value="" style="edgeStyle=none;html=1;spacing=2;spacingLeft=2;spacingRight=2;" parent="1" source="17" target="11" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="Login Berhasil" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="12">
+                <mxCell id="44" value="Login Berhasil" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="12" vertex="1" connectable="0">
                     <mxGeometry x="-0.0667" y="2" relative="1" as="geometry">
                         <mxPoint x="-2" y="-4" as="offset"/>
                     </mxGeometry>
@@ -51,8 +51,10 @@
                 <mxCell id="13" value="Sistem membuat sesi login untuk pelanggan" style="rounded=1;perimeterSpacing=0;whiteSpace=wrap;html=1;labelBorderColor=none;spacing=2;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="280" y="620" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="15" target="45">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="15" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="800" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="15" value="Sistem mengarahkan pelanggan ke halaman utama" style="whiteSpace=wrap;html=1;rounded=1;spacing=2;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="280" y="710" width="120" height="60" as="geometry"/>
@@ -87,14 +89,14 @@
                         <mxPoint x="9" y="-15" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="38">
+                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="17" target="38" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="515" y="480"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="43" value="Akun belum terdaftar" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="41">
+                <mxCell id="43" value="Akun belum terdaftar" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="41" vertex="1" connectable="0">
                     <mxGeometry x="-0.1024" relative="1" as="geometry">
                         <mxPoint x="-7" y="-10" as="offset"/>
                     </mxGeometry>
@@ -136,17 +138,20 @@
                 <mxCell id="35" value="Sistem menampilkan pesan &quot;Kolom tidak boleh kosong&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacingLeft=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="105" y="620" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="38" target="39">
+                <mxCell id="40" value="" style="edgeStyle=none;html=1;" parent="1" source="38" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="Sistem tidak menemukan data pelanggan" style="whiteSpace=wrap;html=1;rounded=1;spacing=2;spacingLeft=2;spacingRight=2;spacingBottom=2;spacingTop=2;" vertex="1" parent="1">
+                <mxCell id="38" value="Sistem tidak menemukan data pelanggan" style="whiteSpace=wrap;html=1;rounded=1;spacing=2;spacingLeft=2;spacingRight=2;spacingBottom=2;spacingTop=2;" parent="1" vertex="1">
                     <mxGeometry x="455" y="530" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="Sistem menampilkan pesan &quot;Akun tidak ditemukan&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacing=2;spacingLeft=2;spacingRight=2;spacingBottom=2;spacingTop=2;" vertex="1" parent="1">
+                <mxCell id="39" value="Sistem menampilkan pesan &quot;Akun tidak ditemukan&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacing=2;spacingLeft=2;spacingRight=2;spacingBottom=2;spacingTop=2;" parent="1" vertex="1">
                     <mxGeometry x="455" y="620" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;spacing=2;spacingLeft=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="315" y="800" width="50" height="50" as="geometry"/>
+                <mxCell id="47" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;spacing=2;spacingLeft=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="800" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;spacing=2;spacingLeft=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="805" width="20" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Praktikum 8 - JavaScript Arrow Function</title>
+    <style>
+        #content {
+            text-align: center;
+        }
+        #hasilWarna {
+            text-align: center;
+            padding: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            border-color: black;
+        }
+
+        .buttons {
+            width: 25px;
+            height: 25px;
+            transition: opacity 300ms, scale 300ms;
+        }
+        .buttons:hover {
+            cursor: pointer;
+            opacity: 50%;
+            scale: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Color Box</h1>
+        <button class="buttons" onclick="pilihWarna('red')"     style="background-color: red;"></button>
+        <button class="buttons" onclick="pilihWarna('green')"   style="background-color: green;"></button>
+        <button class="buttons" onclick="pilihWarna('blue')"    style="background-color: blue;"></button>
+        <button class="buttons" onclick="pilihWarna('cyan')"    style="background-color: cyan;"></button>
+        <button class="buttons" onclick="pilihWarna('magenta')" style="background-color: magenta;"></button>
+        <button class="buttons" onclick="pilihWarna('yellow')"  style="background-color: yellow;"></button>
+        <button class="buttons" onclick="pilihWarna('black')"   style="background-color: black;"></button>
+    </div>
+    <div id="hasilWarna"></div>
+    <script>
+        const pilihWarna = (color) => {
+            document.querySelector("#hasilWarna").style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

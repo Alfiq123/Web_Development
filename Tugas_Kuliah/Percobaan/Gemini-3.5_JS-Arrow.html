@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Arrow: Cyber Shooter & Arrow Function Demo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #0b0b1e;
+        }
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Custom neon shadows */
+        .neon-border {
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.4), inset 0 0 15px rgba(236, 72, 153, 0.2);
+        }
+        .neon-text-pink {
+            text-shadow: 0 0 8px rgba(236, 72, 153, 0.8);
+        }
+        .neon-text-cyan {
+            text-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+        }
+        /* Hide scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #db2777;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-100 flex flex-col justify-between overflow-x-hidden">
+
+<!-- Header -->
+<header class="border-b border-pink-500/30 bg-slate-950/80 backdrop-blur px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4 z-10 shadow-lg">
+    <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-pink-500 to-cyan-500 flex items-center justify-center font-bold text-2xl orbitron shadow-lg text-white">
+            =&gt;
+        </div>
+        <div>
+            <h1 class="text-2xl font-black orbitron tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400">
+                NEON ARROW
+            </h1>
+            <p class="text-xs text-cyan-400 tracking-widest uppercase">JavaScript Arrow Function Interactive Demo</p>
+        </div>
+    </div>
+    <div class="flex gap-2 text-sm">
+        <span class="px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/30 text-pink-400">ES6 Standard</span>
+        <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">Fully Interactive</span>
+    </div>
+</header>
+
+<!-- Main Container -->
+<main class="flex-grow max-w-7xl w-full mx-auto p-4 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+    <!-- Left Side: Game Area (Canvas & Controls) -->
+    <div class="lg:col-span-7 flex flex-col gap-4">
+
+        <!-- Game Canvas Container -->
+        <div class="relative bg-slate-950 rounded-2xl border-2 border-pink-500/40 overflow-hidden neon-border flex flex-col">
+
+            <!-- Game HUD / Stats Overlay -->
+            <div class="absolute top-0 left-0 right-0 p-4 flex justify-between items-center pointer-events-none z-10 bg-gradient-to-b from-slate-950/80 to-transparent">
+                <div class="flex items-center gap-6">
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-widest block">SCORE</span>
+                        <span id="scoreVal" class="text-2xl font-bold orbitron text-pink-400 neon-text-pink">0000</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 uppercase tracking-widest block">LEVEL</span>
+                        <span id="levelVal" class="text-2xl font-bold orbitron text-cyan-400 neon-text-cyan">1</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1">
+                    <!-- Lives Icons -->
+                    <span class="text-xs text-gray-400 mr-2 uppercase tracking-widest">HP</span>
+                    <div id="livesContainer" class="flex gap-1.5">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Overlay Screens (Start, GameOver, Pause) -->
+            <div id="overlayScreen" class="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center z-20 transition-all duration-300">
+                <div id="startScreenContent" class="text-center p-6 max-w-md">
+                    <h2 class="text-4xl font-extrabold orbitron mb-4 text-pink-500 tracking-wider">NEON DEFENDER</h2>
+                    <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                        Kalahkan musuh geometris yang menyerang! Game ini ditenagai sepenuhnya menggunakan <strong class="text-cyan-400">Arrow Functions (`=&gt;`)</strong> untuk struktur logic, render, dan deteksi tabrakan.
+                    </p>
+                    <button id="btnStart" class="px-8 py-3 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-lg shadow-pink-500/30 orbitron border-b-4 border-pink-700">
+                        MULAI GAME
+                    </button>
+                </div>
+
+                <div id="gameOverScreenContent" class="text-center p-6 max-w-md hidden">
+                    <h2 class="text-4xl font-extrabold orbitron mb-2 text-red-500 tracking-wider">GAME OVER</h2>
+                    <p class="text-gray-400 mb-6">Skor Akhir Anda:</p>
+                    <div id="finalScore" class="text-5xl font-black orbitron text-cyan-400 neon-text-cyan mb-8">0</div>
+                    <button id="btnRestart" class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-lg shadow-cyan-500/30 orbitron border-b-4 border-cyan-700">
+                        MAIN LAGI
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Game Canvas -->
+            <canvas id="gameCanvas" class="w-full bg-slate-950 block" style="aspect-ratio: 4/3;"></canvas>
+
+            <!-- Audio Toggle Control Inside Game UI -->
+            <button id="audioToggle" class="absolute bottom-3 right-3 bg-slate-900/80 hover:bg-slate-800 text-gray-400 hover:text-white p-2.5 rounded-full border border-gray-700 transition-all flex items-center justify-center z-10" title="Mute/Unmute">
+                <svg id="audioOnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                <svg id="audioOffIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zm10.707-8.293a1 1 0 011.414 0L20 9.086l2.293-2.293a1 1 0 111.414 1.414L21.414 10.5l2.293 2.293a1 1 0 01-1.414 1.414L20 11.914l-2.293 2.293a1 1 0 01-1.414-1.414L18.586 10.5l-2.293-2.293a1 1 0 010-1.414z"></path></svg>
+            </button>
+        </div>
+
+        <!-- Controls Guide and Mobile Touch Area -->
+        <div class="bg-slate-900/60 p-4 rounded-xl border border-pink-500/20">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <!-- Desktop Controls Info -->
+                <div class="hidden md:flex gap-4 text-xs text-gray-400">
+                    <div>
+                        <span class="font-bold text-cyan-400 block mb-1">GERAK KAPAL:</span>
+                        <span class="bg-slate-800 text-gray-300 px-2 py-1 rounded border border-gray-700">A / D</span> atau <span class="bg-slate-800 text-gray-300 px-2 py-1 rounded border border-gray-700">← / →</span>
+                    </div>
+                    <div>
+                        <span class="font-bold text-pink-400 block mb-1">TEMBAK LASER:</span>
+                        <span class="bg-slate-800 text-gray-300 px-4 py-1 rounded border border-gray-700">SPACEBAR</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Virtual Gamepad for Mobile/Touch Devices -->
+                <div class="w-full flex md:hidden flex-col gap-3">
+                    <span class="text-xs text-center text-cyan-400 font-bold uppercase tracking-wider block">Virtual Gamepad (Sentuh)</span>
+                    <div class="flex justify-between items-center gap-4 w-full">
+                        <div class="flex gap-2">
+                            <button id="btnTouchLeft" class="w-16 h-16 bg-slate-800 active:bg-pink-600 rounded-2xl flex items-center justify-center border-2 border-pink-500/40 text-2xl select-none" style="touch-action: manipulation;">
+                                ◀
+                            </button>
+                            <button id="btnTouchRight" class="w-16 h-16 bg-slate-800 active:bg-pink-600 rounded-2xl flex items-center justify-center border-2 border-pink-500/40 text-2xl select-none" style="touch-action: manipulation;">
+                                ▶
+                            </button>
+                        </div>
+                        <button id="btnTouchFire" class="flex-grow h-16 bg-gradient-to-r from-cyan-500 to-purple-600 active:from-cyan-600 active:to-purple-700 rounded-2xl flex items-center justify-center border-2 border-cyan-400/40 text-lg font-bold orbitron select-none text-white shadow-lg" style="touch-action: manipulation;">
+                            FIRE ⚡
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Side: Arrow Function interactive Explainer -->
+    <div class="lg:col-span-5 flex flex-col gap-4">
+        <div class="bg-slate-900/80 p-5 rounded-2xl border border-cyan-500/30 shadow-lg flex flex-col h-full justify-between">
+            <div>
+                <h3 class="text-lg font-bold orbitron text-cyan-400 mb-2 tracking-wider flex items-center gap-2">
+                    <span class="text-pink-500">&lt;/&gt;</span> KODE ARROW FUNCTION DI GAME INI
+                </h3>
+                <p class="text-xs text-gray-400 mb-4">
+                    Klik tab di bawah untuk melihat bagian arrow function penting yang mengendalikan game ini secara *real-time*!
+                </p>
+
+                <!-- Interactive Tab Selectors -->
+                <div class="grid grid-cols-3 gap-2 mb-4">
+                    <button onclick="switchTab('tab-lexical')" id="btn-tab-lexical" class="py-2 px-1 text-center rounded-lg text-xs font-semibold border bg-cyan-950 border-cyan-500 text-cyan-300 transition-all">
+                        Lexical 'this'
+                    </button>
+                    <button onclick="switchTab('tab-array')" id="btn-tab-array" class="py-2 px-1 text-center rounded-lg text-xs font-semibold border bg-slate-950 border-slate-800 text-gray-400 hover:text-white transition-all">
+                        Array Methods
+                    </button>
+                    <button onclick="switchTab('tab-math')" id="btn-tab-math" class="py-2 px-1 text-center rounded-lg text-xs font-semibold border bg-slate-950 border-slate-800 text-gray-400 hover:text-white transition-all">
+                        Short Utility
+                    </button>
+                </div>
+
+                <!-- Code Highlight Area -->
+                <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 relative min-h-[220px]">
+                    <!-- Tab: Lexical 'this' -->
+                    <div id="tab-lexical" class="tab-content block space-y-2">
+                        <span class="text-xs text-pink-500 font-mono block mb-1">// Event handler & Game Loop</span>
+                        <pre class="text-[11px] font-mono leading-relaxed text-gray-300 bg-black/40 p-2.5 rounded overflow-x-auto">
+<span class="text-yellow-400">window</span>.<span class="text-cyan-400">addEventListener</span>(<span class="text-green-400">'keydown'</span>, <span class="text-pink-400">e =&gt;</span> {
+  <span class="text-gray-400">// Arrow function mengikat 'this' secara leksikal.</span>
+  <span class="text-gray-400">// 'this' tetap mengarah ke Class Game kita!</span>
+  <span class="text-pink-400">this</span>.<span class="text-cyan-400">keys</span>[e.code] = <span class="text-amber-500">true</span>;
+});
+
+<span class="text-yellow-400">requestAnimationFrame</span>(<span class="text-pink-400">() =&gt;</span> <span class="text-pink-400">this</span>.<span class="text-cyan-400">loop</span>());</pre>
+                        <p class="text-xs text-gray-400 mt-2">
+                            <strong class="text-pink-400">Mengapa?</strong> Di JavaScript biasa, callback fungsi biasa (`function() {}`) akan membuat konteks `this` baru (menjadi Window atau Event). Dengan Arrow Function, `this` tetap merujuk ke instance class game!
+                        </p>
+                    </div>
+
+                    <!-- Tab: Array Filters -->
+                    <div id="tab-array" class="tab-content hidden space-y-2">
+                        <span class="text-xs text-pink-500 font-mono block mb-1">// Filter peluru & musuh yang hancur</span>
+                        <pre class="text-[11px] font-mono leading-relaxed text-gray-300 bg-black/40 p-2.5 rounded overflow-x-auto">
+<span class="text-gray-400">// Filter mengeluarkan peluru mati secara instan</span>
+<span class="text-pink-400">this</span>.<span class="text-cyan-400">bullets</span> = <span class="text-pink-400">this</span>.<span class="text-cyan-400">bullets</span>.<span class="text-cyan-400">filter</span>(<span class="text-pink-400">b =&gt;</span> b.active);
+
+<span class="text-gray-400">// Loop efisien menggambar semua musuh</span>
+<span class="text-pink-400">this</span>.<span class="text-cyan-400">enemies</span>.<span class="text-cyan-400">forEach</span>(<span class="text-pink-400">enemy =&gt;</span> enemy.draw());</pre>
+                        <p class="text-xs text-gray-400 mt-2">
+                            <strong class="text-cyan-400">Mengapa?</strong> Penulisan inline filter/forEach yang super ringkas. Menggantikan perulangan `for(let i=0; i&lt;arr.length; i++)` yang panjang dan rentan bug indeks.
+                        </p>
+                    </div>
+
+                    <!-- Tab: Math Utilities -->
+                    <div id="tab-math" class="tab-content hidden space-y-2">
+                        <span class="text-xs text-pink-500 font-mono block mb-1">// Utility matematika cepat</span>
+                        <pre class="text-[11px] font-mono leading-relaxed text-gray-300 bg-black/40 p-2.5 rounded overflow-x-auto">
+<span class="text-gray-400">// Return nilai acak antara range min & max</span>
+<span class="text-pink-400">const</span> <span class="text-cyan-400">random</span> = <span class="text-pink-400">(min, max) =&gt;</span> Math.random() * (max - min) + min;
+
+<span class="text-gray-400">// Deteksi tabrakan lingkaran (Circle Collision)</span>
+<span class="text-pink-400">const</span> <span class="text-cyan-400">isColliding</span> = <span class="text-pink-400">(c1, c2) =&gt;</span> {
+  <span class="text-pink-400">const</span> dist = Math.hypot(c1.x - c2.x, c1.y - c2.y);
+  <span class="text-pink-400">return</span> dist &lt; (c1.r + c2.r);
+};</pre>
+                        <p class="text-xs text-gray-400 mt-2">
+                            <strong class="text-yellow-400">Mengapa?</strong> Tanpa kurung kurawal `{}` dan kata kunci `return` (implicit return), fungsi matematika sederhana dapat ditulis dalam 1 baris saja!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live stats inside Code Panel -->
+            <div class="mt-4 pt-4 border-t border-slate-800">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-2">Monitor Engine Game:</span>
+                <div class="grid grid-cols-2 gap-4 text-xs font-mono">
+                    <div class="bg-black/30 p-2 rounded">
+                        <span class="text-gray-400">Peluru Aktif:</span>
+                        <span id="monBullets" class="text-pink-400 font-bold ml-1">0</span>
+                    </div>
+                    <div class="bg-black/30 p-2 rounded">
+                        <span class="text-gray-400">Musuh Aktif:</span>
+                        <span id="monEnemies" class="text-cyan-400 font-bold ml-1">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="mt-8 border-t border-slate-900 bg-slate-950 py-4 text-center text-xs text-gray-500">
+    <p>&copy; 2026 Neon Arrow. Dirancang dengan cinta & JavaScript ES6.</p>
+</footer>
+
+<script>
+    // --- Web Audio Synthesizer (No external asset files needed!) ---
+    class GameAudio {
+        constructor() {
+            this.ctx = null;
+            this.muted = false;
+        }
+
+        init = () => {
+            if (!this.ctx) {
+                this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        playLaser = () => {
+            if (this.muted) return;
+            this.init();
+            const ctx = this.ctx;
+
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(440, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.15);
+
+            gain.gain.setValueAtTime(0.1, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.15);
+        }
+
+        playExplosion = () => {
+            if (this.muted) return;
+            this.init();
+            const ctx = this.ctx;
+
+            // Synthesize white noise-like sound for explosion
+            const bufferSize = ctx.sampleRate * 0.3; // 0.3 seconds
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+
+            // Fill random values
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1;
+            }
+
+            const noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(800, ctx.currentTime);
+            filter.frequency.exponentialRampToValueAtTime(10, ctx.currentTime + 0.3);
+
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.15, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+
+            noise.start();
+            noise.stop(ctx.currentTime + 0.3);
+        }
+
+        playHit = () => {
+            if (this.muted) return;
+            this.init();
+            const ctx = this.ctx;
+
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(200, ctx.currentTime);
+            osc.frequency.setValueAtTime(50, ctx.currentTime + 0.1);
+
+            gain.gain.setValueAtTime(0.15, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.12);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.12);
+        }
+
+        toggleMute = () => {
+            this.muted = !this.muted;
+            return this.muted;
+        }
+    }
+
+    const audio = new GameAudio();
+
+    // Audio controls UI events using Arrow Functions
+    const audioBtn = document.getElementById('audioToggle');
+    const audioOnIcon = document.getElementById('audioOnIcon');
+    const audioOffIcon = document.getElementById('audioOffIcon');
+
+    audioBtn.addEventListener('click', () => {
+        const isMuted = audio.toggleMute();
+        if (isMuted) {
+            audioOnIcon.classList.add('hidden');
+            audioOffIcon.classList.remove('hidden');
+        } else {
+            audioOnIcon.classList.remove('hidden');
+            audioOffIcon.classList.add('hidden');
+        }
+    });
+
+
+    // --- STREAMING_CHUNK: Designing Game Mathematics ---
+    // Useful math operations using short Arrow Functions (Implicit returns)
+    const random = (min, max) => Math.random() * (max - min) + min;
+    const checkCollision = (obj1, obj2) => {
+        const dx = obj1.x - obj2.x;
+        const dy = obj1.y - obj2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        return distance < (obj1.radius + obj2.radius);
+    };
+
+
+    // --- STREAMING_CHUNK: Game Object Classes ---
+    // Player / Spaceship Class
+    class Player {
+        constructor(canvasWidth, canvasHeight) {
+            this.canvasWidth = canvasWidth;
+            this.canvasHeight = canvasHeight;
+            this.x = canvasWidth / 2;
+            this.y = canvasHeight - 50;
+            this.radius = 18;
+            this.speed = 6;
+            this.color = '#ff007f';
+            this.vx = 0;
+        }
+
+        draw = (ctx) => {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+
+            // Glow effect
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = this.color;
+
+            // Sleek Neon Fighter design
+            ctx.beginPath();
+            ctx.moveTo(0, -18); // top nose
+            ctx.lineTo(15, 12);  // bottom right wing
+            ctx.lineTo(0, 4);    // thruster indent
+            ctx.lineTo(-15, 12); // bottom left wing
+            ctx.closePath();
+
+            // Color fill with gradient
+            const grad = ctx.createLinearGradient(0, -18, 0, 12);
+            grad.addColorStop(0, '#ec4899');
+            grad.addColorStop(1, '#a855f7');
+            ctx.fillStyle = grad;
+            ctx.fill();
+
+            // Bright highlight borders
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Thruster engine glow
+            ctx.beginPath();
+            ctx.arc(0, 6, random(3, 7), 0, Math.PI * 2);
+            ctx.fillStyle = '#06b6d4';
+            ctx.shadowColor = '#06b6d4';
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        update = (keys, touchDir) => {
+            // Determine direction based on keyboard or touch
+            let dir = 0;
+            if (keys['ArrowLeft'] || keys['KeyA']) dir = -1;
+            else if (keys['ArrowRight'] || keys['KeyD']) dir = 1;
+            else if (touchDir !== 0) dir = touchDir;
+
+            this.vx = dir * this.speed;
+            this.x += this.vx;
+
+            // Screen boundaries restriction
+            if (this.x - this.radius < 0) this.x = this.radius;
+            if (this.x + this.radius > this.canvasWidth) this.x = this.canvasWidth - this.radius;
+        }
+    }
+
+    // Bullet Class
+    class Bullet {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.radius = 3;
+            this.speed = 10;
+            this.color = '#06b6d4';
+            this.active = true;
+        }
+
+        draw = (ctx) => {
+            ctx.save();
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        update = () => {
+            this.y -= this.speed;
+            if (this.y < 0) this.active = false;
+        }
+    }
+
+    // Enemy Class
+    class Enemy {
+        constructor(canvasWidth, level) {
+            this.x = random(20, canvasWidth - 20);
+            this.y = -30;
+            this.radius = random(12, 22);
+            this.speed = random(1, 2.2) + (level * 0.15);
+            this.active = true;
+
+            // Unique polygon sides for enemies
+            this.sides = Math.floor(random(3, 7));
+
+            // Pick cyberpunk-ish colors
+            const colors = ['#00f5ff', '#a020f0', '#ff00ff', '#39ff14', '#ffff00'];
+            this.color = colors[Math.floor(random(0, colors.length))];
+            this.scoreValue = this.sides * 10;
+        }
+
+        draw = (ctx) => {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.shadowBlur = 12;
+            ctx.shadowColor = this.color;
+
+            ctx.strokeStyle = this.color;
+            ctx.lineWidth = 2.5;
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.6)';
+
+            // Draw geometric shape
+            ctx.beginPath();
+            for (let i = 0; i < this.sides; i++) {
+                const angle = (i * 2 * Math.PI) / this.sides;
+                const xPos = this.radius * Math.cos(angle);
+                const yPos = this.radius * Math.sin(angle);
+                if (i === 0) ctx.moveTo(xPos, yPos);
+                else ctx.lineTo(xPos, yPos);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        update = (canvasHeight) => {
+            this.y += this.speed;
+            if (this.y - this.radius > canvasHeight) {
+                this.active = false;
+            }
+        }
+    }
+
+    // Particle System for sweet neon explosions
+    class Particle {
+        constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.radius = random(1, 3);
+            this.color = color;
+            const angle = random(0, Math.PI * 2);
+            const velocity = random(1, 5);
+            this.vx = Math.cos(angle) * velocity;
+            this.vy = Math.sin(angle) * velocity;
+            this.alpha = 1;
+            this.decay = random(0.015, 0.035);
+            this.active = true;
+        }
+
+        draw = (ctx) => {
+            ctx.save();
+            ctx.globalAlpha = this.alpha;
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = this.color;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        update = () => {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.alpha -= this.decay;
+            if (this.alpha <= 0) this.active = false;
+        }
+    }
+
+
+    // --- STREAMING_CHUNK: Designing Core Game Engine ---
+    class Game {
+        constructor() {
+            this.canvas = document.getElementById('gameCanvas');
+            this.ctx = this.canvas.getContext('2d');
+
+            // Dynamic canvas scaling
+            this.resizeCanvas();
+            window.addEventListener('resize', () => this.resizeCanvas());
+
+            // States
+            this.score = 0;
+            this.level = 1;
+            this.lives = 3;
+            this.isPlaying = false;
+            this.isGameOver = false;
+
+            this.player = new Player(this.canvas.width, this.canvas.height);
+            this.bullets = [];
+            this.enemies = [];
+            this.particles = [];
+
+            this.keys = {};
+            this.touchDir = 0; // -1 Left, 1 Right, 0 idle
+
+            this.spawnTimer = 0;
+            this.spawnInterval = 1200; // ms between enemy spawning
+            this.lastSpawnTime = 0;
+            this.lastShotTime = 0;
+            this.shootDelay = 220; // fire speed
+
+            // Set initial UI HUD
+            this.updateHUD();
+
+            // Setup Key Bindings
+            // Lexical 'this' is critical here! Arrow functions keep 'this' pointing to Game class
+            window.addEventListener('keydown', e => {
+                this.keys[e.code] = true;
+                if (e.code === 'Space' && this.isPlaying) {
+                    e.preventDefault(); // Stop window space scroll
+                    this.shoot();
+                }
+            });
+
+            window.addEventListener('keyup', e => {
+                this.keys[e.code] = false;
+            });
+
+            // Virtual Gamepad Buttons handlers (Touch Friendly)
+            this.setupMobileControls();
+        }
+
+        resizeCanvas = () => {
+            // Keeps 4:3 Aspect Ratio and makes it fully fluid & responsive
+            const containerWidth = this.canvas.parentElement.clientWidth;
+            this.canvas.width = containerWidth;
+            this.canvas.height = containerWidth * 0.75;
+
+            // Adjust player position on resize
+            if (this.player) {
+                this.player.canvasWidth = this.canvas.width;
+                this.player.canvasHeight = this.canvas.height;
+                this.player.y = this.canvas.height - 50;
+            }
+        }
+
+        setupMobileControls = () => {
+            const btnLeft = document.getElementById('btnTouchLeft');
+            const btnRight = document.getElementById('btnTouchRight');
+            const btnFire = document.getElementById('btnTouchFire');
+
+            const setLeft = (val) => { this.touchDir = val ? -1 : 0; };
+            const setRight = (val) => { this.touchDir = val ? 1 : 0; };
+
+            // Mouse/Touch triggers for Left button
+            btnLeft.addEventListener('mousedown', () => setLeft(true));
+            btnLeft.addEventListener('mouseup', () => setLeft(false));
+            btnLeft.addEventListener('touchstart', (e) => { e.preventDefault(); setLeft(true); });
+            btnLeft.addEventListener('touchend', (e) => { e.preventDefault(); setLeft(false); });
+
+            // Mouse/Touch triggers for Right button
+            btnRight.addEventListener('mousedown', () => setRight(true));
+            btnRight.addEventListener('mouseup', () => setRight(false));
+            btnRight.addEventListener('touchstart', (e) => { e.preventDefault(); setRight(true); });
+            btnRight.addEventListener('touchend', (e) => { e.preventDefault(); setRight(false); });
+
+            // Fire triggers
+            btnFire.addEventListener('mousedown', () => this.shoot());
+            btnFire.addEventListener('touchstart', (e) => { e.preventDefault(); this.shoot(); });
+        }
+
+        shoot = () => {
+            const now = Date.now();
+            if (now - this.lastShotTime > this.shootDelay) {
+                this.bullets.push(new Bullet(this.player.x, this.player.y - 12));
+                this.lastShotTime = now;
+                audio.playLaser();
+            }
+        }
+
+        start = () => {
+            // Reinitialize state
+            this.score = 0;
+            this.level = 1;
+            this.lives = 3;
+            this.isPlaying = true;
+            this.isGameOver = false;
+            this.bullets = [];
+            this.enemies = [];
+            this.particles = [];
+            this.player.x = this.canvas.width / 2;
+            this.spawnInterval = 1200;
+
+            this.updateHUD();
+            document.getElementById('overlayScreen').classList.add('opacity-0', 'pointer-events-none');
+
+            // Start Loop using Arrow Function for lexical safety
+            requestAnimationFrame(() => this.loop());
+        }
+
+        gameOver = () => {
+            this.isPlaying = false;
+            this.isGameOver = true;
+
+            // Sound hit
+            audio.playExplosion();
+
+            document.getElementById('startScreenContent').classList.add('hidden');
+            document.getElementById('gameOverScreenContent').classList.remove('hidden');
+            document.getElementById('finalScore').innerText = this.score;
+            document.getElementById('overlayScreen').classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        // --- STREAMING_CHUNK: Updating HUD and Lives ---
+        updateHUD = () => {
+            document.getElementById('scoreVal').innerText = String(this.score).padStart(4, '0');
+            document.getElementById('levelVal').innerText = this.level;
+
+            // Render dynamic health points
+            const container = document.getElementById('livesContainer');
+            container.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const icon = document.createElement('div');
+                icon.className = `w-4 h-4 rounded-full transition-all duration-300 ${
+                    i < this.lives ? 'bg-pink-500 shadow-md shadow-pink-500' : 'bg-slate-800'
+                }`;
+                container.appendChild(icon);
+            }
+        }
+
+        // Triggered explosions
+        createExplosion = (x, y, color) => {
+            for (let i = 0; i < 15; i++) {
+                this.particles.push(new Particle(x, y, color));
+            }
+            audio.playExplosion();
+        }
+
+        // --- STREAMING_CHUNK: Core Game Loop Logic ---
+        loop = () => {
+            if (!this.isPlaying) return;
+
+            // Clear Canvas with sleek trail effect (semi-transparent clear)
+            this.ctx.fillStyle = 'rgba(11, 11, 30, 0.25)';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+            // 1. Spawning Mechanics
+            const now = Date.now();
+            if (now - this.lastSpawnTime > this.spawnInterval) {
+                this.enemies.push(new Enemy(this.canvas.width, this.level));
+                this.lastSpawnTime = now;
+            }
+
+            // 2. Continuous shooting with Spacebar held down
+            if (this.keys['Space']) {
+                this.shoot();
+            }
+
+            // 3. Player updates
+            this.player.update(this.keys, this.touchDir);
+            this.player.draw(this.ctx);
+
+            // 4. Update Bullets (Arrow Function Array Filter demo!)
+            this.bullets.forEach(bullet => {
+                bullet.update();
+                bullet.draw(this.ctx);
+            });
+            // Inline Arrow function removes dead bullets
+            this.bullets = this.bullets.filter(b => b.active);
+
+            // 5. Update Enemies
+            this.enemies.forEach(enemy => {
+                enemy.update(this.canvas.height);
+                enemy.draw(this.ctx);
+
+                // Check Enemy Collision with Player
+                if (enemy.active && checkCollision(enemy, this.player)) {
+                    enemy.active = false;
+                    this.lives--;
+                    this.createExplosion(enemy.x, enemy.y, '#ef4444');
+                    this.updateHUD();
+                    audio.playHit();
+
+                    if (this.lives <= 0) {
+                        this.gameOver();
+                    }
+                }
+            });
+
+            // Check collisions between lasers and enemies
+            // Nested loop powered elegantly with JS Arrow Functions
+            this.bullets.forEach(bullet => {
+                this.enemies.forEach(enemy => {
+                    if (bullet.active && enemy.active && checkCollision(bullet, enemy)) {
+                        bullet.active = false;
+                        enemy.active = false;
+
+                        // Score upgrade and progression
+                        this.score += enemy.scoreValue;
+                        this.createExplosion(enemy.x, enemy.y, enemy.color);
+                        this.updateHUD();
+
+                        // Dynamic Difficulty Adjuster
+                        if (this.score > 0 && this.score % 200 === 0) {
+                            this.level++;
+                            this.spawnInterval = Math.max(400, this.spawnInterval - 150);
+                        }
+                    }
+                });
+            });
+
+            // Inline Arrow function filtering out dead enemies
+            this.enemies = this.enemies.filter(e => e.active);
+
+            // 6. Update Particles
+            this.particles.forEach(p => {
+                p.update();
+                p.draw(this.ctx);
+            });
+            this.particles = this.particles.filter(p => p.active);
+
+            // Monitor stats UI updater (Arrow functions mapped instantly)
+            document.getElementById('monBullets').innerText = this.bullets.length;
+            document.getElementById('monEnemies').innerText = this.enemies.length;
+
+            // Request next frame
+            requestAnimationFrame(() => this.loop());
+        }
+    }
+
+
+    // --- STREAMING_CHUNK: Page Initialization ---
+    // Setup initial tabs & Start Game trigger
+    const switchTab = (tabId) => {
+        // Hide all tab contents
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.add('hidden'));
+
+        // Show target
+        document.getElementById(tabId).classList.remove('hidden');
+
+        // Reset tab styles
+        const tabs = ['tab-lexical', 'tab-array', 'tab-math'];
+        tabs.forEach(t => {
+            const btn = document.getElementById(`btn-${t}`);
+            if (t === tabId) {
+                btn.className = "py-2 px-1 text-center rounded-lg text-xs font-semibold border bg-cyan-950 border-cyan-500 text-cyan-300 transition-all";
+            } else {
+                btn.className = "py-2 px-1 text-center rounded-lg text-xs font-semibold border bg-slate-950 border-slate-800 text-gray-400 hover:text-white transition-all";
+            }
+        });
+    };
+
+    // Window load event instantiating game
+    window.onload = () => {
+        const game = new Game();
+
+        const btnStart = document.getElementById('btnStart');
+        const btnRestart = document.getElementById('btnRestart');
+
+        // Instantly start trigger
+        btnStart.addEventListener('click', () => {
+            audio.init();
+            game.start();
+        });
+
+        btnRestart.addEventListener('click', () => {
+            game.start();
+        });
+    };
+</script>
+</body>
+</html>

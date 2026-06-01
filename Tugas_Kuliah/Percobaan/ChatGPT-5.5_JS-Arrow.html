@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Game Tebak Angka</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .game-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-box">
+    <h1>Game Tebak Angka</h1>
+    <p>Tebak angka dari 1 - 10</p>
+
+    <input type="number" id="guessInput" placeholder="Masukkan angka">
+    <br>
+
+    <button id="checkBtn">Tebak</button>
+    <button id="restartBtn">Restart</button>
+
+    <p id="message"></p>
+    <p id="score">Skor: 0</p>
+</div>
+
+<script>
+    // Membuat angka random
+    let randomNumber = Math.floor(Math.random() * 10) + 1;
+
+    // Variabel skor
+    let score = 0;
+
+    // Mengambil elemen HTML
+    const input = document.getElementById("guessInput");
+    const message = document.getElementById("message");
+    const scoreText = document.getElementById("score");
+    const checkBtn = document.getElementById("checkBtn");
+    const restartBtn = document.getElementById("restartBtn");
+
+    // Arrow function untuk mengecek tebakan
+    const checkGuess = () => {
+        const guess = Number(input.value);
+
+        if (!guess) {
+            message.textContent = "Masukkan angka dulu!";
+            return;
+        }
+
+        if (guess === randomNumber) {
+            message.textContent = "Benar!";
+            score += 10;
+        }
+        else if (guess > randomNumber) {
+            message.textContent = "Terlalu besar!";
+        }
+        else {
+            message.textContent = "Terlalu kecil!";
+        }
+
+        scoreText.textContent = `Skor: ${score}`;
+    };
+
+    // Arrow function untuk restart game
+    const restartGame = () => {
+        randomNumber = Math.floor(Math.random() * 10) + 1;
+        input.value = "";
+        message.textContent = "Game direset!";
+    };
+
+    // Event listener
+    checkBtn.addEventListener("click", checkGuess);
+    restartBtn.addEventListener("click", restartGame);
+</script>
+
+</body>
+</html>

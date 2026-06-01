@@ -1,0 +1,66 @@
+@startuml
+title Sequence Diagram - Pembayaran Pesanan
+
+!theme plain
+skinparam sequenceMessageAlign center
+
+actor Pelanggan
+participant "Halaman\nAplikasi" as UI
+participant "Sistem" as SYS
+database "Database" as DB
+
+== Skenario Normal: Pembayaran Pesanan Berhasil ==
+
+Pelanggan -> UI : Membuka menu "Pesanan Saya"
+activate UI
+UI -> SYS : Request daftar pesanan pelanggan
+activate SYS
+SYS -> DB : Query pesanan beserta\nstatus pembayaran
+activate DB
+DB --> SYS : Return data pesanan
+SYS --> UI : Tampilkan daftar pesanan\nbeserta status pembayaran
+UI --> Pelanggan : Menampilkan daftar pesanan
+
+Pelanggan -> UI : Memilih pesanan\nberstatus "Belum Dibayar"
+UI -> SYS : Request detail pesanan
+SYS -> DB : Query detail pesanan\ndan metode pembayaran tersedia
+DB --> SYS : Return detail pesanan
+SYS --> UI : Tampilkan detail pesanan,\ntotal pembayaran dan\nmetode pembayaran tersedia
+UI --> Pelanggan : Menampilkan detail pesanan
+
+Pelanggan -> UI : Memilih metode pembayaran\nlalu menekan tombol Bayar
+UI -> SYS : Request instruksi pembayaran\nsesuai metode dipilih
+SYS --> UI : Tampilkan instruksi atau\nform pembayaran
+UI --> Pelanggan : Menampilkan instruksi\npembayaran
+
+Pelanggan -> UI : Melakukan pembayaran dan\nmengirim konfirmasi pembayaran
+UI -> SYS : Submit data konfirmasi pembayaran
+SYS -> SYS : Verifikasi data pembayaran
+
+alt Data pembayaran valid
+
+    SYS -> DB : Update status pesanan\n"Sudah Dibayar" atau\n"Menunggu Verifikasi"
+    DB --> SYS : Konfirmasi update berhasil
+    SYS --> UI : Notifikasi pembayaran\nberhasil diproses
+    UI --> Pelanggan : Menampilkan notifikasi\npembayaran berhasil
+
+else Data pembayaran tidak valid
+
+    SYS --> UI : "Data pembayaran tidak valid."
+    UI --> Pelanggan : Meminta pelanggan mengulang\natau memperbaiki data pembayaran
+
+else Pelanggan membatalkan pembayaran
+
+    Pelanggan -> UI : Menekan tombol Batal
+    UI -> SYS : Request batalkan pembayaran
+    SYS -> DB : Kembalikan status pesanan\n"Belum Dibayar"
+    DB --> SYS : Konfirmasi update berhasil
+    deactivate DB
+    SYS --> UI : Proses pembayaran dibatalkan
+    deactivate SYS
+    UI --> Pelanggan : Menampilkan status pesanan\n"Belum Dibayar"
+    deactivate UI
+
+end
+
+@enduml

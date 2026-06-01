@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Arrow Function</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            align-items: center;
+            background: #061E29;
+            display: flex;
+            justify-content: center;
+        }
+
+        canvas {
+            border: 1px solid #1D546D;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="500" id="main-screen"></canvas>
+    <script>
+        let canvas = document.querySelector("#game");
+        let context = canvas.getContext("2d");
+
+        let grid = 16;
+        let count = 0;
+
+        // Ular
+        let snake = {
+            x: 160,
+            y: 160,
+
+            dx: grid,
+            dy: 0,
+
+            cells: [],
+            cellsMax: 4
+        };
+
+        // Apel
+        let apple = {
+            x: 320,
+            y: 320
+        };
+
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min) ) + min;
+        }
+
+        function mainGame() {
+            requestAnimationFrame(loop);
+            if (++count < 4) {
+                return;
+            }
+
+            count = 0;
+            context.clearRect(0, 0, canvas.width, canvas.height)
+
+            snake.x += snake.dx;
+            snake.y += snake.dy;
+
+            if (snake.x < 0) {
+                snake.x = canvas.width - grid;
+            } else  if (snake.x >= canvas.width) {
+                snake.x = 0
+            }
+
+            if (snake.y < 0) {
+                snake.y = canvas.height - grid;
+            } else if (snake.y >= canvas.height) {
+                snake.y = 0;
+            }
+
+            snake.cells.unshift({
+                x: snake.x,
+                y: snake.y
+            });
+
+            if (snake.cells.length > snake.cellsMax) {
+                snake.cells.pop();
+            }
+
+            context.fillStyle = "#5F9598";
+            snake.cells.forEach((cell, index) => {
+                context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+
+
+                // Ular makan apel
+                if (cell.x === apple.x && cell.y === apple.y) {
+                    snake.maxCells++;
+
+                    apple.x = getRndInteger(0, 25) * grid;
+                    apple.y = getRndInteger(0, 25) * grid;
+                }
+
+                for (let i = index + 1; i < snake.cells.length; i++) {
+                    if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                        snake.x
+                    }
+                }
+            })
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft" && snake.dy === 0) {
+                snake.dx = -grid;
+                snake.dy = 0;
+            }
+
+            else if (event.key === "ArrowUp" && snake.dx === 0) {
+                snake.dy = -grid;
+                snake.dx = 0;
+            }
+
+            else if (event.key === "ArrowRight" && snake.dx === 0) {
+                snake.dx = grid;
+                snake.dy = 0;
+            }
+
+            else if (event.key === "ArrowDown" && snake.dy === 0) {
+                snake.dy = grid;
+                snake.dx = 0;
+            }
+        });
+
+        requestAnimationFrame(loop)
+    </script>
+</body>
+</html>

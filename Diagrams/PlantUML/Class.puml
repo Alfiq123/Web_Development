@@ -4,76 +4,70 @@ hide circle
 skinparam classAttributeIconSize 0
 skinparam linetype ortho
 
-entity "Pelanggan" as User {
-    id: number
-    --
-    first_name: varchar2(128)
-    last_name: varchar2(128)
-    address: varchar2(256)
-    city: varchar2(128)
-    postal_code: varchar2(10)
-}
-
 class Admin {
-    
+    - id: String
+    - username: String
+    - Password: String
+    - nama: String
+    - email: String
+
+    + loginAdmin()
+    + kelolaBarang()
+    + kelolaPesanan()
+    + KelolaPelanggan()
 }
 
-class LoginAdmin {
-    - username : string
-    - name : string
-    - email : string
-    - password : string
+class Pelanggan {
+    - id: String
+    - nama: String
+    - alamat: String
+    - noTelp: String
+
+    + loginUser()
+    + lihatKatalog()
+    + buatPesanan()
+    + bayarPesanan()
 }
 
-class KelolaDataBarang {
-    -
+class Barang {
+    - idBarang: String
+    - nama: String
+    - harga: Double
+    - stok: int
+
+    + tambahBarang()
+    + hapusBarang()
+    + updateBarang()
+    + lihatBarang()
 }
 
-class KelolaStokBarang {
-    -
+class Pesanan {
+    - idPesanan: String
+    - tanggal: Date
+    - totalHarga: Double
+    - statusPesanan: Enum
+
+    + buatPesanan()
+    + hitungTotal()
+    + updateStatus()
 }
 
-class KelolaDataPelanggan {
-    -
+class Pembayaran {
+    - idPembayaran: String
+    - tanggalBayar: Date
+    - metodeBayar: Enum
+
+    + prosesBayar()
+    + konfirmasiBayar()
 }
 
-class KonfirmasiPesanan {
-    -
-}
+Pelanggan "1" --* "1..*" Pesanan
 
-class LihatLaporanTransaksi {
-    -
-}
+Pesanan "1..*" *--* "1..*" Barang
+Pesanan "1" --> "1" Pembayaran
 
-class LogoutAdmin {
-    -
-}
-
-
-class Registrasi {
-    -
-}
-
-class LoginPelanggan {
-    -
-}
-
-class LihatKatalogBarang {
-    -
-}
-
-class PesanBarang {
-    -
-}
-
-class LihatRiwayatPesanan {
-    -
-}
-
-class LogoutPelanggan {
-    -
-}
-
-User --{ PesanBarang
+Admin "1" --* "1..*" Barang
+Admin "1" --* "1..*" Pelanggan
+Admin "1" --* "1..*" Pesanan
 
 @enduml

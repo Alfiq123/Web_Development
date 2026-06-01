@@ -1,61 +1,61 @@
 <mxfile host="65bd71144e">
     <diagram id="VNyEMiDgtriQmd4fuRFe" name="Page-1">
-        <mxGraphModel dx="431" dy="289" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="625" dy="419" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="4" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                <mxCell id="4" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="410" y="10" width="30" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="5">
+                <mxCell id="6" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="3" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Admin membuka menu kelola pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="3" value="Admin membuka menu kelola pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="365" y="70" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="5" target="7">
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" parent="1" source="5" target="7" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="345" y="180"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="9" value="Ada Pesanan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="8">
+                <mxCell id="9" value="Ada Pesanan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="8" vertex="1" connectable="0">
                     <mxGeometry x="-0.1361" relative="1" as="geometry">
                         <mxPoint x="-10" y="20" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="39">
+                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="5" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="505" y="180"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="58" value="Tidak ada Pesanan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="40">
+                <mxCell id="58" value="Tidak ada Pesanan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="40" vertex="1" connectable="0">
                     <mxGeometry x="0.4876" y="1" relative="1" as="geometry">
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="5" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="5" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="405" y="160" width="40" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="7" target="10">
+                <mxCell id="11" value="" style="edgeStyle=none;html=1;" parent="1" source="7" target="10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="Sistem menampilkan daftar pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="7" value="Sistem menampilkan daftar pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="285" y="230" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="10" target="12">
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;" parent="1" source="10" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="Admin memilih salah satu pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="10" value="Admin memilih salah satu pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="285" y="320" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="34" target="15">
+                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="34" target="15" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="305" y="560" as="sourcePoint"/>
                         <Array as="points">
@@ -63,79 +63,75 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="38" value="Pesanan diterima" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="16">
+                <mxCell id="38" value="Pesanan diterima" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="16" vertex="1" connectable="0">
                     <mxGeometry x="-0.3185" y="-1" relative="1" as="geometry">
                         <mxPoint x="-52" y="24" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="12" value="Sistem menampilkan detail lengkap pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="12" value="Sistem menampilkan detail lengkap pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="285" y="410" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="17">
+                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="23" target="17" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="300" y="680"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" value="Stok Mencukupi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="18">
+                <mxCell id="25" value="Stok Mencukupi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="18" vertex="1" connectable="0">
                     <mxGeometry x="-0.2167" y="-1" relative="1" as="geometry">
                         <mxPoint x="1" y="39" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="Admin menekan tombol Konfirmasi Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="15" value="Admin menekan tombol Konfirmasi Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="160" y="570" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="17" target="19">
+                <mxCell id="20" value="" style="edgeStyle=none;html=1;" parent="1" source="17" target="19" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="Sistem memverifikasi ketersediaan stok barang yang dipesan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="17" value="Sistem memverifikasi ketersediaan stok barang yang dipesan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="240" y="750" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="19" target="21">
+                <mxCell id="22" value="" style="edgeStyle=none;html=1;" parent="1" source="19" target="21" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="Sistem memperbarui status pesanan&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;Dikonfirmasi&quot;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="19" value="Sistem memperbarui status pesanan&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;Dikonfirmasi&quot;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="240" y="840" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="49">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="300" y="1035"/>
-                        </Array>
-                    </mxGeometry>
+                <mxCell id="60" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="21" target="59" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="Sistem menampilkan pesan Pesanan berhasil dikonfirmasi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="21" value="Sistem menampilkan pesan Pesanan berhasil dikonfirmasi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="240" y="930" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="24" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="15" target="23">
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="15" target="23" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="260" y="630" as="sourcePoint"/>
                         <mxPoint x="260" y="750" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="26">
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="23" target="26" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="140" y="680"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="28" value="Stok tidak mencukupi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="27">
+                <mxCell id="28" value="Stok tidak mencukupi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="27" vertex="1" connectable="0">
                     <mxGeometry x="0.016" relative="1" as="geometry">
                         <mxPoint y="34" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="23" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="23" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="200" y="660" width="40" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="26" target="29">
+                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="26" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="Sistem mendeteksi jumlah stok tidak mencukupi pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="26" value="Sistem mendeteksi jumlah stok tidak mencukupi pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="80" y="750" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="29" target="12">
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="29" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="60" y="870"/>
@@ -143,37 +139,37 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="29" value="Sistem menampilkan pesan stok barang tidak mencukupi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="29" value="Sistem menampilkan pesan &quot;Stok barang tidak mencukupi&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="80" y="840" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="34">
+                <mxCell id="33" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="12" target="34" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="305" y="470" as="sourcePoint"/>
                         <mxPoint x="305" y="500" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="36" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="34" target="35">
+                <mxCell id="36" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="34" target="35" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="470" y="520"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="37" value="Pesanan ditolak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="36">
+                <mxCell id="37" value="Pesanan ditolak" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="36" vertex="1" connectable="0">
                     <mxGeometry x="-0.2119" y="-1" relative="1" as="geometry">
                         <mxPoint x="43" y="24" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="34" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                <mxCell id="34" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="325" y="500" width="40" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="35" target="41">
+                <mxCell id="42" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="35" target="41" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" value="Admin menekan tombol Tolak Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="573" width="120" height="60" as="geometry"/>
+                <mxCell id="35" value="Admin menekan tombol Tolak Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="570" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="39" target="49">
+                <mxCell id="57" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="39" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="580" y="260"/>
@@ -181,35 +177,156 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="39" value="Sistem tidak menemikan pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                <mxCell id="39" value="Sistem tidak menemikan pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
                     <mxGeometry x="445" y="230" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="41" target="43">
+                <mxCell id="44" value="" style="edgeStyle=none;html=1;" parent="1" source="41" target="43" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="Sistem menampilkan dialog konfirmasi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="663" width="120" height="60" as="geometry"/>
+                <mxCell id="41" value="Sistem menampilkan dialog konfirmasi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="660" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="43" target="45">
+                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="43" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="Admin menekan tombol Ya" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="753" width="120" height="60" as="geometry"/>
+                <mxCell id="43" value="Admin menekan tombol Ya" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="750" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="45" target="47">
+                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="45" target="47" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="Sistem memperbarui status pesanan&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;Ditolak&quot;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="843" width="120" height="60" as="geometry"/>
+                <mxCell id="45" value="Sistem memperbarui status pesanan&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;Ditolak&quot;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="840" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="47" target="49">
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="47" target="49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="Sistem menampilkan pesan Pesanan telah ditolak" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="933" width="120" height="60" as="geometry"/>
+                <mxCell id="47" value="Sistem menampilkan pesan &quot;Pesanan telah ditolak&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="410" y="930" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="49" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="455" y="1020" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="59" target="63" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="Admin menekan tombol Selesai untuk pesanan tersebut" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1020" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="63" target="64" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Sistem memperbarui status pesanan&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&quot;Selesai&quot;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1110" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="64" target="49" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="470" y="1230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="Sistem menampilkan pesan &quot;Pesanan telah selesai&quot;" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1200" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="1025" width="20" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="_0GN-vj_BtFvi7POxCg7" name="Page-2">
+        <mxGraphModel dx="2244" dy="934" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="GiJ0Envllty_Rodhfj-r-2" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rye20ULmmRMzBfZ1DVCD-1" target="GiJ0Envllty_Rodhfj-r-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rye20ULmmRMzBfZ1DVCD-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="10" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="KfZaO9vn1BKS3jWJl8b--2" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="GiJ0Envllty_Rodhfj-r-1" target="KfZaO9vn1BKS3jWJl8b--1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GiJ0Envllty_Rodhfj-r-1" value="Admin membuka menu kelola pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="365" y="60" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4AjNQLCV7ZT7P0wAaN40-2" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KfZaO9vn1BKS3jWJl8b--1" target="4AjNQLCV7ZT7P0wAaN40-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="w-_NgKItPfhNlgLoQ-e5-2" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Tidak Ada&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Pesanan&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4AjNQLCV7ZT7P0wAaN40-2">
+                    <mxGeometry x="-0.4" y="1" relative="1" as="geometry">
+                        <mxPoint x="7" y="21" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="AdFfNrujXAcnrmuhIxkT-2" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KfZaO9vn1BKS3jWJl8b--1" target="AdFfNrujXAcnrmuhIxkT-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="w-_NgKItPfhNlgLoQ-e5-1" value="&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Ada&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Pesanan&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="AdFfNrujXAcnrmuhIxkT-2">
+                    <mxGeometry x="-0.1378" y="-1" relative="1" as="geometry">
+                        <mxPoint y="21" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="KfZaO9vn1BKS3jWJl8b--1" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="405" y="150" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4AjNQLCV7ZT7P0wAaN40-1" value="Sistem tidak menemikan pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="AdFfNrujXAcnrmuhIxkT-1" value="Sistem menampilkan daftar pesanan masuk" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="bQ_X0P66855y63yp4NNl-3" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DDlfZPUtl2X1PVKzH7oh-1" target="bQ_X0P66855y63yp4NNl-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="DDlfZPUtl2X1PVKzH7oh-1" value="Admin memilih salah satu pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="DDlfZPUtl2X1PVKzH7oh-2" style="edgeStyle=none;html=1;entryX=1.026;entryY=0.462;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="AdFfNrujXAcnrmuhIxkT-1" target="DDlfZPUtl2X1PVKzH7oh-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="toqQz8PROlRbANMxTX9f-2" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="bQ_X0P66855y63yp4NNl-1" target="toqQz8PROlRbANMxTX9f-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="bQ_X0P66855y63yp4NNl-1" value="Sistem menampilkan detail lengkap pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="IVSpzWHZTqp36mcCUdlx-2" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="toqQz8PROlRbANMxTX9f-1" target="IVSpzWHZTqp36mcCUdlx-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="kohRrX2aeaALPvtbuafU-2" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="toqQz8PROlRbANMxTX9f-1" target="kohRrX2aeaALPvtbuafU-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="toqQz8PROlRbANMxTX9f-1" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="-40" y="230" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8cU6xNtcuF9iVDIQpSYk-2" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="IVSpzWHZTqp36mcCUdlx-1" target="8cU6xNtcuF9iVDIQpSYk-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="IVSpzWHZTqp36mcCUdlx-1" value="Admin menekan tombol Tolak Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nfC9V6Q_h7N2QBQkrRGP-2" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8cU6xNtcuF9iVDIQpSYk-1" target="nfC9V6Q_h7N2QBQkrRGP-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8cU6xNtcuF9iVDIQpSYk-1" value="Sistem menampilkan dialog konfirmasi" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="nfC9V6Q_h7N2QBQkrRGP-1" value="Admin menekan tombol Ya" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="220" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tN6stgxqNbLidIqQsNFw-2" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kohRrX2aeaALPvtbuafU-1" target="tN6stgxqNbLidIqQsNFw-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="kohRrX2aeaALPvtbuafU-1" value="Admin menekan tombol Konfirmasi Pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="300" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tN6stgxqNbLidIqQsNFw-1" value="" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="-40" y="390" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e0QsteAKzpjs2qGXN4re-1" value="Sistem mendeteksi jumlah stok tidak mencukupi pesanan" style="whiteSpace=wrap;html=1;rounded=1;spacingTop=2;spacingLeft=2;spacingBottom=2;spacingRight=2;" vertex="1" parent="1">
+                    <mxGeometry x="-180" y="440" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
