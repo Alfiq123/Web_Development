@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Alfiq123/Web_Development#readme",
   "dependencies": {
-    "bootstrap": "^5.3.8"
+    "@tailwindcss/cli": "^4.3.0",
+    "bootstrap": "^5.3.8",
+    "tailwindcss": "^4.3.0"
   }
 }
