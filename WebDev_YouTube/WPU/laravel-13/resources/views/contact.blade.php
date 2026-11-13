@@ -10,7 +10,10 @@
     <h1>Contact</h1>
     <p>This is the contact page.</p>
 
-    <p>Nomor Kontak: 088 123 456 789</p>
+    <ul>
+        <li><p>Email: fauzi@gmail.com</p></li>
+        <li><p>Nomor Kontak: 088 123 456 789</p></li>
+    </ul>
 
 </body>
 </html>
