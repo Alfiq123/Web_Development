@@ -3,23 +3,23 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", function () {
-    return view("home");
+    return view("home", ["title" => "Home Page"]);
 });
 
 
 Route::get("/about", function () {
-    return view("about", ["nama" => "Fauzi Taufiq"]);
+    return view("about", ["title" => "About Page"]);
 });
 
 
 // TODO: Buat route untuk halaman blog dan contact
 // 1. /blog
 Route::get("/blog", function () {
-    return view("blog");
+    return view("blog", ["title" => "Blog Page"]);
 });
 
 
 // 2. /contact
 Route::get("/contact", function () {
-    return view("contact");
+    return view("contact", ["title" => "Contact Page"]);
 });
